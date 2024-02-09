@@ -6,7 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class User {
+public class Mandant {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -14,12 +14,12 @@ public class User {
     private final String name;
     private final String email;
 
-    public User(String name, String email) {
+    public Mandant(String name, String email) {
         this.name = name;
         this.email = email;
     }
 
-    public User() {
+    public Mandant() {
         this.name = null;
         this.email = null;
     }
