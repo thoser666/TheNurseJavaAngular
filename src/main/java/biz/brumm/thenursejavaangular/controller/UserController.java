@@ -1,7 +1,7 @@
 package biz.brumm.thenursejavaangular.controller;
 
 import biz.brumm.thenursejavaangular.entity.IUserRepository;
-import biz.brumm.thenursejavaangular.entity.User;
+import biz.brumm.thenursejavaangular.entity.Mandant;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,12 +14,12 @@ public class UserController {
     private IUserRepository userRepository;
 
     @GetMapping("/users")
-    public List<User> getUsers() {
-        return (List<User>) userRepository.findAll();
+    public List<Mandant> getUsers() {
+        return (List<Mandant>) userRepository.findAll();
     }
 
     @PostMapping("/users")
-    void addUser(@RequestBody User user) {
-        userRepository.save(user);
+    void addUser(@RequestBody Mandant mandant) {
+        userRepository.save(mandant);
     }
 }
