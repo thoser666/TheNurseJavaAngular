@@ -2,6 +2,7 @@ package biz.brumm.thenursejavaangular;
 
 import biz.brumm.thenursejavaangular.entity.IUserRepository;
 import biz.brumm.thenursejavaangular.entity.Mandant;
+import biz.brumm.thenursejavaangular.entity.dto.MandantDTO;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,8 +14,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.test.web.servlet.result.StatusResultMatchersExtensionsKt.isEqualTo;
 
 @SpringBootTest
@@ -31,6 +31,7 @@ class TheNurseJavaAngularApplicationTests {
     IUserRepository userRepository;
 
     Mandant mandant = new Mandant("alex", "a@bc.de");
+    MandantDTO mandantDTO = new MandantDTO();
 
 
     @Test
@@ -42,6 +43,29 @@ class TheNurseJavaAngularApplicationTests {
 
         assertNull(erg);
     }
+
+    @Test
+    void checkMandantDTONull()
+    {
+        String name = null;
+
+        String ergDto = mandantDTO.getName();
+
+        assertEquals(name, ergDto);
+
+    }
+
+    @Test
+    void checkMandantDTOWithData()
+    {
+        MandantDTO dto = new MandantDTO("alex", "a@bc.de");
+
+        String ergDto = mandantDTO.getName();
+
+        assertNotEquals(dto.getName(), ergDto);
+
+    }
+
 
 
 
