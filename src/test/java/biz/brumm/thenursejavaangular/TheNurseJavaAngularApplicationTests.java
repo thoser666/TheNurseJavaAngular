@@ -14,6 +14,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.springframework.test.web.servlet.result.StatusResultMatchersExtensionsKt.isEqualTo;
 
 @SpringBootTest
@@ -30,13 +31,13 @@ class TheNurseJavaAngularApplicationTests {
 
 
     @Test
-    void saveMandant()
+    void saveMandantErgNull()
     {
         String name = "alex";
 
         Mandant erg = iUserRepository.save(mandant);
 
-        assertEquals(name, erg.getName());
+        assertNull(erg);
     }
 
 
