@@ -2547,6 +2547,15 @@
         "hash": "sha512-rbFEaCX0yf9utECpx0gO152c3QRBDcettxs8mYWmLBgjt3VrgzKxPXI3ZClFeQRCFu9sgH7Flhr2oHD3PlGbZQ=="
       }
     },
+    "npm:@nx/eslint@18.0.3": {
+      "type": "npm",
+      "name": "npm:@nx/eslint@18.0.3",
+      "data": {
+        "version": "18.0.3",
+        "packageName": "@nx/eslint",
+        "hash": "sha512-jG5fNfwHPfq14AYbpS9+M1ErsNB3Gt0YFpignQOtQtlmO8THLzW8Y2O9JR7OEN6PiLvJkrICaCeCp8ObR6zZPw=="
+      }
+    },
     "npm:find-cache-dir@3.3.2": {
       "type": "npm",
       "name": "npm:find-cache-dir@3.3.2",
@@ -2644,15 +2653,6 @@
         "version": "0.0.33",
         "packageName": "tmp",
         "hash": "sha512-jRCJlojKnZ3addtTOjdIqoRuPEKBvNXcGYqzO6zWZX8KfKEpnGY5jfggJQ3EjKuu8D4bJRr0y+cYJFmYbImXGw=="
-      }
-    },
-    "npm:@nx/eslint": {
-      "type": "npm",
-      "name": "npm:@nx/eslint",
-      "data": {
-        "version": "18.0.3",
-        "packageName": "@nx/eslint",
-        "hash": "sha512-jG5fNfwHPfq14AYbpS9+M1ErsNB3Gt0YFpignQOtQtlmO8THLzW8Y2O9JR7OEN6PiLvJkrICaCeCp8ObR6zZPw=="
       }
     },
     "npm:@nx/jest": {
@@ -4410,6 +4410,15 @@
         "hash": "sha512-SEP5kJpfGYqYKpBrj5XU3ahw5p5GOHJ0U5ssOSQ/WBVdwkD2Dzlce95exQTs3jOVWPPKLBN2rlEWkCK7dSmLvg=="
       }
     },
+    "npm:babel-plugin-macros@3.1.0": {
+      "type": "npm",
+      "name": "npm:babel-plugin-macros@3.1.0",
+      "data": {
+        "version": "3.1.0",
+        "packageName": "babel-plugin-macros",
+        "hash": "sha512-Cg7TFGpIr01vOQNODXOOaGz2NpCU5gl8x1qJFbb6hbZxR7XrcE2vtbAsTAbJ7/xwJtUuJEw8K8Zr/AE0LHlesg=="
+      }
+    },
     "npm:babel-plugin-polyfill-corejs2": {
       "type": "npm",
       "name": "npm:babel-plugin-polyfill-corejs2",
@@ -5317,15 +5326,6 @@
         "version": "4.0.14",
         "packageName": "date-format",
         "hash": "sha512-39BOQLs9ZjKh0/patS9nrT8wc3ioX3/eA/zgbKNopnF2wCqJEoxywwwElATYvRsXdnOxA/OQeQoFZ3rFjVajhg=="
-      }
-    },
-    "npm:dedent": {
-      "type": "npm",
-      "name": "npm:dedent",
-      "data": {
-        "version": "1.5.1",
-        "packageName": "dedent",
-        "hash": "sha512-+LxW+KLWxu3HW3M2w2ympwtqPrqYRzU8fqi6Fhd18fBALe15blJPI/I4+UHveMVG6lJqB4JNd4UG0S5cnVHwIg=="
       }
     },
     "npm:deep-is": {
@@ -7315,6 +7315,15 @@
         "version": "29.7.0",
         "packageName": "jest-circus",
         "hash": "sha512-3E1nCMgipcTkCocFwM90XXQab9bS+GMsjdpmPrlelaxwD93Ad8iVEjX/vvHPdLPnFf+L40u+5+iutRdA1N9myw=="
+      }
+    },
+    "npm:dedent@1.5.1": {
+      "type": "npm",
+      "name": "npm:dedent@1.5.1",
+      "data": {
+        "version": "1.5.1",
+        "packageName": "dedent",
+        "hash": "sha512-+LxW+KLWxu3HW3M2w2ympwtqPrqYRzU8fqi6Fhd18fBALe15blJPI/I4+UHveMVG6lJqB4JNd4UG0S5cnVHwIg=="
       }
     },
     "npm:jest-config": {
@@ -14560,7 +14569,7 @@
     },
     {
       "source": "npm:@nx/angular",
-      "target": "npm:@nx/eslint",
+      "target": "npm:@nx/eslint@18.0.3",
       "type": "static"
     },
     {
@@ -14649,6 +14658,41 @@
       "type": "static"
     },
     {
+      "source": "npm:@nx/eslint@18.0.3",
+      "target": "npm:js-yaml@4.1.0",
+      "type": "static"
+    },
+    {
+      "source": "npm:@nx/eslint@18.0.3",
+      "target": "npm:@nx/devkit",
+      "type": "static"
+    },
+    {
+      "source": "npm:@nx/eslint@18.0.3",
+      "target": "npm:@nx/js",
+      "type": "static"
+    },
+    {
+      "source": "npm:@nx/eslint@18.0.3",
+      "target": "npm:@nx/linter",
+      "type": "static"
+    },
+    {
+      "source": "npm:@nx/eslint@18.0.3",
+      "target": "npm:eslint",
+      "type": "static"
+    },
+    {
+      "source": "npm:@nx/eslint@18.0.3",
+      "target": "npm:tslib",
+      "type": "static"
+    },
+    {
+      "source": "npm:@nx/eslint@18.0.3",
+      "target": "npm:typescript",
+      "type": "static"
+    },
+    {
       "source": "npm:ansi-styles@4.3.0",
       "target": "npm:color-convert@2.0.1",
       "type": "static"
@@ -14689,6 +14733,11 @@
       "type": "static"
     },
     {
+      "source": "npm:js-yaml@4.1.0",
+      "target": "npm:argparse@2.0.1",
+      "type": "static"
+    },
+    {
       "source": "npm:make-dir@3.1.0",
       "target": "npm:semver@6.3.1",
       "type": "static"
@@ -14720,7 +14769,7 @@
     },
     {
       "source": "npm:@nx/cypress",
-      "target": "npm:@nx/eslint",
+      "target": "npm:@nx/eslint@18.0.3",
       "type": "static"
     },
     {
@@ -14746,6 +14795,46 @@
     {
       "source": "npm:@nx/cypress",
       "target": "npm:tslib",
+      "type": "static"
+    },
+    {
+      "source": "npm:@nx/eslint@18.0.3",
+      "target": "npm:js-yaml@4.1.0",
+      "type": "static"
+    },
+    {
+      "source": "npm:@nx/eslint@18.0.3",
+      "target": "npm:@nx/devkit",
+      "type": "static"
+    },
+    {
+      "source": "npm:@nx/eslint@18.0.3",
+      "target": "npm:@nx/js",
+      "type": "static"
+    },
+    {
+      "source": "npm:@nx/eslint@18.0.3",
+      "target": "npm:@nx/linter",
+      "type": "static"
+    },
+    {
+      "source": "npm:@nx/eslint@18.0.3",
+      "target": "npm:eslint",
+      "type": "static"
+    },
+    {
+      "source": "npm:@nx/eslint@18.0.3",
+      "target": "npm:tslib",
+      "type": "static"
+    },
+    {
+      "source": "npm:@nx/eslint@18.0.3",
+      "target": "npm:typescript",
+      "type": "static"
+    },
+    {
+      "source": "npm:js-yaml@4.1.0",
+      "target": "npm:argparse@2.0.1",
       "type": "static"
     },
     {
@@ -14796,36 +14885,6 @@
     {
       "source": "npm:tmp@0.2.1",
       "target": "npm:rimraf",
-      "type": "static"
-    },
-    {
-      "source": "npm:@nx/eslint",
-      "target": "npm:@nx/devkit",
-      "type": "static"
-    },
-    {
-      "source": "npm:@nx/eslint",
-      "target": "npm:@nx/js",
-      "type": "static"
-    },
-    {
-      "source": "npm:@nx/eslint",
-      "target": "npm:@nx/linter",
-      "type": "static"
-    },
-    {
-      "source": "npm:@nx/eslint",
-      "target": "npm:eslint",
-      "type": "static"
-    },
-    {
-      "source": "npm:@nx/eslint",
-      "target": "npm:tslib",
-      "type": "static"
-    },
-    {
-      "source": "npm:@nx/eslint",
-      "target": "npm:typescript",
       "type": "static"
     },
     {
@@ -15220,7 +15279,47 @@
     },
     {
       "source": "npm:@nx/linter",
-      "target": "npm:@nx/eslint",
+      "target": "npm:@nx/eslint@18.0.3",
+      "type": "static"
+    },
+    {
+      "source": "npm:@nx/eslint@18.0.3",
+      "target": "npm:js-yaml@4.1.0",
+      "type": "static"
+    },
+    {
+      "source": "npm:@nx/eslint@18.0.3",
+      "target": "npm:@nx/devkit",
+      "type": "static"
+    },
+    {
+      "source": "npm:@nx/eslint@18.0.3",
+      "target": "npm:@nx/js",
+      "type": "static"
+    },
+    {
+      "source": "npm:@nx/eslint@18.0.3",
+      "target": "npm:@nx/linter",
+      "type": "static"
+    },
+    {
+      "source": "npm:@nx/eslint@18.0.3",
+      "target": "npm:eslint",
+      "type": "static"
+    },
+    {
+      "source": "npm:@nx/eslint@18.0.3",
+      "target": "npm:tslib",
+      "type": "static"
+    },
+    {
+      "source": "npm:@nx/eslint@18.0.3",
+      "target": "npm:typescript",
+      "type": "static"
+    },
+    {
+      "source": "npm:js-yaml@4.1.0",
+      "target": "npm:argparse@2.0.1",
       "type": "static"
     },
     {
@@ -20095,7 +20194,7 @@
     },
     {
       "source": "npm:jest-circus",
-      "target": "npm:dedent",
+      "target": "npm:dedent@1.5.1",
       "type": "static"
     },
     {
@@ -20164,6 +20263,21 @@
       "type": "static"
     },
     {
+      "source": "npm:babel-plugin-macros@3.1.0",
+      "target": "npm:@babel/runtime",
+      "type": "static"
+    },
+    {
+      "source": "npm:babel-plugin-macros@3.1.0",
+      "target": "npm:cosmiconfig@7.1.0",
+      "type": "static"
+    },
+    {
+      "source": "npm:babel-plugin-macros@3.1.0",
+      "target": "npm:resolve",
+      "type": "static"
+    },
+    {
       "source": "npm:chalk@4.1.2",
       "target": "npm:ansi-styles@4.3.0",
       "type": "static"
@@ -20176,6 +20290,36 @@
     {
       "source": "npm:color-convert@2.0.1",
       "target": "npm:color-name@1.1.4",
+      "type": "static"
+    },
+    {
+      "source": "npm:cosmiconfig@7.1.0",
+      "target": "npm:@types/parse-json",
+      "type": "static"
+    },
+    {
+      "source": "npm:cosmiconfig@7.1.0",
+      "target": "npm:import-fresh",
+      "type": "static"
+    },
+    {
+      "source": "npm:cosmiconfig@7.1.0",
+      "target": "npm:parse-json",
+      "type": "static"
+    },
+    {
+      "source": "npm:cosmiconfig@7.1.0",
+      "target": "npm:path-type",
+      "type": "static"
+    },
+    {
+      "source": "npm:cosmiconfig@7.1.0",
+      "target": "npm:yaml",
+      "type": "static"
+    },
+    {
+      "source": "npm:dedent@1.5.1",
+      "target": "npm:babel-plugin-macros@3.1.0",
       "type": "static"
     },
     {
