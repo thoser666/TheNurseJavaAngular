@@ -1,11 +1,3 @@
-//import { Routes } from '@angular/router';
-import { Route } from '@angular/router';
-import {UserFormComponent} from "./user-form/user-form.component";
+import { Routes } from '@angular/router';
 
-export const appRoutes: Route = [
-  {
-    path: '',
-    component: UserFormComponent,
-    pathMatch: 'full',
-  },
-];
+export const routes: Routes = [];
