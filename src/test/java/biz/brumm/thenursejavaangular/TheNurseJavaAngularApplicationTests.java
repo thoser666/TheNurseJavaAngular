@@ -27,6 +27,9 @@ class TheNurseJavaAngularApplicationTests {
     @MockBean
     IUserRepository iUserRepository;
 
+    @Autowired
+    IUserRepository userRepository;
+
     Mandant mandant = new Mandant("alex", "a@bc.de");
 
 
@@ -35,7 +38,7 @@ class TheNurseJavaAngularApplicationTests {
     {
         String name = "alex";
 
-        Mandant erg = iUserRepository.save(mandant);
+        Mandant erg = userRepository.save(mandant);
 
         assertNull(erg);
     }
