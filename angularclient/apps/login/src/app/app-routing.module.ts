@@ -1,8 +1,8 @@
 import { Injector, NgModule } from '@angular/core';
 import { Router, RouterModule, Routes } from '@angular/router';
 
-//import { HomeComponent } from './home/home.component';
-import { HomeComponent } from './home/src/app/app.component';
+import { HomeComponent } from './home/home.component';
+//import { HomeComponent } from './home/src/app/app.component';
 import { CalculatorComponent } from './calculator/calculator.component';
 import { LoginComponent } from './login/login.component';
 import { OktaAuthGuard, OktaAuthService, OktaCallbackComponent } from '@okta/okta-angular';
