@@ -1,32 +1,58 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, NavigationStart } from '@angular/router';
+
 import { OktaAuthService } from '@okta/okta-angular';
+import { Tokens } from '@okta/okta-auth-js';
+import OktaSignIn from '@okta/okta-signin-widget';
+
+const DEFAULT_ORIGINAL_URI = window.location.origin;
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-login',
+  template: `
+    <div id="okta-signin-container"></div>`,
+  styles: []
 })
-export class AppComponent implements OnInit {
-  title = 'Login';
-  isAuthenticated = false;
+export class LoginComponent implements OnInit {
+  widget = new OktaSignIn({
+    baseUrl: 'https://dev-99628995.okta.com',
+    clientId: '00u2E5OT7C4xG__2-FLLmnZeLtVVDneM0JXN2DzuXL',
+    redirectUri: DEFAULT_ORIGINAL_URI + '/callback'
+  });
 
-  constructor(public oktaAuth: OktaAuthService) {
-    // subscribe to authentication state changes
-    this.oktaAuth.$authenticationState.subscribe(
-      (isAuthenticated: boolean) => this.isAuthenticated = isAuthenticated
-    );
+  constructor(private oktaAuth: OktaAuthService, router: Router) {
+    // Show the widget when prompted, otherwise remove it from the DOM.
+    router.events.forEach(event => {
+      if (event instanceof NavigationStart) {
+        switch (event.url) {
+          case '/login':
+          case '/calculator':
+            break;
+          default:
+            this.widget.remove();
+            break;
+        }
+      }
+    });
   }
 
-  async ngOnInit(): Promise<void> {
-    // get authentication state for immediate use
-    this.isAuthenticated = await this.oktaAuth.isAuthenticated();
-  }
+  ngOnInit(): void {
+    this.widget.showSignInToGetTokens({
+      el: '#okta-signin-container'
+    }).then(async (tokens: Tokens | undefined) => {
+      const originalUri = this.oktaAuth.getOriginalUri();
+      if (originalUri === DEFAULT_ORIGINAL_URI) {
+        this.oktaAuth.setOriginalUri('/');
+      }
 
-  async login(): Promise<void> {
-    await this.oktaAuth.signInWithRedirect();
-  }
+      // Remove the widget
+      this.widget.remove();
 
-  async logout(): Promise<void> {
-    await this.oktaAuth.signOut();
+      // In this flow the redirect to Okta occurs in a hidden iframe
+      await this.oktaAuth.handleLoginRedirect(tokens);
+    }).catch((err: any) => {
+      // Typically due to misconfiguration
+      throw err;
+    });
   }
 }

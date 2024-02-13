@@ -9,6 +9,6 @@ import { NxWelcomeComponent } from './nx-welcome.component';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
-export class AppComponent {
+export class HomeComponent {
   title = 'home';
 }
