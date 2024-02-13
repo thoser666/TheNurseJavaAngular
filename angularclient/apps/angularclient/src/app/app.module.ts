@@ -14,6 +14,14 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { MatDividerModule } from '@angular/material/divider';
+import { OKTA_CONFIG, OktaAuthModule } from '@okta/okta-angular';
+import { OktaAuthOptions } from '@okta/okta-auth-js';
+
+const oktaConfig: OktaAuthOptions = {
+  issuer: 'https://dev-99628995.okta.com/oauth2/default',
+  clientId: '0oaf42rvlyIbA1jXI5d7',
+  redirectUri: window.location.origin + '/callback'
+};
 
 @NgModule({
     declarations: [
