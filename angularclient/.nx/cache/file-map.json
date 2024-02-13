@@ -30,7 +30,7 @@
   "nxJsonPlugins": [],
   "fileMap": {
     "projectFileMap": {
-      "TheNurseAngular": [
+      "angularclient": [
         {
           "file": ".editorconfig",
           "hash": "17241496168097493888"
@@ -45,11 +45,11 @@
         },
         {
           "file": "angular.json",
-          "hash": "7748857582651391623"
+          "hash": "17738445858449389264"
         },
         {
           "file": "package-lock.json",
-          "hash": "10285320678683437801"
+          "hash": "3831268347655220395"
         },
         {
           "file": "package.json",
@@ -63,7 +63,6 @@
             "npm:@angular/platform-browser",
             "npm:@angular/platform-browser-dynamic",
             "npm:@angular/router",
-            "npm:@nrwl/angular",
             "npm:rxjs",
             "npm:tslib",
             "npm:zone.js",

@@ -1,18 +1,18 @@
 {
   "run": {
     "command": "nx serve",
-    "startTime": "2024-02-13T05:23:26.978Z",
-    "endTime": "2024-02-13T05:23:28.668Z",
+    "startTime": "2024-02-13T05:24:44.801Z",
+    "endTime": "2024-02-13T05:24:46.523Z",
     "inner": false
   },
   "tasks": [
     {
-      "taskId": "TheNurseAngular:serve:development",
+      "taskId": "angularclient:serve:development",
       "target": "serve",
-      "projectName": "TheNurseAngular",
-      "hash": "13976771175059509611",
-      "startTime": "2024-02-13T05:23:26.992Z",
-      "endTime": "2024-02-13T05:23:28.667Z",
+      "projectName": "angularclient",
+      "hash": "8220186301913439305",
+      "startTime": "2024-02-13T05:24:44.817Z",
+      "endTime": "2024-02-13T05:24:46.523Z",
       "params": "",
       "cacheStatus": "cache-miss",
       "status": 1
