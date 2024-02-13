@@ -40,8 +40,9 @@ const oktaConfig: OktaAuthOptions = {
         MatTableModule,
         MatDividerModule,
         AppRoutingModule,
+        OktaAuthModule,
     ],
-    providers: [],
+    providers: [{ provide: OKTA_CONFIG, useValue: oktaConfig }],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

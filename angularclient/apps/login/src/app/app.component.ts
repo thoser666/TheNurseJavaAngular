@@ -1,14 +1,32 @@
-import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { NxWelcomeComponent } from './nx-welcome.component';
+import { Component, OnInit } from '@angular/core';
+import { OktaAuthService } from '@okta/okta-angular';
 
 @Component({
-  standalone: true,
-  imports: [NxWelcomeComponent, RouterModule],
-  selector: 'angularclient-root',
+  selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
+  styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'login';
+export class AppComponent implements OnInit {
+  title = 'Login';
+  isAuthenticated = false;
+
+  constructor(public oktaAuth: OktaAuthService) {
+    // subscribe to authentication state changes
+    this.oktaAuth.$authenticationState.subscribe(
+      (isAuthenticated: boolean) => this.isAuthenticated = isAuthenticated
+    );
+  }
+
+  async ngOnInit(): Promise<void> {
+    // get authentication state for immediate use
+    this.isAuthenticated = await this.oktaAuth.isAuthenticated();
+  }
+
+  async login(): Promise<void> {
+    await this.oktaAuth.signInWithRedirect();
+  }
+
+  async logout(): Promise<void> {
+    await this.oktaAuth.signOut();
+  }
 }
