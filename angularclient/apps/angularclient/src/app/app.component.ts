@@ -10,5 +10,5 @@ import { NxWelcomeComponent } from './nx-welcome.component';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'angularclient';
+  title = 'The Nurse';
 }
