@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'angularclient-service',
+  selector: 'angularclient-login',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './service.component.html',
-  styleUrl: './service.component.css',
+  templateUrl: './login.component.html',
+  styleUrl: './login.component.css',
 })
-export class ServiceComponent {}
+export class LoginComponent {}
