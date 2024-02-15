@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Modals } from '../../src/app/modals';
 import { AuthService } from '../service/auth.service';
@@ -9,6 +9,10 @@ import { SignupRequestPaylaod } from './signup-request.payload';
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css'],
+  imports: [
+    ReactiveFormsModule
+  ],
+  standalone: true
 })
 export class SignupComponent implements OnInit {
   signupForm: FormGroup;
@@ -19,11 +23,16 @@ export class SignupComponent implements OnInit {
     private router: Router,
     private modals: Modals
   ) {
+    // this.signupForm = new FormGroup({
+    //   username: new FormControl('', Validators.required),
+    //   email: new FormControl('', Validators.required),
+    //   password: new FormControl('', Validators.required),
+    // });
     this.signupForm = new FormGroup({
-      username: new FormControl('', Validators.required),
-      email: new FormControl('', Validators.required),
-      password: new FormControl('', Validators.required),
-    });
+      username: new FormControl(''),
+      email: new FormControl(''),
+      password: new FormControl(''),
+    })
     this.signupRequestPayload = {
       username: '',
       email: '',

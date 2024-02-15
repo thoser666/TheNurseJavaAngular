@@ -9,7 +9,7 @@ import {
   faUser,
 } from '@fortawesome/free-solid-svg-icons';
 import { AuthService } from '../auth/service/auth.service';
-import { Location } from 'src/app/public-api/location';
+import { Location } from '../public-api/location';
 import { StompService } from '../stomp-service';
 import { NotificationService } from '../notification/notification.service';
 import { NotificationModel } from '../notification/notification-model';
