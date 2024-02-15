@@ -725,7 +725,7 @@ import { CommonModule } from '@angular/common';
                 </g>
               </svg>
               <span>
-                Install Nx Console for JetBrains
+                Install Nx Console for JetBrains oder so
                 <span
                   >Available for WebStorm, Intellij IDEA Ultimate and
                   more!</span
