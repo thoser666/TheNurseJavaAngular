@@ -1,8 +1,13 @@
 {
   "name": "@angularclient/source",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {"ng": "ng",
+    "heroku-postbuild": "ng build --configuration=production && npm install -g http-server-spa",
+    "start": "http-server-spa dist/angular-social-network index.html $PORT",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test"},
   "private": true,
   "dependencies": {
     "@angular/animations": "~17.1.0",
