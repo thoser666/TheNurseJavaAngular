@@ -10,6 +10,7 @@ import { LoginRequestPayload } from './login-request.payload';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
+  standalone: true,
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
