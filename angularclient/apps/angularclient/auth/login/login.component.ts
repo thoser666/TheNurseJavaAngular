@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { HeaderComponent } from 'src/app/header/header.component';
+//import { HeaderComponent } from 'src/app/header/header.component';
 import { Modals } from '../../src/app/modals';
 import { AuthService } from '../service/auth.service';
 import { LoginRequestPayload } from './login-request.payload';
