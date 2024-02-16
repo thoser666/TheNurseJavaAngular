@@ -3,23 +3,38 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "prefix": "angularclient",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "heroku-postbuild": "ng build --configuration=production && npm install -g http-server-spa",
+    "start": "http-server-spa dist/angular-social-network index.html $PORT",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test"
+  },
   "sourceRoot": "apps/angularclient/src",
   "tags": [],
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:application",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/angularclient",
         "index": "apps/angularclient/src/index.html",
         "browser": "apps/angularclient/src/main.ts",
-        "polyfills": ["zone.js"],
+        "polyfills": [
+          "zone.js"
+        ],
         "tsConfig": "apps/angularclient/tsconfig.app.json",
         "assets": [
           "apps/angularclient/src/favicon.ico",
           "apps/angularclient/src/assets"
         ],
-        "styles": ["apps/angularclient/src/styles.css"],
+        "styles": [
+          "apps/angularclient/src/styles.css"
+        ],
         "scripts": []
       },
       "configurations": {
@@ -70,6 +85,9 @@
         "buildTarget": "angularclient:build",
         "staticFilePath": "dist/apps/angularclient/browser"
       }
+    },
+    "test": {
+      "executor": "@angular-devkit/build-angular:karma"
     }
   }
 }
