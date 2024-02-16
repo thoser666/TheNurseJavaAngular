@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import * as SockJS from 'sockjs-client';
-import { environment } from 'src/environments/environment';
+import SockJS from 'sockjs-client';
+import { environment } from './src/environments/environment';
 import * as Stomp from 'stompjs';
 
 @Injectable({
