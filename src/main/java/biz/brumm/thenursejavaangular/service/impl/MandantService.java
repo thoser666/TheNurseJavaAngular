@@ -1,18 +1,12 @@
 package biz.brumm.thenursejavaangular.service.impl;
 
 import biz.brumm.thenursejavaangular.entity.Mandant;
-import biz.brumm.thenursejavaangular.entity.dto.MandantDTO;
 import biz.brumm.thenursejavaangular.service.IMandantService;
-import org.hibernate.cache.spi.support.AbstractReadWriteAccess;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.map.repository.config.EnableMapRepositories;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @EnableMapRepositories
