@@ -2,6 +2,7 @@ package biz.brumm.thenursejavaangular;
 
 import biz.brumm.thenursejavaangular.entity.Mandant;
 import biz.brumm.thenursejavaangular.entity.dto.MandantDTO;
+import biz.brumm.thenursejavaangular.repository.IMandantRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -21,10 +22,10 @@ class TheNurseJavaAngularApplicationTests {
     private MockMvc mvc;
 
     @MockBean
-    IUserRepository iUserRepository;
+    IMandantRepository iUserRepository;
 
     @Autowired
-    IUserRepository userRepository;
+    IMandantRepository userRepository;
 
     Mandant mandant = new Mandant("alex", "a@bc.de");
     MandantDTO mandantDTO = new MandantDTO();
