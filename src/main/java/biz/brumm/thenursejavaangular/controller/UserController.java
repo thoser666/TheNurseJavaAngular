@@ -2,6 +2,7 @@ package biz.brumm.thenursejavaangular.controller;
 
 import biz.brumm.thenursejavaangular.entity.Mandant;
 import biz.brumm.thenursejavaangular.service.IMandantService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -31,7 +32,7 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<Mandant> create(@RequestBody Mandant item) {
+    public ResponseEntity<Mandant> create(@Valid @RequestBody Mandant item) {
         Mandant created = service.create(item);
         URI location = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{id}")
@@ -43,7 +44,7 @@ public class UserController {
     @PutMapping("/{id}")
     public ResponseEntity<Mandant> update(
             @PathVariable("id") Long id,
-            @RequestBody Mandant updatedItem) {
+            @Valid @RequestBody Mandant updatedItem) {
 
         Optional<Mandant> updated = service.update(id, updatedItem);
 
