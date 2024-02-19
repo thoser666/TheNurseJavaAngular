@@ -4,11 +4,16 @@ import biz.brumm.thenursejavaangular.entity.Mandant;
 import biz.brumm.thenursejavaangular.service.IMandantService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.FieldError;
+import org.springframework.validation.ObjectError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -60,10 +65,21 @@ public class UserController {
                 });
     }
 
-    // ✨ New! 👇 DELETE definition ✨
     @DeleteMapping("/{id}")
     public ResponseEntity<Mandant> delete(@PathVariable("id") Long id) {
         service.delete(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<Map<String, String>> handleValidationExceptions(MethodArgumentNotValidException ex) {
+        List<ObjectError> errors = ex.getBindingResult().getAllErrors();
+        Map<String, String> map = new HashMap<>(errors.size());
+        errors.forEach((error) -> {
+            String key = ((FieldError) error).getField();
+            String val = error.getDefaultMessage();
+            map.put(key, val);
+        });
+        return ResponseEntity.badRequest().body(map);
     }
 }
