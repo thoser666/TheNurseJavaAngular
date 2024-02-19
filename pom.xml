@@ -94,7 +94,7 @@
 			        <!--<url>http://localhost:8000/</url>-->
 			
 			        <!-- provide your auth token via SENTRY_AUTH_TOKEN environment variable -->
-			        <token>${env.SENTRY_AUTH_TOKEN}</token>
+			        <authToken>${env.SENTRY_AUTH_TOKEN}</authToken>
 			      </configuration>
 			      <executions>
 			        <execution>
