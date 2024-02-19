@@ -5,9 +5,9 @@ import { map, Observable } from 'rxjs';
 import { LocalStorageService } from 'ngx-webstorage';
 import { LoginRequestPayload } from '../login/login-request.payload';
 import { LoginResponse } from '../login/login-response.payload';
-import { environment } from '../../src/environments/environment';
-import { Ip } from '../../public-api/ip';
-import { Location } from '../../public-api/location';
+import { environment } from '../../environments/environment';
+import { Ip } from 'src/app/public-api/ip';
+import { Location } from 'src/app/public-api/location';
 
 @Injectable({
   providedIn: 'root',

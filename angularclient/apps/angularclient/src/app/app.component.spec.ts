@@ -15,13 +15,13 @@ describe('AppComponent', () => {
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('h1')?.textContent).toContain(
-      'The Nurse'
+      'Welcome angularclient'
     );
   });
 
-  it(`should have as title 'The Nurse'`, () => {
+  it(`should have as title 'angularclient'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('The Nurse');
+    expect(app.title).toEqual('angularclient');
   });
 });

@@ -25,11 +25,6 @@
       "cache": true,
       "dependsOn": ["^build"],
       "inputs": ["production", "^production"]
-    },
-    "@nx/angular:ng-packagr-lite": {
-      "cache": true,
-      "dependsOn": ["^build"],
-      "inputs": ["production", "^production"]
     }
   },
   "plugins": [
@@ -62,11 +57,7 @@
     },
     "@nx/angular:component": {
       "style": "css"
-    },
-    "@nx/angular:library": {
-      "linter": "eslint",
-      "unitTestRunner": "jest"
     }
   },
-  "nxCloudAccessToken": "YWM4N2M5OWEtZGYxMi00YThkLThiOWQtYTZhNGUxNTk1OTE5fHJlYWQtd3JpdGU="
+  "nxCloudAccessToken": "MjhlZmJkMjUtMGQzMi00ODFiLWE5YmUtOTA0MDk2ODU2MWRhfHJlYWQtd3JpdGU="
 }
