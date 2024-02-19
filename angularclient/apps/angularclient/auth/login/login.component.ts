@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 //import { HeaderComponent } from 'src/app/header/header.component';
 import { Modals } from '../../src/app/modals';
@@ -11,9 +16,7 @@ import { LoginRequestPayload } from './login-request.payload';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
   standalone: true,
-  imports: [
-    ReactiveFormsModule
-  ]
+  imports: [ReactiveFormsModule],
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
@@ -26,7 +29,7 @@ export class LoginComponent implements OnInit {
     private authService: AuthService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private modals: Modals
+    private modals: Modals,
   ) {
     this.isError = false;
     this.registerSuccessMessage = '';
@@ -44,7 +47,7 @@ export class LoginComponent implements OnInit {
         params['registered'] === 'true'
       ) {
         modals.customSuccessNotification(
-          'Succesfull registration, please check your email for verification'
+          'Succesfull registration, please check your email for verification',
         );
       }
     });

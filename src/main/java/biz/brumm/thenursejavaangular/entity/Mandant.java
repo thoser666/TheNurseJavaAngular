@@ -11,32 +11,31 @@ import lombok.Data;
 @Data
 public class Mandant {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private long id;
 
-    @NotNull(message = "name is required")
-    private String name;
+  @NotNull(message = "name is required")
+  private String name;
 
-    @NotNull(message = "Email is required")
-    private String email;
+  @NotNull(message = "Email is required")
+  private String email;
 
-    public Mandant(String name, String email) {
-        this.name = name;
-        this.email = email;
-    }
+  public Mandant(String name, String email) {
+    this.name = name;
+    this.email = email;
+  }
 
-    public Mandant() {
-        this.name = null;
-        this.email = null;
-    }
+  public Mandant() {
+    this.name = null;
+    this.email = null;
+  }
 
-    public Mandant updateWith(Mandant newItem) {
-        this.setName(newItem.getName());
-        this.setEmail(newItem.getEmail());
-        return this;
-    }
+  public Mandant updateWith(Mandant newItem) {
+    this.setName(newItem.getName());
+    this.setEmail(newItem.getEmail());
+    return this;
+  }
 
-
-    // standard constructors / setters / getters / toString
+  // standard constructors / setters / getters / toString
 }

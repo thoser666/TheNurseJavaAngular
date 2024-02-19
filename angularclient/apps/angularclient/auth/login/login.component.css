@@ -19,10 +19,10 @@
 }
 
 .login {
-  background-color: #1C9E5D;
-  border-color: #1C9E5D;
+  background-color: #1c9e5d;
+  border-color: #1c9e5d;
   color: aliceblue;
-  fill: #1C9E5D;
+  fill: #1c9e5d;
   border: 1px solid;
   border-radius: 4px;
   text-align: center;
@@ -30,7 +30,7 @@
   text-decoration: none;
   font-size: 12px;
   font-weight: 700;
-  letter-spacing: .5px;
+  letter-spacing: 0.5px;
   line-height: 24px;
   text-transform: uppercase;
   padding: 3px 16px;
