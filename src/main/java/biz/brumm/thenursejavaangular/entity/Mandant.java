@@ -26,6 +26,11 @@ public class Mandant {
         this.email = null;
     }
 
+    public Mandant updateWith(Mandant newItem) {
+        this.setName(newItem.getName());
+        this.setEmail(newItem.getEmail());
+        return this;
+    }
 
 
     // standard constructors / setters / getters / toString

@@ -1,6 +1,5 @@
 package biz.brumm.thenursejavaangular.controller;
 
-import biz.brumm.thenursejavaangular.entity.IUserRepository;
 import biz.brumm.thenursejavaangular.entity.Mandant;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,6 +1,5 @@
 package biz.brumm.thenursejavaangular;
 
-import biz.brumm.thenursejavaangular.entity.IUserRepository;
 import biz.brumm.thenursejavaangular.entity.Mandant;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
