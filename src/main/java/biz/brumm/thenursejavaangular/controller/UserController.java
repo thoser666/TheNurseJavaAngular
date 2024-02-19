@@ -1,11 +1,12 @@
 package biz.brumm.thenursejavaangular.controller;
 
 import biz.brumm.thenursejavaangular.entity.Mandant;
-import biz.brumm.thenursejavaangular.repository.IMandantRepository;
 import biz.brumm.thenursejavaangular.service.IMandantService;
-import biz.brumm.thenursejavaangular.service.impl.MandantService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import java.util.Optional;
