@@ -20,7 +20,9 @@ declare namespace Cypress {
 
 // -- This is a parent command --
 Cypress.Commands.add('login', (email, password) => {
-  console.log('Custom command example: Login', email, password);
+//  console.log('Custom command example: Login', email, password);
+  console.log('Custom command example: Login', email, 'jo'); // to get rid of githubs 'Clear-text logging of sensitive
+  // information' message
 });
 //
 // -- This is a child command --
