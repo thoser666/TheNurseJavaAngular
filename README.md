@@ -2,7 +2,7 @@ https://github.com/thoser666/TheNurseJavaAngular/workflows/codeql.yml/badge.svg?
 https://github.com/thoser666/TheNurseJavaAngular/actions/workflows/build.yml/badge.svg
 https://github.com/thoser666/TheNurseJavaAngular/actions/workflows/node.yml/badge.svg?branch=develop
 
-[![Codeql Status](https://github.com/thoser666/TheNurseJavaAngular/workflows/badge.svg)]
+[![Codeql Status](https://github.com/thoser666/TheNurseJavaAngular/workflows/badge.svg)](https://github.com/thoser666/TheNurseJavaAngular/actions/workflows/badge.svg)
 [![Build Status](https://github.com/thoser666/TheNurseJavaAngular/actions/workflows/build.yml)]
 [![Node Status]('https://github.com/thoser666/TheNurseJavaAngular/actions/workflows/node.yml/badge.svg?branch=develop')]
 
