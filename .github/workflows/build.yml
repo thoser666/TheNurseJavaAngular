@@ -37,8 +37,8 @@ jobs:
           distribution: 'temurin'
           java-version: '21'
         run: mvn -B package --file pom.xml     
-#      - name: Build and analyze
-#        env:
-#          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-#          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-#        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=TheNurseJavaAngular -Dsonar.projectName=''TheNurseJavaAngular''
+      - name: Build and analyze
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=TheNurseJavaAngular -Dsonar.projectName=''TheNurseJavaAngular''
