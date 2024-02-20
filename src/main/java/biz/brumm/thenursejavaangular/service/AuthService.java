@@ -1,5 +1,9 @@
 package rs.ac.bg.fon.springsocialnetwork.service;
 
+import biz.brumm.thenursejavaangular.jwt.JwtProvider;
+import biz.brumm.thenursejavaangular.repository.RoleRepository;
+import biz.brumm.thenursejavaangular.repository.UserRepository;
+import biz.brumm.thenursejavaangular.repository.VerificationTokenRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -7,21 +11,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import rs.ac.bg.fon.springsocialnetwork.config.AppConfig;
-import rs.ac.bg.fon.springsocialnetwork.dto.AuthResponse;
-import rs.ac.bg.fon.springsocialnetwork.dto.LoginRequest;
-import rs.ac.bg.fon.springsocialnetwork.dto.RegisterRequest;
-import rs.ac.bg.fon.springsocialnetwork.exception.MyRuntimeException;
-import rs.ac.bg.fon.springsocialnetwork.jwt.JwtProvider;
-import rs.ac.bg.fon.springsocialnetwork.model.Role;
-import rs.ac.bg.fon.springsocialnetwork.model.User;
-import rs.ac.bg.fon.springsocialnetwork.model.VerificationEmail;
-import rs.ac.bg.fon.springsocialnetwork.model.VerificationToken;
-import rs.ac.bg.fon.springsocialnetwork.repository.RoleRepository;
-import rs.ac.bg.fon.springsocialnetwork.repository.UserRepository;
-import rs.ac.bg.fon.springsocialnetwork.repository.VerificationTokenRepository;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
 import java.time.Instant;
 import java.util.Optional;
 import java.util.UUID;

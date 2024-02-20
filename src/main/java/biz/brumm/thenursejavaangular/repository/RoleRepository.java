@@ -1,4 +1,4 @@
-package rs.ac.bg.fon.springsocialnetwork.repository;
+package biz.brumm.thenursejavaangular.repository;
 
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;

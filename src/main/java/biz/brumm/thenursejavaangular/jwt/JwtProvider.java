@@ -1,4 +1,4 @@
-package rs.ac.bg.fon.springsocialnetwork.jwt;
+package biz.brumm.thenursejavaangular.jwt;
 
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.Authentication;

@@ -1,4 +1,4 @@
-package rs.ac.bg.fon.springsocialnetwork.controller;
+package biz.brumm.thenursejavaangular.controller;
 
 import lombok.AllArgsConstructor;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -13,13 +13,8 @@ import rs.ac.bg.fon.springsocialnetwork.dto.LoginRequest;
 import rs.ac.bg.fon.springsocialnetwork.dto.RegisterRequest;
 import rs.ac.bg.fon.springsocialnetwork.service.AuthService;
 
-import javax.validation.ConstraintViolation;
-import javax.validation.ConstraintViolationException;
-import javax.validation.Valid;
-import java.sql.SQLIntegrityConstraintViolationException;
-import java.util.ArrayList;
+import jakarta.validation.*;
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 /**

@@ -1,4 +1,4 @@
-package rs.ac.bg.fon.springsocialnetwork.service;
+package biz.brumm.thenursejavaangular.service;
 
 import lombok.AllArgsConstructor;
 import org.springframework.mail.MailException;
