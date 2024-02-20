@@ -18,7 +18,7 @@ export class AllUsersComponent implements OnInit {
   constructor(
     private userService: UserService,
     private actRoute: ActivatedRoute,
-    private authService: AuthService
+    private authService: AuthService,
   ) {}
 
   ngOnInit(): void {
