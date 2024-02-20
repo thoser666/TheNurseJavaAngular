@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class ReactionDto implements Dto{
-    private Long postId;
-    private ReactionType reactionType;
+public class ReactionDto implements Dto {
+  private Long postId;
+  private ReactionType reactionType;
 }

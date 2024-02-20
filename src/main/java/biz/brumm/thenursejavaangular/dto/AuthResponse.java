@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class AuthResponse {
 
-    private String authenticationToken;
-    private String username;
-    private String isAdmin;
+  private String authenticationToken;
+  private String username;
+  private String isAdmin;
 }

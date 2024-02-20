@@ -11,8 +11,9 @@ import org.springframework.stereotype.Service;
 @Service
 @AllArgsConstructor
 public class RoleService {
-    private RoleRepository roleRepository;
-    public void addRole(Role role) {
-        roleRepository.save(role);
-    }
+  private RoleRepository roleRepository;
+
+  public void addRole(Role role) {
+    roleRepository.save(role);
+  }
 }
