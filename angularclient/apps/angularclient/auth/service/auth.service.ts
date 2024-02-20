@@ -6,8 +6,8 @@ import { LocalStorageService } from 'ngx-webstorage';
 import { LoginRequestPayload } from '../login/login-request.payload';
 import { LoginResponse } from '../login/login-response.payload';
 import { environment } from '../../environments/environment';
-import { Ip } from 'src/app/public-api/ip';
-import { Location } from 'src/app/public-api/location';
+import { Ip } from '../../public-api/ip';
+import { Location } from '../../public-api/location';
 
 @Injectable({
   providedIn: 'root',
@@ -27,7 +27,7 @@ export class AuthService {
     private localStorage: LocalStorageService,
   ) {}
 
-  signup(signupRequestPayload: SignupRequestPaylaod): Observable<any> {
+  signup(signupRequestPayload: SignupRequestPaylaod): Observable<unknown> {
     return this.httpClient.post(
       this.baseUrl + 'api/auth/signup',
       signupRequestPayload,
