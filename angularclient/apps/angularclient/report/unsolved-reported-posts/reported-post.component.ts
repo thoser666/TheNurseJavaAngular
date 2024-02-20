@@ -25,7 +25,7 @@ export class ReportedPostComponent implements OnInit {
     private router: Router,
     private authService: AuthService,
     private postService: PostService,
-    private reportService: ReportService
+    private reportService: ReportService,
   ) {
     this.postService.getAllReportedPosts().subscribe({
       next: (data) => ((this.posts = data), console.log(this.posts)),

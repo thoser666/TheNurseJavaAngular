@@ -21,7 +21,7 @@ export class InboxComponent implements OnInit {
   constructor(
     private chatService: ChatService,
     private authService: AuthService,
-    private userService: UserService
+    private userService: UserService,
   ) {
     this.msg = {
       content: '',
@@ -38,7 +38,7 @@ export class InboxComponent implements OnInit {
         (data) => (
           (this.inboxMessages = data),
           (this.username = this.inboxMessages[0].with)
-        )
+        ),
       );
   }
 

@@ -19,27 +19,27 @@ export class PostService {
 
   getAllPostsForTopic(topicName: string): Observable<Array<PostModel>> {
     return this.httpClient.get<Array<PostModel>>(
-      this.baseUrl + 'api/post/topic/' + topicName
+      this.baseUrl + 'api/post/topic/' + topicName,
     );
   }
 
   getAllPostsForUser(username: string): Observable<Array<PostModel>> {
     return this.httpClient.get<Array<PostModel>>(
-      this.baseUrl + 'api/post/user/' + username
+      this.baseUrl + 'api/post/user/' + username,
     );
   }
 
   createPost(postRequest: PostRequest): Observable<PostModel> {
     return this.httpClient.post<PostModel>(
       this.baseUrl + 'api/post/create',
-      postRequest
+      postRequest,
     );
   }
 
   updatePost(postRequest: PostRequest, id: number): Observable<PostModel> {
     return this.httpClient.patch<PostModel>(
       this.baseUrl + 'api/post/update/' + id,
-      postRequest
+      postRequest,
     );
   }
 
@@ -53,26 +53,26 @@ export class PostService {
 
   getAllPostsForFollowingUsers(): Observable<Array<PostModel>> {
     return this.httpClient.get<Array<PostModel>>(
-      this.baseUrl + 'api/post/authAll'
+      this.baseUrl + 'api/post/authAll',
     );
   }
 
   getAllReportedPosts(): Observable<Array<ReportedPostModel>> {
     return this.httpClient.get<Array<ReportedPostModel>>(
-      this.baseUrl + 'api/post/secured/reported'
+      this.baseUrl + 'api/post/secured/reported',
     );
   }
 
   getAllSolvedReportedPosts(): Observable<Array<ReportedPostModel>> {
     return this.httpClient.get<Array<ReportedPostModel>>(
-      this.baseUrl + 'api/post/secured/reported-solved'
+      this.baseUrl + 'api/post/secured/reported-solved',
     );
   }
 
   softDeletePost(id: number): Observable<any> {
     return this.httpClient.patch(
       this.baseUrl + 'api/post/soft-delete/' + id,
-      ''
+      '',
     );
   }
 }
