@@ -28,7 +28,7 @@ public class FollowingService {
     @Transactional
     public List<UserDto> getFollowersForUser(Long userId) {
         List<Following> optFoll = followRepository.findAllByFollowed_userId(userId);
-        List<User> followers = optFoll.stream().map(Following::getFollowing).collect(Collectors.toList());
+        List<User> followers = optFoll.stream().map(Following::getFollowing).toList();
         List<UserDto> followersDto= followers.stream().map((userToMap)->userMapper.toDto(userToMap)).collect(Collectors.toList());
         return followersDto;
     }

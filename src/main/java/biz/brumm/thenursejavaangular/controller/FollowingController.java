@@ -1,6 +1,7 @@
 package biz.brumm.thenursejavaangular.controller;
 
 import biz.brumm.thenursejavaangular.dto.UserDto;
+import biz.brumm.thenursejavaangular.service.FollowingService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

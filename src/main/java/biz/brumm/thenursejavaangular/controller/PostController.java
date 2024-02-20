@@ -1,6 +1,10 @@
 package biz.brumm.thenursejavaangular.controller;
 
+import biz.brumm.thenursejavaangular.dto.PostRequest;
+import biz.brumm.thenursejavaangular.dto.PostResponse;
+import biz.brumm.thenursejavaangular.model.User;
 import biz.brumm.thenursejavaangular.service.AuthService;
+import biz.brumm.thenursejavaangular.service.PostService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
