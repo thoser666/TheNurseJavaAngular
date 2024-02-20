@@ -27,7 +27,7 @@ export class UpdatePostComponent implements OnInit {
     private topicService: TopicService,
     private postService: PostService,
     private actRoute: ActivatedRoute,
-    private authService: AuthService
+    private authService: AuthService,
   ) {
     this.postModel = {
       commentCount: 0,
@@ -89,7 +89,7 @@ export class UpdatePostComponent implements OnInit {
     this.postService.updatePost(this.postRequest, this.id).subscribe({
       next: (data) => {
         this.router.navigateByUrl(
-          '/user-profile/' + this.authService.getUserName()
+          '/user-profile/' + this.authService.getUserName(),
         );
         console.log(data);
       },

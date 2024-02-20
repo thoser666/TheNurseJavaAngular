@@ -32,7 +32,7 @@ export class TopicPostsComponent implements OnInit {
     private postService: PostService,
     private reportService: ReportService,
     private activatedRoute: ActivatedRoute,
-    private modals: Modals
+    private modals: Modals,
   ) {
     this.reportPayload = {
       postId: 0,
