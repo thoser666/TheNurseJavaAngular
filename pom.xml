@@ -122,6 +122,12 @@
 			<artifactId>prettytime</artifactId>
 			<version>5.0.2.Final</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.github.marlonlom/timeago -->
+		<dependency>
+			<groupId>com.github.marlonlom</groupId>
+			<artifactId>timeago</artifactId>
+			<version>4.0.3</version>
+		</dependency>
 	</dependencies>
 
 	<build>

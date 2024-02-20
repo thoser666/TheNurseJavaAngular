@@ -1,17 +1,21 @@
 package biz.brumm.thenursejavaangular;
 
+import biz.brumm.thenursejavaangular.config.AppConfig;
+import biz.brumm.thenursejavaangular.config.RsaKeyProperties;
 import biz.brumm.thenursejavaangular.entity.Mandant;
 import biz.brumm.thenursejavaangular.repository.IMandantRepository;
 import lombok.extern.java.Log;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 
 import java.util.stream.Stream;
 
 @Log
 @SpringBootApplication
+@EnableConfigurationProperties({AppConfig.class, RsaKeyProperties.class})
 public class TheNurseJavaAngularApplication {
 
   public static void main(String[] args) {
