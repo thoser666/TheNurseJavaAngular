@@ -14,7 +14,7 @@ export class ReactionService {
   constructor(
     private httpClient: HttpClient,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
   ) {}
 
   react(reactionModel: ReactionModel): Observable<any> {

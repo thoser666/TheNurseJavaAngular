@@ -15,17 +15,17 @@ export class ReportService {
   reportPost(repoprtPayload: ReportPayload): Observable<any> {
     return this.http.post<ReportPayload>(
       this.baseUrl + 'api/report',
-      repoprtPayload
+      repoprtPayload,
     );
   }
 
   changeReportStatus(
     postId: number,
-    reportStatus: ReportStatus
+    reportStatus: ReportStatus,
   ): Observable<any> {
     return this.http.patch<ReportPayload>(
       this.baseUrl + 'api/report/change-status/' + postId,
-      reportStatus
+      reportStatus,
     );
   }
 }

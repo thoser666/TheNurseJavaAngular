@@ -22,7 +22,7 @@ export class CreatePostComponent implements OnInit {
     private router: Router,
     private topicService: TopicService,
     private postService: PostService,
-    private modals: Modals
+    private modals: Modals,
   ) {
     this.createPostForm = new FormGroup({
       title: new FormControl('', Validators.required),

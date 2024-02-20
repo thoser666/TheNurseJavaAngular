@@ -25,7 +25,7 @@ export class ReactionComponent implements OnInit {
 
   constructor(
     private reactionService: ReactionService,
-    private postService: PostService
+    private postService: PostService,
   ) {
     this.post = {
       id: 0,

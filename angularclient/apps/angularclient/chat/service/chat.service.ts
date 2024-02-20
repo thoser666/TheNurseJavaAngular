@@ -14,7 +14,10 @@ export class ChatService {
   @Output() sentMessage: EventEmitter<string> = new EventEmitter();
   @Output() numberOfSeenMessages: EventEmitter<number> = new EventEmitter();
 
-  constructor(private http: HttpClient, private authService: AuthService) {}
+  constructor(
+    private http: HttpClient,
+    private authService: AuthService,
+  ) {}
 
   emitNumberOfSeenMessages(seenMessages: number) {
     this.numberOfSeenMessages.emit(seenMessages);
@@ -27,7 +30,7 @@ export class ChatService {
   sendMessage(message: MessageDto): Observable<any> {
     let any = this.http.post(
       this.baseUrl + 'api/message/' + message.to,
-      message
+      message,
     );
     console.log(message.to);
     if (message.to == this.authService.getUserName()) {
@@ -40,22 +43,22 @@ export class ChatService {
 
   getLastMessage(from: string, to: string) {
     return this.http.get<MessageDto>(
-      this.baseUrl + 'api/message/last/' + from + '/' + to
+      this.baseUrl + 'api/message/last/' + from + '/' + to,
     );
   }
 
   getAllMessagesFromChat(
     from: string,
-    to: string
+    to: string,
   ): Observable<Array<MessageDto>> {
     return this.http.get<Array<MessageDto>>(
-      this.baseUrl + 'api/message/all/' + from + '/' + to
+      this.baseUrl + 'api/message/all/' + from + '/' + to,
     );
   }
 
   getInboxMessages(): Observable<Array<InboxMessage>> {
     return this.http.get<Array<InboxMessage>>(
-      this.baseUrl + 'api/message/inbox'
+      this.baseUrl + 'api/message/inbox',
     );
   }
 

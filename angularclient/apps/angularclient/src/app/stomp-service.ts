@@ -47,11 +47,9 @@ export class StompService {
     });
   }
 
-   private subscribeToTopic(topic: string, callback: any): void {
-     this.stompClient.subscribe(topic, (response?: string): any => {
-       callback(response);
-     });
-   }
-
-
+  private subscribeToTopic(topic: string, callback: any): void {
+    this.stompClient.subscribe(topic, (response?: string): any => {
+      callback(response);
+    });
+  }
 }

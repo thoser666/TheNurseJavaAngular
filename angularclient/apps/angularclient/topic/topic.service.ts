@@ -18,7 +18,7 @@ export class TopicService {
   createTopic(topicModel: TopicModel): Observable<TopicModel> {
     return this.http.post<TopicModel>(
       this.baseUrl + 'api/topic/create',
-      topicModel
+      topicModel,
     );
   }
 }

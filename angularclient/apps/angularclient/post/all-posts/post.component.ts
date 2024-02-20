@@ -32,7 +32,7 @@ export class PostComponent implements OnInit {
     private authService: AuthService,
     private postService: PostService,
     private reportService: ReportService,
-    private modals: Modals
+    private modals: Modals,
   ) {
     this.reportPayload = {
       postId: 0,

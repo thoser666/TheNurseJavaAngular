@@ -78,7 +78,7 @@ import { TopicPostsComponent } from '../../post/topic-posts/topic-posts.componen
     NgbModule,
     BrowserAnimationsModule,
     FormsModule,
-    LoginComponent
+    LoginComponent,
   ],
   providers: [
     {
