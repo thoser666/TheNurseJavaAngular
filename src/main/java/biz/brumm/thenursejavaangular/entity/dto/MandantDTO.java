@@ -7,19 +7,20 @@ import lombok.Data;
 
 @Data
 public class MandantDTO {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-    private final String name;
-    private final String email;
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private long id;
 
-    public MandantDTO(String name, String email) {
-        this.name = name;
-        this.email = email;
-    }
+  private final String name;
+  private final String email;
 
-    public MandantDTO() {
-        this.name = null;
-        this.email = null;
-    }
+  public MandantDTO(String name, String email) {
+    this.name = name;
+    this.email = email;
+  }
+
+  public MandantDTO() {
+    this.name = null;
+    this.email = null;
+  }
 }

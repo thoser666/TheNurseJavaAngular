@@ -24,14 +24,14 @@ export class AuthService {
   baseUrl = environment.baseUrl;
   constructor(
     private httpClient: HttpClient,
-    private localStorage: LocalStorageService
+    private localStorage: LocalStorageService,
   ) {}
 
   signup(signupRequestPayload: SignupRequestPaylaod): Observable<any> {
     return this.httpClient.post(
       this.baseUrl + 'api/auth/signup',
       signupRequestPayload,
-      { responseType: 'text' }
+      { responseType: 'text' },
     );
   }
 
@@ -42,7 +42,7 @@ export class AuthService {
         map((data) => {
           this.localStorage.store(
             'authenticationToken',
-            data.authenticationToken
+            data.authenticationToken,
           );
           this.localStorage.store('username', data.username);
           this.localStorage.store('isAdmin', data.isAdmin);
@@ -50,7 +50,7 @@ export class AuthService {
           this.username.emit(loginRequestPayload.username);
 
           return true;
-        })
+        }),
       );
   }
   getJwtToken() {
@@ -64,10 +64,10 @@ export class AuthService {
   logout() {
     this.localStorage.clear();
     this.loggedIn.emit(false);
-    this.httpClient.post(this.baseUrl+'api/auth/logout','').subscribe({
-      next: () => (console.log('ok')),
+    this.httpClient.post(this.baseUrl + 'api/auth/logout', '').subscribe({
+      next: () => console.log('ok'),
       error: (error) => console.log('error'),
-    })
+    });
   }
 
   isAdmin(): boolean {
