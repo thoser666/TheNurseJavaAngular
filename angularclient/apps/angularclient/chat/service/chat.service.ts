@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable, Output } from '@angular/core';
 import { Observable } from 'rxjs';
-import { AuthService } from 'src/app/auth/service/auth.service';
-import { environment } from 'src/environments/environment';
+import { AuthService } from '../../auth/service/auth.service';
+import { environment } from '../../environments/environment';
 import { MessageDto } from '../chat/message';
 import { InboxMessage } from '../inbox-message';
 

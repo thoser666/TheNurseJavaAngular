@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { throwError } from 'rxjs';
-import { Modals } from 'src/app/modals';
-import { PostService } from 'src/app/post/service/post.service';
-import { TopicModel } from 'src/app/topic/topic-model';
-import { TopicService } from 'src/app/topic/topic.service';
+import { Modals } from '../../modals';
+import { PostService } from '../service/post.service';
+import { TopicModel } from '../../topic/topic-model';
+import { TopicService } from '../../topic/topic.service';
 import { PostRequest } from '../post-request';
 
 @Component({
