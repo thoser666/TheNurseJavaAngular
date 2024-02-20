@@ -18,7 +18,7 @@ export class CreateTopicComponent implements OnInit {
   constructor(
     private topicService: TopicService,
     private router: Router,
-    private modals: Modals
+    private modals: Modals,
   ) {
     this.topicModel = {
       id: 0,
