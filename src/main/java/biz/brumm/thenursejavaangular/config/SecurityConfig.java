@@ -98,8 +98,8 @@ public class SecurityConfig{
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer() {
         return (web) -> web
-                .ignoring()
-                .antMatchers(HttpMethod.OPTIONS, "/**");
+                .ignoring();
+//                .antMatchers(HttpMethod.OPTIONS, "/**");
     }
 
     @Bean(BeanIds.AUTHENTICATION_MANAGER)
