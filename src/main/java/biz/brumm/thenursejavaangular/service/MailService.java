@@ -14,7 +14,7 @@ import biz.brumm.thenursejavaangular.model.VerificationEmail;
 @AllArgsConstructor
 public class MailService {
 
-    private final JavaMailSender mailSender;
+    public final JavaMailSender mailSender;
 
     @Async
     public void sendMail(VerificationEmail verificationEmail) {
