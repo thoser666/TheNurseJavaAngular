@@ -35,7 +35,7 @@ export class ChatComponent implements OnInit, OnChanges {
     private stomp: StompService,
     private chatService: ChatService,
     private activatedRoute: ActivatedRoute,
-    private authService: AuthService
+    private authService: AuthService,
   ) {
     this.chat = new FormGroup({
       messageToSend: new FormControl(''),
@@ -63,7 +63,7 @@ export class ChatComponent implements OnInit, OnChanges {
         } else {
           this.callParent.emit('');
         }
-      }
+      },
     );
   }
   getAllMessagesFromChat() {
