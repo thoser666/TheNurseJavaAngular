@@ -1,89 +1,113 @@
 package biz.brumm.thenursejavaangular.controller;
 
-import biz.brumm.thenursejavaangular.entity.Mandant;
-import biz.brumm.thenursejavaangular.service.IMandantService;
-import jakarta.validation.Valid;
-import java.net.URI;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.FieldError;
-import org.springframework.validation.ObjectError;
-import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+import biz.brumm.thenursejavaangular.dto.ReportedUserDto;
+import biz.brumm.thenursejavaangular.dto.UserDto;
+import biz.brumm.thenursejavaangular.exception.ErrorResponse;
+import biz.brumm.thenursejavaangular.exception.MyRuntimeException;
+import biz.brumm.thenursejavaangular.service.AuthService;
+import biz.brumm.thenursejavaangular.service.UserService;
 
+import java.util.List;
+
+/**
+ * @author UrosVesic
+ */
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@RequestMapping("/api/user")
+@AllArgsConstructor
 public class UserController {
-  private final IMandantService service;
 
-  public UserController(IMandantService service) {
-    this.service = service;
-  }
+    private UserService userService;
+    private AuthService authService;
 
-  @GetMapping
-  public ResponseEntity<List<Mandant>> findAll() {
-    List<Mandant> items = service.findAll();
-    return ResponseEntity.ok().body(items);
-  }
+    @PostMapping(value = "/follow/{username}")
+    public ResponseEntity follow(@PathVariable String username){
+        userService.follow(username);
+        return new ResponseEntity<>( HttpStatus.CREATED);
+    }
 
-  @GetMapping("/{id}")
-  public ResponseEntity<Mandant> find(@PathVariable("id") Long id) {
-    Optional<Mandant> item = service.find(id);
-    return ResponseEntity.of(item);
-  }
+    @PostMapping("/{username}/assign/{rolename}")
+    public ResponseEntity assignRole(@PathVariable String username,@PathVariable String rolename){
+        userService.assignRole(username,rolename);
+        return new ResponseEntity(HttpStatus.OK);
+    }
 
-  @PostMapping
-  public ResponseEntity<Mandant> create(@Valid @RequestBody Mandant item) {
-    Mandant created = service.create(item);
-    URI location =
-        ServletUriComponentsBuilder.fromCurrentRequest()
-            .path("/{id}")
-            .buildAndExpand(created.getId())
-            .toUri();
-    return ResponseEntity.created(location).body(created);
-  }
+    @PostMapping("/unfollow/{username}")
+    public ResponseEntity unfollow(@PathVariable String username){
+        userService.unfollow(authService.getCurrentUser(), username);
+        return new ResponseEntity<>( HttpStatus.CREATED);
+    }
+    @DeleteMapping("/{idFollowing}/unfollow/{idFollowed}")
+    public ResponseEntity unfollow(@PathVariable Long idFollowing,@PathVariable Long idFollowed){
+        userService.unfollow(idFollowing,idFollowed);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 
-  @PutMapping("/{id}")
-  public ResponseEntity<Mandant> update(
-      @PathVariable("id") Long id, @Valid @RequestBody Mandant updatedItem) {
 
-    Optional<Mandant> updated = service.update(id, updatedItem);
 
-    return updated
-        .map(value -> ResponseEntity.ok().body(value))
-        .orElseGet(
-            () -> {
-              Mandant created = service.create(updatedItem);
-              URI location =
-                  ServletUriComponentsBuilder.fromCurrentRequest()
-                      .path("/{id}")
-                      .buildAndExpand(created.getId())
-                      .toUri();
-              return ResponseEntity.created(location).body(created);
-            });
-  }
+    @GetMapping("/{id}")
+    public ResponseEntity<UserDto> getUser(@PathVariable Long id){
+        UserDto userDto = userService.getUser(id);
+        return new ResponseEntity<>(userDto,HttpStatus.OK);
+    }
 
-  @DeleteMapping("/{id}")
-  public ResponseEntity<Mandant> delete(@PathVariable("id") Long id) {
-    service.delete(id);
-    return ResponseEntity.noContent().build();
-  }
+   /* @GetMapping("/followers/{userId}")
+    public ResponseEntity<List<UserDto>> getAllFollowersForUser(@PathVariable Long userId){
+        return new ResponseEntity<>(userService.getAllFollowersForUser(userId),HttpStatus.OK);
+    }*/
 
-  @ExceptionHandler(MethodArgumentNotValidException.class)
-  public ResponseEntity<Map<String, String>> handleValidationExceptions(
-      MethodArgumentNotValidException ex) {
-    List<ObjectError> errors = ex.getBindingResult().getAllErrors();
-    Map<String, String> map = new HashMap<>(errors.size());
-    errors.forEach(
-        (error) -> {
-          String key = ((FieldError) error).getField();
-          String val = error.getDefaultMessage();
-          map.put(key, val);
-        });
-    return ResponseEntity.badRequest().body(map);
-  }
+    @GetMapping("/profile-info/{username}")
+    public ResponseEntity<UserDto> getProfileInfo(@PathVariable String username){
+        UserDto userResponse=userService.getProfileInfo(username);
+        return new ResponseEntity<UserDto>(userResponse,HttpStatus.OK);
+    }
+    @GetMapping("/suggested")
+    public ResponseEntity<List<UserDto>> getAllSuggestedUsers(){
+        List<UserDto> users = userService.getAllSuggestedUsers();
+        return new ResponseEntity<>(users,HttpStatus.OK);
+    }
+
+    @GetMapping("/reported")
+    public ResponseEntity<List<ReportedUserDto>> getAllReportedUsers(){
+        List<ReportedUserDto> reportedUserDtos = userService.getReportedUsers();
+        return new ResponseEntity<>(reportedUserDtos,HttpStatus.OK);
+    }
+
+    @PatchMapping("/disable/{username}")
+    public ResponseEntity disableUser(@PathVariable String username){
+        userService.disableUser(username);
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
+    @PatchMapping("/enable/{username}")
+    public ResponseEntity enable(@PathVariable String username){
+        userService.enableUser(username);
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
+    @GetMapping("/followers/{username}")
+    public ResponseEntity<List<UserDto>> getAllFollowersForUser(@PathVariable String username){
+        return new ResponseEntity<>(userService.getAllFollowersForUser(username),HttpStatus.OK);
+    }
+
+    @GetMapping("/following/{username}")
+    public ResponseEntity<List<UserDto>> getAllFollowingForUser(@PathVariable String username){
+        return new ResponseEntity<>(userService.getAllFollowingForUser(username),HttpStatus.OK);
+    }
+
+    @PatchMapping
+    public ResponseEntity updateUser(@RequestBody UserDto userDto){
+        userService.updateUser(userDto);
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
+    @ExceptionHandler(MyRuntimeException.class)
+    public  ResponseEntity<ErrorResponse> handleMyRuntimeException(MyRuntimeException ex){
+        ErrorResponse error = new ErrorResponse(ex.getMessage());
+        return new ResponseEntity<>(error,HttpStatus.BAD_REQUEST);
+    }
 }
