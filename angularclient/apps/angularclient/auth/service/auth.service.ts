@@ -27,7 +27,7 @@ export class AuthService {
     private localStorage: LocalStorageService
   ) {}
 
-  signup(signupRequestPayload: SignupRequestPaylaod): Observable<any> {
+  signup(signupRequestPayload: SignupRequestPaylaod): Observable<unknown> {
     return this.httpClient.post(
       this.baseUrl + 'api/auth/signup',
       signupRequestPayload,
