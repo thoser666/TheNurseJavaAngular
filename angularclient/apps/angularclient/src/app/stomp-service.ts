@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import * as SockJS from 'sockjs-client';
+import SockJS from 'sockjs-client';
 import { environment } from '../../environments/environment';
 import * as Stomp from 'stompjs';
 
@@ -7,7 +7,7 @@ import * as Stomp from 'stompjs';
   providedIn: 'root',
 })
 export class StompService {
-  private connecting: boolean = false;
+  private connecting = false;
   private topicQueue: any[] = [];
   baseUrl = environment.baseUrl;
 
@@ -47,9 +47,11 @@ export class StompService {
     });
   }
 
-  private subscribeToTopic(topic: string, callback: any): void {
-    this.stompClient.subscribe(topic, (response?: string): any => {
-      callback(response);
-    });
-  }
+   private subscribeToTopic(topic: string, callback: any): void {
+     this.stompClient.subscribe(topic, (response?: string): any => {
+       callback(response);
+     });
+   }
+
+
 }
