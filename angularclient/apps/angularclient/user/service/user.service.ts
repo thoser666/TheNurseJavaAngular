@@ -14,14 +14,14 @@ export class UserService {
 
   getProfileInfo(username: string): Observable<UserModel> {
     return this.http.get<UserModel>(
-      this.baseUrl + 'api/user/profile-info/' + username
+      this.baseUrl + 'api/user/profile-info/' + username,
     );
   }
 
   follow(username: String): Observable<any> {
     return this.http.post(
       this.baseUrl + 'api/user/follow/' + username,
-      username
+      username,
     );
   }
 
@@ -35,13 +35,13 @@ export class UserService {
 
   getAllFollowersForUser(username: string): Observable<UserModel[]> {
     return this.http.get<UserModel[]>(
-      this.baseUrl + 'api/user/followers/' + username
+      this.baseUrl + 'api/user/followers/' + username,
     );
   }
 
   getAllFollowingForUser(username: string): Observable<UserModel[]> {
     return this.http.get<UserModel[]>(
-      this.baseUrl + 'api/user/following/' + username
+      this.baseUrl + 'api/user/following/' + username,
     );
   }
 
@@ -51,7 +51,7 @@ export class UserService {
 
   getReportedUsers(): Observable<Array<ReportedUserModel>> {
     return this.http.get<Array<ReportedUserModel>>(
-      this.baseUrl + 'api/user/reported'
+      this.baseUrl + 'api/user/reported',
     );
   }
 

@@ -16,7 +16,7 @@ export class CommentService {
   }
   getAllCommentsForPost(postId: number): Observable<CommentModel[]> {
     return this.httpClient.get<CommentModel[]>(
-      this.baseUrl + 'api/comment/' + postId
+      this.baseUrl + 'api/comment/' + postId,
     );
   }
 

@@ -24,7 +24,7 @@ export class UserProfileComponent implements OnInit {
     private postService: PostService,
     private authService: AuthService,
     private userService: UserService,
-    private router: Router
+    private router: Router,
   ) {
     this.userModel = {
       created: '',
