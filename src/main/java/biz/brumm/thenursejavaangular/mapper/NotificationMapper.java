@@ -2,6 +2,8 @@ package biz.brumm.thenursejavaangular.mapper;
 
 
 import biz.brumm.thenursejavaangular.dto.NotificationDto;
+import biz.brumm.thenursejavaangular.model.Notification;
+import biz.brumm.thenursejavaangular.model.NotificationType;
 
 /**
  * @author UrosVesic

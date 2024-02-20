@@ -1,5 +1,9 @@
 package biz.brumm.thenursejavaangular.config;
 
+import biz.brumm.thenursejavaangular.mapper.*;
+import biz.brumm.thenursejavaangular.repository.*;
+import biz.brumm.thenursejavaangular.service.AuthService;
+import biz.brumm.thenursejavaangular.websockettest.UserHandshakeHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

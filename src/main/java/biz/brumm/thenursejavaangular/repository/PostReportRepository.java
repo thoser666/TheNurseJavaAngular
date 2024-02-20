@@ -1,5 +1,6 @@
 package biz.brumm.thenursejavaangular.repository;
 
+import biz.brumm.thenursejavaangular.model.*;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
