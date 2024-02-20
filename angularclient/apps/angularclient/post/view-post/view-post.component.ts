@@ -22,7 +22,7 @@ export class ViewPostComponent implements OnInit {
   commentForm: FormGroup;
   commentModel: CommentModel;
   comments: CommentModel[] = [];
-  postOwnedByLoggedUser: boolean = false;
+  postOwnedByLoggedUser = false;
   reportPayload: ReportPayload;
 
   constructor(
@@ -32,7 +32,7 @@ export class ViewPostComponent implements OnInit {
     private authService: AuthService,
     private router: Router,
     private reportService: ReportService,
-    private modals: Modals
+    private modals: Modals,
   ) {
     this.commentForm = new FormGroup({
       text: new FormControl('', Validators.required),

@@ -26,7 +26,7 @@ import { Frame } from './websocket-mess';
 })
 export class ChatComponent implements OnInit, OnChanges {
   messages: MessageDto[] = [];
-  @Input() username: string = '';
+  @Input() username = '';
   chat: FormGroup;
   @Output() callParent = new EventEmitter();
   @Output() read = new EventEmitter<string>();
