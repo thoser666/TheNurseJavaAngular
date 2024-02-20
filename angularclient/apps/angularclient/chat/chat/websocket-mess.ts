@@ -1,3 +1,3 @@
 export class Frame {
-  body: string = '';
+  body = '';
 }

@@ -21,13 +21,13 @@ export class UpdatePostComponent implements OnInit {
   topics: Array<TopicModel> = [];
   @Input() postRequest: PostRequest;
   postModel: PostModel;
-  id: number = 0;
+  id = 0;
   constructor(
     private router: Router,
     private topicService: TopicService,
     private postService: PostService,
     private actRoute: ActivatedRoute,
-    private authService: AuthService
+    private authService: AuthService,
   ) {
     this.postModel = {
       commentCount: 0,
@@ -89,7 +89,7 @@ export class UpdatePostComponent implements OnInit {
     this.postService.updatePost(this.postRequest, this.id).subscribe({
       next: (data) => {
         this.router.navigateByUrl(
-          '/user-profile/' + this.authService.getUserName()
+          '/user-profile/' + this.authService.getUserName(),
         );
         console.log(data);
       },

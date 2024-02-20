@@ -1,6 +1,6 @@
 export class NotificationModel {
-  id: number = 0;
-  postId: number = 0;
-  message: string = '';
-  read: boolean = false;
+  id = 0;
+  postId = 0;
+  message = '';
+  read = false;
 }

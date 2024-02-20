@@ -24,7 +24,7 @@ export class TopicPostsComponent implements OnInit {
   faThumbsDown = faThumbsDown;
   faComments = faComments;
   reportPayload: ReportPayload;
-  topicName: string = '';
+  topicName = '';
 
   constructor(
     private router: Router,
@@ -32,7 +32,7 @@ export class TopicPostsComponent implements OnInit {
     private postService: PostService,
     private reportService: ReportService,
     private activatedRoute: ActivatedRoute,
-    private modals: Modals
+    private modals: Modals,
   ) {
     this.reportPayload = {
       postId: 0,

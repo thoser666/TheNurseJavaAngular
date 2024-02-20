@@ -10,7 +10,7 @@ import { TopicService } from '../topic.service';
 })
 export class ListTopicsComponent implements OnInit {
   topics: Array<TopicModel> = [];
-  searchText: string = '';
+  searchText = '';
 
   constructor(private topicService: TopicService) {}
 

@@ -11,12 +11,12 @@ import { ReportedUserModel } from './reported-user-model';
 })
 export class ReportedUsersComponent implements OnInit {
   users: ReportedUserModel[] = [];
-  username: string = '';
-  searchText: string = '';
+  username = '';
+  searchText = '';
 
   constructor(
     private userService: UserService,
-    private authService: AuthService
+    private authService: AuthService,
   ) {
     this.getReportedUsers();
   }

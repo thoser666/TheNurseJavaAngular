@@ -28,7 +28,7 @@ export class SolvedReportedPostComponent implements OnInit {
     private authService: AuthService,
     private postService: PostService,
     private reportService: ReportService,
-    private modals: Modals
+    private modals: Modals,
   ) {
     this.postService.getAllSolvedReportedPosts().subscribe({
       next: (data) => ((this.posts = data), console.log(this.posts)),

@@ -10,24 +10,27 @@ import { NotificationModel } from './notification-model';
 })
 export class NotificationService {
   baseUrl = environment.baseUrl;
-  constructor(private http: HttpClient, private authService: AuthService) {}
+  constructor(
+    private http: HttpClient,
+    private authService: AuthService,
+  ) {}
 
   getLastNotification(): Observable<NotificationModel> {
     return this.http.get<NotificationModel>(
-      this.baseUrl + 'api/notification/last/' + this.authService.getUserName()
+      this.baseUrl + 'api/notification/last/' + this.authService.getUserName(),
     );
   }
 
   getAllNotifications(): Observable<Array<NotificationModel>> {
     return this.http.get<Array<NotificationModel>>(
-      this.baseUrl + 'api/notification/all'
+      this.baseUrl + 'api/notification/all',
     );
   }
 
   markAsRead(n: NotificationModel): Observable<any> {
     return this.http.patch(
       this.baseUrl + 'api/notification/mark-as-read/' + n.id,
-      ''
+      '',
     );
   }
 }
