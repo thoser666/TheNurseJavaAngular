@@ -12,10 +12,10 @@ import { ChatService } from '../../service/chat.service';
   styleUrls: ['./inbox.component.css'],
 })
 export class InboxComponent implements OnInit {
-  username: string = '';
+  username = '';
   inboxMessages: InboxMessage[] = [];
   msg: MessageDto;
-  enteredValue: string = '';
+  enteredValue = '';
   users: UserModel[] = [];
 
   constructor(

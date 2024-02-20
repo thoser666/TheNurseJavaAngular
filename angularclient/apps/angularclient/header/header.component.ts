@@ -29,8 +29,8 @@ export class HeaderComponent implements OnInit {
   isLoggedIn: boolean;
   username: string;
   notifications: NotificationModel[] = [];
-  notification_count: number = 0;
-  message_count: number = 0;
+  notification_count = 0;
+  message_count = 0;
 
   constructor(
     private authService: AuthService,

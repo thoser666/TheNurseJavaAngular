@@ -11,9 +11,9 @@ import { UserModel } from '../user-model';
 })
 export class AllUsersComponent implements OnInit {
   users: UserModel[] = [];
-  param: string = '';
-  username: string = '';
-  searchText: string = '';
+  param = '';
+  username = '';
+  searchText = '';
 
   constructor(
     private userService: UserService,

@@ -21,7 +21,7 @@ export class UpdatePostComponent implements OnInit {
   topics: Array<TopicModel> = [];
   @Input() postRequest: PostRequest;
   postModel: PostModel;
-  id: number = 0;
+  id = 0;
   constructor(
     private router: Router,
     private topicService: TopicService,

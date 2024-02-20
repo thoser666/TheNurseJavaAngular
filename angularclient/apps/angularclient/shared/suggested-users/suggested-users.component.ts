@@ -16,7 +16,7 @@ import { UserModel } from '../../user/user-model';
 })
 export class SuggestedUsersComponent implements OnChanges {
   users: UserModel[] = [];
-  displayViewAll: boolean = false;
+  displayViewAll = false;
 
   constructor(private userService: UserService) {
     this.userService.getAllSuggestedUsers().subscribe((data) => {

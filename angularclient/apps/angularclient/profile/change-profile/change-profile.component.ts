@@ -15,7 +15,7 @@ import { AuthService } from '../../auth/service/auth.service';
 export class ChangeProfileComponent implements OnInit {
   faUser = faUser;
   user: UserModel;
-  username: string = '';
+  username = '';
   changeProfileForm: FormGroup;
 
   constructor(

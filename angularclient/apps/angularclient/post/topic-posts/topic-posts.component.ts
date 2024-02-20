@@ -24,7 +24,7 @@ export class TopicPostsComponent implements OnInit {
   faThumbsDown = faThumbsDown;
   faComments = faComments;
   reportPayload: ReportPayload;
-  topicName: string = '';
+  topicName = '';
 
   constructor(
     private router: Router,

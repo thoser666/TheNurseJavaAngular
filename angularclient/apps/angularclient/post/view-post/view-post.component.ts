@@ -22,7 +22,7 @@ export class ViewPostComponent implements OnInit {
   commentForm: FormGroup;
   commentModel: CommentModel;
   comments: CommentModel[] = [];
-  postOwnedByLoggedUser: boolean = false;
+  postOwnedByLoggedUser = false;
   reportPayload: ReportPayload;
 
   constructor(

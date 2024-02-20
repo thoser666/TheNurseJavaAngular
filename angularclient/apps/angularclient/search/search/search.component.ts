@@ -8,7 +8,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 })
 export class SearchComponent implements OnInit {
   faSearch = faSearch;
-  enteredValue: string = '';
+  enteredValue = '';
   @Output()
   searchTextChanged: EventEmitter<string> = new EventEmitter<string>();
 
