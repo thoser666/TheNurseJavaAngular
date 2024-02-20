@@ -1,5 +1,5 @@
 export class ReportedUserModel {
-  username: string = '';
-  numberOfViolations: number = 0;
-  enabled: boolean = true;
+  username = '';
+  numberOfViolations = 0;
+  enabled = true;
 }
