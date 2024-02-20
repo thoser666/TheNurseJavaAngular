@@ -65,6 +65,7 @@ import { TopicPostsComponent } from '../../post/topic-posts/topic-posts.componen
     ChatComponent,
     InboxComponent,
     TopicPostsComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -79,6 +80,9 @@ import { TopicPostsComponent } from '../../post/topic-posts/topic-posts.componen
     BrowserAnimationsModule,
     FormsModule,
     LoginComponent
+  ],
+  exports: [
+    HeaderComponent,
   ],
   providers: [
     {
