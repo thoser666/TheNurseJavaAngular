@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
   loginRequestPayload: LoginRequestPayload;
   registerSuccessMessage: string;
   isError: boolean;
-  showMessage: boolean = false;
+  showMessage = false;
 
   constructor(
     private authService: AuthService,
