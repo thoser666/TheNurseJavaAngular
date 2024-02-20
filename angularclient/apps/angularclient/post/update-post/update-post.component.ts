@@ -2,13 +2,13 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { throwError } from 'rxjs';
-import { AuthService } from 'src/app/auth/service/auth.service';
-import { CommentModel } from 'src/app/comment/comment-model';
-import { CommentService } from 'src/app/comment/comment.service';
-import { PostModel } from 'src/app/post/post-model';
-import { PostService } from 'src/app/post/service/post.service';
-import { TopicModel } from 'src/app/topic/topic-model';
-import { TopicService } from 'src/app/topic/topic.service';
+import { AuthService } from '../../auth/service/auth.service';
+import { CommentModel } from '../../comment/comment-model';
+import { CommentService } from '../../comment/comment.service';
+import { PostModel } from '../post-model';
+import { PostService } from '../service/post.service';
+import { TopicModel } from '../../topic/topic-model';
+import { TopicService } from '../../topic/topic.service';
 import { PostRequest } from '../post-request';
 
 @Component({

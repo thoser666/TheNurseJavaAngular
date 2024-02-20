@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable, Output } from '@angular/core';
 import { BehaviorSubject, map, Observable } from 'rxjs';
-import { ReportedUserModel } from 'src/app/user/reported-users/reported-user-model';
-import { environment } from 'src/environments/environment';
+import { ReportedUserModel } from '../reported-users/reported-user-model';
+import { environment } from '../../environments/environment';
 import { UserModel } from '../user-model';
 
 @Injectable({

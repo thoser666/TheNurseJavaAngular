@@ -2,15 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { throwError } from 'rxjs';
-import { AuthService } from 'src/app/auth/service/auth.service';
-import { CommentModel } from 'src/app/comment/comment-model';
-import { CommentService } from 'src/app/comment/comment.service';
-import { Modals } from 'src/app/modals';
-import { PostModel } from 'src/app/post/post-model';
-import { PostService } from 'src/app/post/service/post.service';
-import { ReportPayload } from 'src/app/report/report-payload';
-import { ReportType } from 'src/app/report/report-type';
-import { ReportService } from 'src/app/report/report.service';
+import { AuthService } from '../../auth/service/auth.service';
+import { CommentModel } from '../../comment/comment-model';
+import { CommentService } from '../../comment/comment.service';
+import { Modals } from '../../modals';
+import { PostModel } from '../post-model';
+import { PostService } from '../service/post.service';
+import { ReportPayload } from '../../report/report-payload';
+import { ReportType } from '../../report/report-type';
+import { ReportService } from '../../report/report.service';
 
 @Component({
   selector: 'app-view-post',

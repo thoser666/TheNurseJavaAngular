@@ -5,11 +5,11 @@ import {
   faThumbsDown,
   faThumbsUp,
 } from '@fortawesome/free-solid-svg-icons';
-import { AuthService } from 'src/app/auth/service/auth.service';
-import { Modals } from 'src/app/modals';
-import { ReportPayload } from 'src/app/report/report-payload';
-import { ReportType } from 'src/app/report/report-type';
-import { ReportService } from 'src/app/report/report.service';
+import { AuthService } from '../../auth/service/auth.service';
+import { Modals } from '../../modals';
+import { ReportPayload } from '../../report/report-payload';
+import { ReportType } from '../../report/report-type';
+import { ReportService } from '../../report/report.service';
 import { PostModel } from '../post-model';
 import { PostService } from '../service/post.service';
 
