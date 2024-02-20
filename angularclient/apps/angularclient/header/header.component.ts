@@ -37,18 +37,17 @@ export class HeaderComponent implements OnInit {
     private router: Router,
     private stomp: StompService,
     private notificationService: NotificationService,
-    private chatService: ChatService
+    private chatService: ChatService,
   ) {
     this.username = '';
     this.isLoggedIn = this.authService.isLogged();
     if (this.isLoggedIn) {
       this.getNumberOfNewMsg();
-
     }
   }
 
   ngOnInit(): void {
-    console.log('reinicijalizacija headera')
+    console.log('reinicijalizacija headera');
     if (this.authService.isLogged()) {
       this.updateHeader(this.authService.isLogged());
       console.log('/topic/notification/' + this.authService.getUserName());
@@ -63,18 +62,17 @@ export class HeaderComponent implements OnInit {
           if (msg.body == 'message') {
             this.message_count++;
           }
-        }
+        },
       );
     }
     this.authService.loggedIn.subscribe(
-      (data: boolean) => ((this.isLoggedIn = data), this.updateHeader(data))
-
+      (data: boolean) => ((this.isLoggedIn = data), this.updateHeader(data)),
     );
     this.chatService.numberOfSeenMessages.subscribe(
-      (data: number) => (this.message_count = this.message_count - data)
+      (data: number) => (this.message_count = this.message_count - data),
     );
     this.authService.username.subscribe(
-      (data: string) => (this.username = data)
+      (data: string) => (this.username = data),
     );
 
     this.isLoggedIn = this.authService.isLogged();
