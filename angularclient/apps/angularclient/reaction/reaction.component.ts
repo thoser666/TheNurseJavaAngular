@@ -5,7 +5,7 @@ import {
   faThumbsUp,
 } from '@fortawesome/free-solid-svg-icons';
 import { throwError } from 'rxjs';
-import { PostModel } from 'src/app/post/post-model';
+import { PostModel } from '../post/post-model';
 import { PostService } from '../post/service/post.service';
 import { ReactionModel } from './reaction-model';
 import { ReactionType } from './reaction-type';

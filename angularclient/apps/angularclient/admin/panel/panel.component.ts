@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
-import { AuthService } from 'src/app/auth/service/auth.service';
-import { PostModel } from 'src/app/post/post-model';
-import { ReportedPostModel } from 'src/app/post/reported-post-model';
-import { PostService } from 'src/app/post/service/post.service';
-import { ReportService } from 'src/app/report/report.service';
+import { AuthService } from '../../auth/service/auth.service';
+import { PostModel } from '../../post/post-model';
+import { ReportedPostModel } from '../../post/reported-post-model';
+import { PostService } from '../../post/service/post.service';
+import { ReportService } from '../../report/report.service';
 
 @Component({
   selector: 'app-panel',

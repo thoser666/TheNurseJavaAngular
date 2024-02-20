@@ -2,8 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { AuthService } from 'src/app/auth/service/auth.service';
-import { environment } from 'src/environments/environment';
+import { AuthService } from '../../auth/service/auth.service';
+import { environment } from '../../environments/environment';
 import { ReactionModel } from '../reaction-model';
 
 @Injectable({

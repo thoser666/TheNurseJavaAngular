@@ -1,8 +1,8 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { AuthService } from 'src/app/auth/service/auth.service';
-import { UserService } from 'src/app/user/service/user.service';
-import { UserModel } from 'src/app/user/user-model';
-import { StompService } from 'src/app/stomp-service';
+import { AuthService } from '../../../auth/service/auth.service';
+import { UserService } from '../../../user/service/user.service';
+import { UserModel } from '../../../user/user-model';
+import { StompService } from '../../../src/app/stomp-service';
 import { MessageDto } from '../../chat/message';
 import { InboxMessage } from '../../inbox-message';
 import { ChatService } from '../../service/chat.service';

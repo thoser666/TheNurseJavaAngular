@@ -4,9 +4,9 @@ import {
   faCircleCheck,
   faTriangleExclamation,
 } from '@fortawesome/free-solid-svg-icons';
-import { AuthService } from 'src/app/auth/service/auth.service';
-import { ReportedPostModel } from 'src/app/post/reported-post-model';
-import { PostService } from 'src/app/post/service/post.service';
+import { AuthService } from '../../auth/service/auth.service';
+import { ReportedPostModel } from '../../post/reported-post-model';
+import { PostService } from '../../post/service/post.service';
 import { ReportStatus } from '../report-status';
 import { ReportService } from '../report.service';
 

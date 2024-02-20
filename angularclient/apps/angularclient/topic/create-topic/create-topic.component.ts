@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { throwError } from 'rxjs';
-import { Modals } from 'src/app/modals';
+import { Modals } from '../../modals';
 import { TopicModel } from '../topic-model';
 import { TopicService } from '../topic.service';
 
