@@ -22,7 +22,7 @@ export class ChangeProfileComponent implements OnInit {
     private userService: UserService,
     private actRoute: ActivatedRoute,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
   ) {
     this.changeProfileForm = new FormGroup({
       username: new FormControl('', Validators.required),
