@@ -12,7 +12,7 @@ import biz.brumm.thenursejavaangular.model.Message;
 import biz.brumm.thenursejavaangular.model.User;
 import biz.brumm.thenursejavaangular.repository.MessageRepository;
 
-import javax.transaction.Transactional;
+import jakarta.transaction.Transactional;
 import java.time.Instant;
 import java.util.Comparator;
 import java.util.List;

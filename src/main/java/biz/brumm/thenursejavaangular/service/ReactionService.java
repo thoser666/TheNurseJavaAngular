@@ -1,6 +1,7 @@
 package biz.brumm.thenursejavaangular.service;
 
 import biz.brumm.thenursejavaangular.dto.ReactionDto;
+import biz.brumm.thenursejavaangular.mapper.NotificationBuilder;
 import biz.brumm.thenursejavaangular.mapper.ReactionMapper;
 import biz.brumm.thenursejavaangular.model.Notification;
 import biz.brumm.thenursejavaangular.model.Reaction;

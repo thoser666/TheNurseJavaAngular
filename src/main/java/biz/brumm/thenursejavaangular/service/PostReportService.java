@@ -11,7 +11,7 @@ import biz.brumm.thenursejavaangular.model.ReportStatus;
 import biz.brumm.thenursejavaangular.repository.PostReportRepository;
 import biz.brumm.thenursejavaangular.repository.PostRepository;
 
-import javax.transaction.Transactional;
+import jakarta.transaction.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 

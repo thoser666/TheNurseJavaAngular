@@ -1,7 +1,19 @@
 package biz.brumm.thenursejavaangular.service;
 
+import biz.brumm.thenursejavaangular.dto.PostRequest;
+import biz.brumm.thenursejavaangular.dto.PostResponse;
+import biz.brumm.thenursejavaangular.dto.ReportedPostDto;
+import biz.brumm.thenursejavaangular.exception.MyRuntimeException;
+import biz.brumm.thenursejavaangular.mapper.PostMapper;
+import biz.brumm.thenursejavaangular.mapper.PostRequestMapper;
+import biz.brumm.thenursejavaangular.mapper.ReportedPostMapper;
 import biz.brumm.thenursejavaangular.model.Post;
+import biz.brumm.thenursejavaangular.model.PostReport;
+import biz.brumm.thenursejavaangular.model.ReportStatus;
+import biz.brumm.thenursejavaangular.model.User;
+import biz.brumm.thenursejavaangular.repository.PostReportRepository;
 import biz.brumm.thenursejavaangular.repository.PostRepository;
+import biz.brumm.thenursejavaangular.repository.TopicRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.context.ApplicationContext;
 import org.springframework.security.core.context.SecurityContextHolder;

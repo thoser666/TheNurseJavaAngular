@@ -1,10 +1,14 @@
 package biz.brumm.thenursejavaangular.service;
 
+import biz.brumm.thenursejavaangular.dto.ReportedUserDto;
 import biz.brumm.thenursejavaangular.dto.UserDto;
 import biz.brumm.thenursejavaangular.exception.MyRuntimeException;
-import biz.brumm.thenursejavaangular.model.Following;
-import biz.brumm.thenursejavaangular.model.User;
+import biz.brumm.thenursejavaangular.mapper.ReportedUserMapper;
+import biz.brumm.thenursejavaangular.mapper.UserMapper;
+import biz.brumm.thenursejavaangular.model.*;
+import biz.brumm.thenursejavaangular.model.idclasses.FollowingId;
 import biz.brumm.thenursejavaangular.repository.FollowRepository;
+import biz.brumm.thenursejavaangular.repository.PostReportRepository;
 import biz.brumm.thenursejavaangular.repository.RoleRepository;
 import biz.brumm.thenursejavaangular.repository.UserRepository;
 import biz.brumm.thenursejavaangular.service.AuthService;
@@ -28,8 +32,6 @@ public class UserService {
     private RoleRepository roleRepository;
     private FollowRepository followRepository;
     private UserMapper userMapper;
-    private AuthService authService;
-    private RoleRepository roleRepository;
     private PostReportRepository postReportRepository;
     private ReportedUserMapper reportedUserMapper;
 

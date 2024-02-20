@@ -1,5 +1,9 @@
 package biz.brumm.thenursejavaangular.controller;
 
+import biz.brumm.thenursejavaangular.dto.PostReportRequest;
+import biz.brumm.thenursejavaangular.exception.MyRuntimeException;
+import biz.brumm.thenursejavaangular.model.ReportStatus;
+import biz.brumm.thenursejavaangular.service.PostReportService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,7 +27,7 @@ public class PostReportController {
     }
 
     @PatchMapping("/change-status/{postId}")
-    public ResponseEntity changeReportStatus(@RequestBody ReportStatus reportStatus,@PathVariable Long postId){
+    public ResponseEntity changeReportStatus(@RequestBody ReportStatus reportStatus, @PathVariable Long postId){
         service.changeReportStatus(reportStatus,postId);
         return new ResponseEntity(HttpStatus.OK);
     }

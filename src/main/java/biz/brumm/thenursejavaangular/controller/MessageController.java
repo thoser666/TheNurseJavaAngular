@@ -11,7 +11,7 @@ import biz.brumm.thenursejavaangular.dto.MessageDto;
 import biz.brumm.thenursejavaangular.exception.MyRuntimeException;
 import biz.brumm.thenursejavaangular.service.MessageService;
 
-import javax.validation.Valid;
+import jakarta.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
 
