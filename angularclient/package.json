@@ -2,12 +2,14 @@
   "name": "@angularclient/source",
   "version": "0.0.1",
   "license": "MIT",
-  "scripts": {"ng": "ng",
+  "scripts": {
+    "ng": "ng",
     "heroku-postbuild": "ng build --configuration=production && npm install -g http-server-spa",
     "start": "http-server-spa dist/angular-social-network index.html $PORT",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "echo \"Error: no test specified\" && exit 1"},
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "~17.1.0",
@@ -21,6 +23,8 @@
     "@nx/angular": "18.0.4",
     "ngx-webstorage": "^13.0.1",
     "rxjs": "~7.8.0",
+    "sockjs-client": "^1.6.1",
+    "stompjs": "^2.3.3",
     "sweetalert2": "^11.10.5",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"
