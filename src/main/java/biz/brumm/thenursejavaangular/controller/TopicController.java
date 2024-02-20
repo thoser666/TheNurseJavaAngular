@@ -1,4 +1,4 @@
-package rs.ac.bg.fon.springsocialnetwork.controller;
+package biz.brumm.thenursejavaangular.controller;
 
 import lombok.AllArgsConstructor;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -6,9 +6,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-import rs.ac.bg.fon.springsocialnetwork.dto.TopicDto;
-import rs.ac.bg.fon.springsocialnetwork.model.Topic;
-import rs.ac.bg.fon.springsocialnetwork.service.TopicService;
+import biz.brumm.thenursejavaangular.dto.TopicDto;
+import biz.brumm.thenursejavaangular.model.Topic;
+import biz.brumm.thenursejavaangular.service.TopicService;
 
 import java.util.List;
 

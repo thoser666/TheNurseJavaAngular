@@ -1,15 +1,15 @@
-package rs.ac.bg.fon.springsocialnetwork.controller;
+package biz.brumm.thenursejavaangular.controller;
 
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import rs.ac.bg.fon.springsocialnetwork.dto.ReportedUserDto;
-import rs.ac.bg.fon.springsocialnetwork.dto.UserDto;
-import rs.ac.bg.fon.springsocialnetwork.exception.ErrorResponse;
-import rs.ac.bg.fon.springsocialnetwork.exception.MyRuntimeException;
-import rs.ac.bg.fon.springsocialnetwork.service.AuthService;
-import rs.ac.bg.fon.springsocialnetwork.service.UserService;
+import biz.brumm.thenursejavaangular.dto.ReportedUserDto;
+import biz.brumm.thenursejavaangular.dto.UserDto;
+import biz.brumm.thenursejavaangular.exception.ErrorResponse;
+import biz.brumm.thenursejavaangular.exception.MyRuntimeException;
+import biz.brumm.thenursejavaangular.service.AuthService;
+import biz.brumm.thenursejavaangular.service.UserService;
 
 import java.util.List;
 

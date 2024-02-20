@@ -1,11 +1,11 @@
-package rs.ac.bg.fon.springsocialnetwork.controller;
+package biz.brumm.thenursejavaangular.controller;
 
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import rs.ac.bg.fon.springsocialnetwork.dto.NotificationDto;
-import rs.ac.bg.fon.springsocialnetwork.service.NotificationService;
+import biz.brumm.thenursejavaangular.dto.NotificationDto;
+import biz.brumm.thenursejavaangular.service.NotificationService;
 
 import java.util.List;
 

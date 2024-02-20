@@ -7,8 +7,8 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
-import rs.ac.bg.fon.springsocialnetwork.exception.MyRuntimeException;
-import rs.ac.bg.fon.springsocialnetwork.model.VerificationEmail;
+import biz.brumm.thenursejavaangular.exception.MyRuntimeException;
+import biz.brumm.thenursejavaangular.model.VerificationEmail;
 
 @Service
 @AllArgsConstructor

@@ -1,9 +1,9 @@
-package rs.ac.bg.fon.springsocialnetwork.dto;
+package biz.brumm.thenursejavaangular.dto;
 
+import biz.brumm.thenursejavaangular.model.ReactionType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import rs.ac.bg.fon.springsocialnetwork.model.ReactionType;
 
 /**
  * @author UrosVesic

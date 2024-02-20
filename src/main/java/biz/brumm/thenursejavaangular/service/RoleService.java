@@ -1,9 +1,9 @@
-package rs.ac.bg.fon.springsocialnetwork.service;
+package biz.brumm.thenursejavaangular.service;
 
+import biz.brumm.thenursejavaangular.model.Role;
+import biz.brumm.thenursejavaangular.repository.RoleRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import rs.ac.bg.fon.springsocialnetwork.model.Role;
-import rs.ac.bg.fon.springsocialnetwork.repository.RoleRepository;
 
 /**
  * @author UrosVesic

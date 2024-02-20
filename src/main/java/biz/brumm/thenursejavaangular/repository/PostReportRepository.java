@@ -1,7 +1,6 @@
-package rs.ac.bg.fon.springsocialnetwork.repository;
+package biz.brumm.thenursejavaangular.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import rs.ac.bg.fon.springsocialnetwork.model.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -11,7 +10,7 @@ import java.util.Optional;
  */
 public interface PostReportRepository extends JpaRepository<PostReport,Long>,MyRepository {
 
-    @Override
+   // @Override
     default void deleteByParent(MyEntity parent) {
         deleteAllByPost((Post) parent);
     }

@@ -1,4 +1,4 @@
-package rs.ac.bg.fon.springsocialnetwork.service;
+package biz.brumm.thenursejavaangular.service;
 
 import lombok.AllArgsConstructor;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
@@ -6,11 +6,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-import rs.ac.bg.fon.springsocialnetwork.dto.NotificationDto;
-import rs.ac.bg.fon.springsocialnetwork.exception.MyRuntimeException;
-import rs.ac.bg.fon.springsocialnetwork.mapper.NotificationMapper;
-import rs.ac.bg.fon.springsocialnetwork.model.Notification;
-import rs.ac.bg.fon.springsocialnetwork.repository.NotificationRepository;
 
 import java.time.Instant;
 import java.util.Comparator;

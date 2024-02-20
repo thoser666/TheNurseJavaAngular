@@ -1,7 +1,7 @@
 package biz.brumm.thenursejavaangular.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import rs.ac.bg.fon.springsocialnetwork.model.VerificationToken;
+import biz.brumm.thenursejavaangular.model.VerificationToken;
 
 import java.util.Optional;
 

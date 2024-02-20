@@ -1,9 +1,9 @@
-package rs.ac.bg.fon.springsocialnetwork.model;
+package biz.brumm.thenursejavaangular.model;
 
+import biz.brumm.thenursejavaangular.repository.MyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
-import org.springframework.data.jpa.repository.JpaRepository;
-import rs.ac.bg.fon.springsocialnetwork.repository.MyRepository;
+import biz.brumm.thenursejavaangular.repository.MyRepository;
 
 import java.util.List;
 

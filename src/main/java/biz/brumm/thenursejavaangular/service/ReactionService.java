@@ -1,16 +1,13 @@
-package rs.ac.bg.fon.springsocialnetwork.service;
+package biz.brumm.thenursejavaangular.service;
 
+import biz.brumm.thenursejavaangular.dto.ReactionDto;
+import biz.brumm.thenursejavaangular.mapper.ReactionMapper;
+import biz.brumm.thenursejavaangular.model.Notification;
+import biz.brumm.thenursejavaangular.model.Reaction;
+import biz.brumm.thenursejavaangular.repository.ReactionRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import rs.ac.bg.fon.springsocialnetwork.dto.ReactionDto;
-import rs.ac.bg.fon.springsocialnetwork.mapper.NotificationBuilder;
-import rs.ac.bg.fon.springsocialnetwork.mapper.NotificationMapper;
-import rs.ac.bg.fon.springsocialnetwork.mapper.ReactionMapper;
-import rs.ac.bg.fon.springsocialnetwork.model.Notification;
-import rs.ac.bg.fon.springsocialnetwork.model.Reaction;
-import rs.ac.bg.fon.springsocialnetwork.repository.NotificationRepository;
-import rs.ac.bg.fon.springsocialnetwork.repository.ReactionRepository;
 
 import java.util.Optional;
 

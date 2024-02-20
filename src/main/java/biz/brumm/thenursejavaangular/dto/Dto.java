@@ -1,4 +1,4 @@
-package rs.ac.bg.fon.springsocialnetwork.dto;
+package biz.brumm.thenursejavaangular.dto;
 
 /**
  * @author UrosVesic

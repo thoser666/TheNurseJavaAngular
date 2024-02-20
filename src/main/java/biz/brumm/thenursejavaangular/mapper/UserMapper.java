@@ -1,9 +1,9 @@
-package rs.ac.bg.fon.springsocialnetwork.mapper;
+package biz.brumm.thenursejavaangular.mapper;
 
 import lombok.AllArgsConstructor;
-import rs.ac.bg.fon.springsocialnetwork.dto.UserDto;
-import rs.ac.bg.fon.springsocialnetwork.model.User;
-import rs.ac.bg.fon.springsocialnetwork.service.AuthService;
+import biz.brumm.thenursejavaangular.dto.UserDto;
+import biz.brumm.thenursejavaangular.model.User;
+import biz.brumm.thenursejavaangular.service.AuthService;
 
 /**
  * @author UrosVesic

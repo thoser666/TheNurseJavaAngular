@@ -1,20 +1,17 @@
-package rs.ac.bg.fon.springsocialnetwork.service;
+package biz.brumm.thenursejavaangular.service;
 
+import biz.brumm.thenursejavaangular.dto.UserDto;
+import biz.brumm.thenursejavaangular.exception.MyRuntimeException;
+import biz.brumm.thenursejavaangular.model.Following;
+import biz.brumm.thenursejavaangular.model.User;
+import biz.brumm.thenursejavaangular.repository.FollowRepository;
+import biz.brumm.thenursejavaangular.repository.RoleRepository;
+import biz.brumm.thenursejavaangular.repository.UserRepository;
+import biz.brumm.thenursejavaangular.service.AuthService;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import rs.ac.bg.fon.springsocialnetwork.dto.ReportedUserDto;
-import rs.ac.bg.fon.springsocialnetwork.dto.UserDto;
-import rs.ac.bg.fon.springsocialnetwork.exception.MyRuntimeException;
-import rs.ac.bg.fon.springsocialnetwork.mapper.ReportedUserMapper;
-import rs.ac.bg.fon.springsocialnetwork.mapper.UserMapper;
-import rs.ac.bg.fon.springsocialnetwork.model.*;
-import rs.ac.bg.fon.springsocialnetwork.model.idclasses.FollowingId;
-import rs.ac.bg.fon.springsocialnetwork.repository.FollowRepository;
-import rs.ac.bg.fon.springsocialnetwork.repository.PostReportRepository;
-import rs.ac.bg.fon.springsocialnetwork.repository.RoleRepository;
-import rs.ac.bg.fon.springsocialnetwork.repository.UserRepository;
 
 import java.time.Instant;
 import java.util.*;
@@ -27,6 +24,8 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 public class UserService {
     private UserRepository userRepository;
+    private AuthService authService;
+    private RoleRepository roleRepository;
     private FollowRepository followRepository;
     private UserMapper userMapper;
     private AuthService authService;

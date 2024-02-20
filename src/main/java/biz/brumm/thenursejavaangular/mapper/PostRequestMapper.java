@@ -1,10 +1,10 @@
-package rs.ac.bg.fon.springsocialnetwork.mapper;
+package biz.brumm.thenursejavaangular.mapper;
 
 import lombok.AllArgsConstructor;
-import rs.ac.bg.fon.springsocialnetwork.dto.PostRequest;
-import rs.ac.bg.fon.springsocialnetwork.exception.MyRuntimeException;
-import rs.ac.bg.fon.springsocialnetwork.model.Post;
-import rs.ac.bg.fon.springsocialnetwork.repository.TopicRepository;
+import biz.brumm.thenursejavaangular.dto.PostRequest;
+import biz.brumm.thenursejavaangular.exception.MyRuntimeException;
+import biz.brumm.thenursejavaangular.model.Post;
+import biz.brumm.thenursejavaangular.repository.TopicRepository;
 
 import java.time.Instant;
 

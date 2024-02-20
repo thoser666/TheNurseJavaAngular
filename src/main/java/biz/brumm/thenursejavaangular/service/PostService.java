@@ -1,26 +1,14 @@
-package rs.ac.bg.fon.springsocialnetwork.service;
+package biz.brumm.thenursejavaangular.service;
 
+import biz.brumm.thenursejavaangular.model.Post;
+import biz.brumm.thenursejavaangular.repository.PostRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.context.ApplicationContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
-import rs.ac.bg.fon.springsocialnetwork.dto.PostRequest;
-import rs.ac.bg.fon.springsocialnetwork.dto.PostResponse;
-import rs.ac.bg.fon.springsocialnetwork.dto.ReportedPostDto;
-import rs.ac.bg.fon.springsocialnetwork.exception.MyRuntimeException;
-import rs.ac.bg.fon.springsocialnetwork.mapper.PostRequestMapper;
-import rs.ac.bg.fon.springsocialnetwork.mapper.PostMapper;
-import rs.ac.bg.fon.springsocialnetwork.mapper.ReportedPostMapper;
-import rs.ac.bg.fon.springsocialnetwork.model.Post;
-import rs.ac.bg.fon.springsocialnetwork.model.PostReport;
-import rs.ac.bg.fon.springsocialnetwork.model.ReportStatus;
-import rs.ac.bg.fon.springsocialnetwork.model.User;
-import rs.ac.bg.fon.springsocialnetwork.repository.MyRepository;
-import rs.ac.bg.fon.springsocialnetwork.repository.PostReportRepository;
-import rs.ac.bg.fon.springsocialnetwork.repository.PostRepository;
-import rs.ac.bg.fon.springsocialnetwork.repository.TopicRepository;
 
-import javax.transaction.Transactional;
+
+import jakarta.transaction.Transactional;
 import java.time.Instant;
 import java.util.*;
 import java.util.stream.Collectors;

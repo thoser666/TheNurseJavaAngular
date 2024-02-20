@@ -1,14 +1,14 @@
-package rs.ac.bg.fon.springsocialnetwork.mapper;
+package biz.brumm.thenursejavaangular.mapper;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.ocpsoft.prettytime.PrettyTime;
-import rs.ac.bg.fon.springsocialnetwork.dto.ReportedPostDto;
-import rs.ac.bg.fon.springsocialnetwork.model.Post;
-import rs.ac.bg.fon.springsocialnetwork.model.PostReport;
-import rs.ac.bg.fon.springsocialnetwork.model.ReportStatus;
-import rs.ac.bg.fon.springsocialnetwork.repository.PostReportRepository;
+import biz.brumm.thenursejavaangular.dto.ReportedPostDto;
+import biz.brumm.thenursejavaangular.model.Post;
+import biz.brumm.thenursejavaangular.model.PostReport;
+import biz.brumm.thenursejavaangular.model.ReportStatus;
+import biz.brumm.thenursejavaangular.repository.PostReportRepository;
 
 import java.util.Optional;
 

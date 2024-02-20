@@ -1,5 +1,9 @@
 package biz.brumm.thenursejavaangular.controller;
 
+import biz.brumm.thenursejavaangular.dto.AuthResponse;
+import biz.brumm.thenursejavaangular.dto.LoginRequest;
+import biz.brumm.thenursejavaangular.dto.RegisterRequest;
+import biz.brumm.thenursejavaangular.service.AuthService;
 import lombok.AllArgsConstructor;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
@@ -8,10 +12,6 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
-import rs.ac.bg.fon.springsocialnetwork.dto.AuthResponse;
-import rs.ac.bg.fon.springsocialnetwork.dto.LoginRequest;
-import rs.ac.bg.fon.springsocialnetwork.dto.RegisterRequest;
-import rs.ac.bg.fon.springsocialnetwork.service.AuthService;
 
 import jakarta.validation.*;
 import java.util.List;

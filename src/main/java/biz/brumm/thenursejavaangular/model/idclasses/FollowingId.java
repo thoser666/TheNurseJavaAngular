@@ -1,12 +1,11 @@
-package rs.ac.bg.fon.springsocialnetwork.model.idclasses;
+package biz.brumm.thenursejavaangular.model.idclasses;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import rs.ac.bg.fon.springsocialnetwork.model.User;
 
-import javax.persistence.Embeddable;
-import javax.persistence.IdClass;
+import jakarta.persistence.Embeddable;
+import jakarta.persistence.IdClass;
 import java.io.Serializable;
 
 /**

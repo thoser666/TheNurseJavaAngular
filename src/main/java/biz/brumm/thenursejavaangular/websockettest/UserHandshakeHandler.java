@@ -1,5 +1,6 @@
-package rs.ac.bg.fon.springsocialnetwork.websockettest;
+package biz.brumm.thenursejavaangular.websockettest;
 
+import biz.brumm.thenursejavaangular.service.AuthService;
 import com.sun.security.auth.UserPrincipal;
 import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
@@ -10,10 +11,9 @@ import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.socket.WebSocketHandler;
 import org.springframework.web.socket.server.support.DefaultHandshakeHandler;
-import rs.ac.bg.fon.springsocialnetwork.model.User;
-import rs.ac.bg.fon.springsocialnetwork.service.AuthService;
 
-import javax.annotation.PostConstruct;
+
+import jakarta.annotation.PostConstruct;
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.Map;

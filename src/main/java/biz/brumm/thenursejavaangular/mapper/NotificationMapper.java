@@ -1,8 +1,7 @@
-package rs.ac.bg.fon.springsocialnetwork.mapper;
+package biz.brumm.thenursejavaangular.mapper;
 
-import rs.ac.bg.fon.springsocialnetwork.dto.NotificationDto;
-import rs.ac.bg.fon.springsocialnetwork.model.Notification;
-import rs.ac.bg.fon.springsocialnetwork.model.NotificationType;
+
+import biz.brumm.thenursejavaangular.dto.NotificationDto;
 
 /**
  * @author UrosVesic

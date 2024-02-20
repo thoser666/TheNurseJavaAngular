@@ -1,11 +1,11 @@
-package rs.ac.bg.fon.springsocialnetwork.model;
+package biz.brumm.thenursejavaangular.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import rs.ac.bg.fon.springsocialnetwork.model.idclasses.FollowingId;
+import biz.brumm.thenursejavaangular.model.idclasses.FollowingId;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.time.Instant;
 
 /**

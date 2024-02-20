@@ -1,4 +1,4 @@
-package rs.ac.bg.fon.springsocialnetwork.controller;
+package biz.brumm.thenursejavaangular.controller;
 
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -6,10 +6,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
-import rs.ac.bg.fon.springsocialnetwork.dto.InboxMessageDto;
-import rs.ac.bg.fon.springsocialnetwork.dto.MessageDto;
-import rs.ac.bg.fon.springsocialnetwork.exception.MyRuntimeException;
-import rs.ac.bg.fon.springsocialnetwork.service.MessageService;
+import biz.brumm.thenursejavaangular.dto.InboxMessageDto;
+import biz.brumm.thenursejavaangular.dto.MessageDto;
+import biz.brumm.thenursejavaangular.exception.MyRuntimeException;
+import biz.brumm.thenursejavaangular.service.MessageService;
 
 import javax.validation.Valid;
 import java.util.List;

@@ -1,8 +1,8 @@
-package rs.ac.bg.fon.springsocialnetwork.repository;
+package biz.brumm.thenursejavaangular.repository;
 
+import biz.brumm.thenursejavaangular.model.Following;
+import biz.brumm.thenursejavaangular.model.idclasses.FollowingId;
 import org.springframework.data.jpa.repository.JpaRepository;
-import rs.ac.bg.fon.springsocialnetwork.model.Following;
-import rs.ac.bg.fon.springsocialnetwork.model.idclasses.FollowingId;
 
 import java.util.List;
 import java.util.Optional;

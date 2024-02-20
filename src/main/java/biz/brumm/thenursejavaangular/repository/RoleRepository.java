@@ -1,8 +1,9 @@
 package biz.brumm.thenursejavaangular.repository;
 
 import java.util.Optional;
+
+import biz.brumm.thenursejavaangular.model.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
-import rs.ac.bg.fon.springsocialnetwork.model.Role;
 
 /**
  * @author UrosVesic

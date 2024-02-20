@@ -1,11 +1,8 @@
-package rs.ac.bg.fon.springsocialnetwork.config;
+package biz.brumm.thenursejavaangular.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import rs.ac.bg.fon.springsocialnetwork.mapper.*;
-import rs.ac.bg.fon.springsocialnetwork.repository.*;
-import rs.ac.bg.fon.springsocialnetwork.service.AuthService;
-import rs.ac.bg.fon.springsocialnetwork.websockettest.UserHandshakeHandler;
+
 
 /**
  * @author UrosVesic

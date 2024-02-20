@@ -1,9 +1,9 @@
-package rs.ac.bg.fon.springsocialnetwork.repository;
+package biz.brumm.thenursejavaangular.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import rs.ac.bg.fon.springsocialnetwork.model.Comment;
-import rs.ac.bg.fon.springsocialnetwork.model.MyEntity;
-import rs.ac.bg.fon.springsocialnetwork.model.Post;
+import biz.brumm.thenursejavaangular.model.Comment;
+import biz.brumm.thenursejavaangular.model.MyEntity;
+import biz.brumm.thenursejavaangular.model.Post;
 import java.util.List;
 
 /**

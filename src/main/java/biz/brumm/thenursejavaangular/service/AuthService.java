@@ -1,9 +1,19 @@
-package rs.ac.bg.fon.springsocialnetwork.service;
+package biz.brumm.thenursejavaangular.service;
 
+import biz.brumm.thenursejavaangular.config.AppConfig;
+import biz.brumm.thenursejavaangular.dto.AuthResponse;
+import biz.brumm.thenursejavaangular.dto.LoginRequest;
+import biz.brumm.thenursejavaangular.dto.RegisterRequest;
 import biz.brumm.thenursejavaangular.jwt.JwtProvider;
+import biz.brumm.thenursejavaangular.model.User;
+import biz.brumm.thenursejavaangular.model.Role;
+import biz.brumm.thenursejavaangular.model.VerificationEmail;
+import biz.brumm.thenursejavaangular.model.VerificationToken;
 import biz.brumm.thenursejavaangular.repository.RoleRepository;
 import biz.brumm.thenursejavaangular.repository.UserRepository;
 import biz.brumm.thenursejavaangular.repository.VerificationTokenRepository;
+import biz.brumm.thenursejavaangular.exception.MyRuntimeException;
+import biz.brumm.thenursejavaangular.service.MailService;
 import lombok.AllArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

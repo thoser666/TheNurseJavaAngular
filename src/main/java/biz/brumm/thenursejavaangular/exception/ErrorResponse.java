@@ -1,4 +1,4 @@
-package rs.ac.bg.fon.springsocialnetwork.exception;
+package biz.brumm.thenursejavaangular.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

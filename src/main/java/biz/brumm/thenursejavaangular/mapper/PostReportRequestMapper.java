@@ -1,13 +1,13 @@
-package rs.ac.bg.fon.springsocialnetwork.mapper;
+package biz.brumm.thenursejavaangular.mapper;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
-import rs.ac.bg.fon.springsocialnetwork.dto.PostReportRequest;
-import rs.ac.bg.fon.springsocialnetwork.model.PostReport;
-import rs.ac.bg.fon.springsocialnetwork.model.ReportStatus;
-import rs.ac.bg.fon.springsocialnetwork.repository.PostRepository;
-import rs.ac.bg.fon.springsocialnetwork.repository.UserRepository;
-import rs.ac.bg.fon.springsocialnetwork.service.AuthService;
+import biz.brumm.thenursejavaangular.dto.PostReportRequest;
+import biz.brumm.thenursejavaangular.model.PostReport;
+import biz.brumm.thenursejavaangular.model.ReportStatus;
+import biz.brumm.thenursejavaangular.repository.PostRepository;
+import biz.brumm.thenursejavaangular.repository.UserRepository;
+import biz.brumm.thenursejavaangular.service.AuthService;
 
 /**
  * @author UrosVesic

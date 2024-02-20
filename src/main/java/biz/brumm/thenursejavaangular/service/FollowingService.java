@@ -1,15 +1,15 @@
-package rs.ac.bg.fon.springsocialnetwork.service;
+package biz.brumm.thenursejavaangular.service;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import rs.ac.bg.fon.springsocialnetwork.dto.UserDto;
-import rs.ac.bg.fon.springsocialnetwork.mapper.UserMapper;
-import rs.ac.bg.fon.springsocialnetwork.model.Following;
-import rs.ac.bg.fon.springsocialnetwork.model.User;
-import rs.ac.bg.fon.springsocialnetwork.repository.FollowRepository;
-import rs.ac.bg.fon.springsocialnetwork.repository.UserRepository;
+import biz.brumm.thenursejavaangular.dto.UserDto;
+import biz.brumm.thenursejavaangular.mapper.UserMapper;
+import biz.brumm.thenursejavaangular.model.Following;
+import biz.brumm.thenursejavaangular.model.User;
+import biz.brumm.thenursejavaangular.repository.FollowRepository;
+import biz.brumm.thenursejavaangular.repository.UserRepository;
 
-import javax.transaction.Transactional;
+import jakarta.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;

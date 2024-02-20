@@ -1,20 +1,14 @@
-package rs.ac.bg.fon.springsocialnetwork.controller;
+package biz.brumm.thenursejavaangular.controller;
 
+import biz.brumm.thenursejavaangular.service.AuthService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
-import rs.ac.bg.fon.springsocialnetwork.dto.PostRequest;
-import rs.ac.bg.fon.springsocialnetwork.dto.PostResponse;
-import rs.ac.bg.fon.springsocialnetwork.dto.ReportedPostDto;
-import rs.ac.bg.fon.springsocialnetwork.exception.MyRuntimeException;
-import rs.ac.bg.fon.springsocialnetwork.model.User;
-import rs.ac.bg.fon.springsocialnetwork.service.AuthService;
-import rs.ac.bg.fon.springsocialnetwork.service.PostService;
 
-import javax.validation.Valid;
+import jakarta.validation.Valid;
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.List;
 import java.util.Set;

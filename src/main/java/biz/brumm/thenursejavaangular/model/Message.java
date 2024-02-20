@@ -1,4 +1,4 @@
-package rs.ac.bg.fon.springsocialnetwork.model;
+package biz.brumm.thenursejavaangular.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

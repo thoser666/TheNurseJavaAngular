@@ -1,11 +1,11 @@
-package rs.ac.bg.fon.springsocialnetwork.model;
+package biz.brumm.thenursejavaangular.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import java.time.Instant;
 import java.util.List;
 

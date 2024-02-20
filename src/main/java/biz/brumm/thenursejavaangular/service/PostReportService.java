@@ -1,15 +1,15 @@
-package rs.ac.bg.fon.springsocialnetwork.service;
+package biz.brumm.thenursejavaangular.service;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import rs.ac.bg.fon.springsocialnetwork.dto.PostReportRequest;
-import rs.ac.bg.fon.springsocialnetwork.exception.MyRuntimeException;
-import rs.ac.bg.fon.springsocialnetwork.mapper.PostReportRequestMapper;
-import rs.ac.bg.fon.springsocialnetwork.model.Post;
-import rs.ac.bg.fon.springsocialnetwork.model.PostReport;
-import rs.ac.bg.fon.springsocialnetwork.model.ReportStatus;
-import rs.ac.bg.fon.springsocialnetwork.repository.PostReportRepository;
-import rs.ac.bg.fon.springsocialnetwork.repository.PostRepository;
+import biz.brumm.thenursejavaangular.dto.PostReportRequest;
+import biz.brumm.thenursejavaangular.exception.MyRuntimeException;
+import biz.brumm.thenursejavaangular.mapper.PostReportRequestMapper;
+import biz.brumm.thenursejavaangular.model.Post;
+import biz.brumm.thenursejavaangular.model.PostReport;
+import biz.brumm.thenursejavaangular.model.ReportStatus;
+import biz.brumm.thenursejavaangular.repository.PostReportRepository;
+import biz.brumm.thenursejavaangular.repository.PostRepository;
 
 import javax.transaction.Transactional;
 import java.util.List;

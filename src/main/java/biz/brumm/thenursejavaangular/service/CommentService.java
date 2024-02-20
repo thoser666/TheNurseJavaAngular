@@ -1,15 +1,15 @@
-package rs.ac.bg.fon.springsocialnetwork.service;
+package biz.brumm.thenursejavaangular.service;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import rs.ac.bg.fon.springsocialnetwork.dto.CommentDto;
-import rs.ac.bg.fon.springsocialnetwork.mapper.CommentMapper;
-import rs.ac.bg.fon.springsocialnetwork.mapper.NotificationBuilder;
-import rs.ac.bg.fon.springsocialnetwork.model.Comment;
-import rs.ac.bg.fon.springsocialnetwork.model.Notification;
-import rs.ac.bg.fon.springsocialnetwork.repository.CommentRepository;
+import biz.brumm.thenursejavaangular.dto.CommentDto;
+import biz.brumm.thenursejavaangular.mapper.CommentMapper;
+import biz.brumm.thenursejavaangular.mapper.NotificationBuilder;
+import biz.brumm.thenursejavaangular.model.Comment;
+import biz.brumm.thenursejavaangular.model.Notification;
+import biz.brumm.thenursejavaangular.repository.CommentRepository;
 
-import javax.transaction.Transactional;
+import jakarta.transaction.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 

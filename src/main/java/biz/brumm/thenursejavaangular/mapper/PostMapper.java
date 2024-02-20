@@ -1,15 +1,8 @@
-package rs.ac.bg.fon.springsocialnetwork.mapper;
+package biz.brumm.thenursejavaangular.mapper;
 
 import lombok.AllArgsConstructor;
 import org.ocpsoft.prettytime.PrettyTime;
-import rs.ac.bg.fon.springsocialnetwork.dto.PostResponse;
-import rs.ac.bg.fon.springsocialnetwork.exception.MyRuntimeException;
-import rs.ac.bg.fon.springsocialnetwork.model.Post;
-import rs.ac.bg.fon.springsocialnetwork.model.Reaction;
-import rs.ac.bg.fon.springsocialnetwork.model.ReactionType;
-import rs.ac.bg.fon.springsocialnetwork.repository.CommentRepository;
-import rs.ac.bg.fon.springsocialnetwork.repository.ReactionRepository;
-import rs.ac.bg.fon.springsocialnetwork.service.AuthService;
+
 
 import java.util.List;
 import java.util.Optional;

@@ -1,12 +1,12 @@
-package rs.ac.bg.fon.springsocialnetwork.mapper;
+package biz.brumm.thenursejavaangular.mapper;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
-import rs.ac.bg.fon.springsocialnetwork.dto.InboxMessageDto;
-import rs.ac.bg.fon.springsocialnetwork.model.Message;
-import rs.ac.bg.fon.springsocialnetwork.model.User;
-import rs.ac.bg.fon.springsocialnetwork.repository.MessageRepository;
-import rs.ac.bg.fon.springsocialnetwork.service.AuthService;
+import biz.brumm.thenursejavaangular.dto.InboxMessageDto;
+import biz.brumm.thenursejavaangular.model.Message;
+import biz.brumm.thenursejavaangular.model.User;
+import biz.brumm.thenursejavaangular.repository.MessageRepository;
+import biz.brumm.thenursejavaangular.service.AuthService;
 
 import java.time.ZoneId;
 

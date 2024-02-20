@@ -1,4 +1,4 @@
-package rs.ac.bg.fon.springsocialnetwork.config;
+package biz.brumm.thenursejavaangular.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

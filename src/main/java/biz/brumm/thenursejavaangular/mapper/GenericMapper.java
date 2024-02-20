@@ -1,7 +1,8 @@
-package rs.ac.bg.fon.springsocialnetwork.mapper;
+package biz.brumm.thenursejavaangular.mapper;
 
-import rs.ac.bg.fon.springsocialnetwork.dto.Dto;
-import rs.ac.bg.fon.springsocialnetwork.model.MyEntity;
+
+import biz.brumm.thenursejavaangular.dto.Dto;
+import biz.brumm.thenursejavaangular.model.MyEntity;
 
 /**
  * @author UrosVesic

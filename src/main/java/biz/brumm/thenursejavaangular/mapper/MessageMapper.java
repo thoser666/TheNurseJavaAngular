@@ -1,10 +1,10 @@
-package rs.ac.bg.fon.springsocialnetwork.mapper;
+package biz.brumm.thenursejavaangular.mapper;
 
 import lombok.AllArgsConstructor;
-import rs.ac.bg.fon.springsocialnetwork.dto.MessageDto;
-import rs.ac.bg.fon.springsocialnetwork.exception.MyRuntimeException;
-import rs.ac.bg.fon.springsocialnetwork.model.Message;
-import rs.ac.bg.fon.springsocialnetwork.repository.UserRepository;
+import biz.brumm.thenursejavaangular.dto.MessageDto;
+import biz.brumm.thenursejavaangular.exception.MyRuntimeException;
+import biz.brumm.thenursejavaangular.model.Message;
+import biz.brumm.thenursejavaangular.repository.UserRepository;
 
 import java.time.Instant;
 import java.time.ZoneId;

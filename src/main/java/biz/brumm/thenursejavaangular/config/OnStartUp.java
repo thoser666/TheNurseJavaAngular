@@ -3,21 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package rs.ac.bg.fon.springsocialnetwork.config;
+package biz.brumm.thenursejavaangular.config;
 
 import lombok.AllArgsConstructor;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
-import rs.ac.bg.fon.springsocialnetwork.dto.RegisterRequest;
-import rs.ac.bg.fon.springsocialnetwork.model.Message;
-import rs.ac.bg.fon.springsocialnetwork.model.Role;
-import rs.ac.bg.fon.springsocialnetwork.repository.MessageRepository;
-import rs.ac.bg.fon.springsocialnetwork.repository.RoleRepository;
-import rs.ac.bg.fon.springsocialnetwork.repository.UserRepository;
-import rs.ac.bg.fon.springsocialnetwork.service.AuthService;
-import rs.ac.bg.fon.springsocialnetwork.service.RoleService;
-import rs.ac.bg.fon.springsocialnetwork.service.UserService;
+import biz.brumm.thenursejavaangular.dto.RegisterRequest;
+import biz.brumm.thenursejavaangular.model.Message;
+import biz.brumm.thenursejavaangular.model.Role;
+import biz.brumm.thenursejavaangular.repository.MessageRepository;
+import biz.brumm.thenursejavaangular.repository.RoleRepository;
+import biz.brumm.thenursejavaangular.repository.UserRepository;
+import biz.brumm.thenursejavaangular.service.AuthService;
+import biz.brumm.thenursejavaangular.service.RoleService;
+import biz.brumm.thenursejavaangular.service.UserService;
 
 import java.time.Instant;
 import java.util.List;

@@ -1,4 +1,4 @@
-package rs.ac.bg.fon.springsocialnetwork.config;
+package biz.brumm.thenursejavaangular.config;
 
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Configuration;

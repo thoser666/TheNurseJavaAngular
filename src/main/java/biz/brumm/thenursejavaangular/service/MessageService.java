@@ -1,16 +1,16 @@
-package rs.ac.bg.fon.springsocialnetwork.service;
+package biz.brumm.thenursejavaangular.service;
 
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
-import rs.ac.bg.fon.springsocialnetwork.dto.InboxMessageDto;
-import rs.ac.bg.fon.springsocialnetwork.dto.MessageDto;
-import rs.ac.bg.fon.springsocialnetwork.exception.MyRuntimeException;
-import rs.ac.bg.fon.springsocialnetwork.mapper.InboxMessageMapper;
-import rs.ac.bg.fon.springsocialnetwork.mapper.MessageMapper;
-import rs.ac.bg.fon.springsocialnetwork.model.Message;
-import rs.ac.bg.fon.springsocialnetwork.model.User;
-import rs.ac.bg.fon.springsocialnetwork.repository.MessageRepository;
+import biz.brumm.thenursejavaangular.dto.InboxMessageDto;
+import biz.brumm.thenursejavaangular.dto.MessageDto;
+import biz.brumm.thenursejavaangular.exception.MyRuntimeException;
+import biz.brumm.thenursejavaangular.mapper.InboxMessageMapper;
+import biz.brumm.thenursejavaangular.mapper.MessageMapper;
+import biz.brumm.thenursejavaangular.model.Message;
+import biz.brumm.thenursejavaangular.model.User;
+import biz.brumm.thenursejavaangular.repository.MessageRepository;
 
 import javax.transaction.Transactional;
 import java.time.Instant;

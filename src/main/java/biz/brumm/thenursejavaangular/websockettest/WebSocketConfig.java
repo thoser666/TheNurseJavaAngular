@@ -1,4 +1,4 @@
-package rs.ac.bg.fon.springsocialnetwork.websockettest;
+package biz.brumm.thenursejavaangular.websockettest;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.context.annotation.Configuration;

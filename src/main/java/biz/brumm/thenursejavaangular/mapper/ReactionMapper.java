@@ -1,12 +1,11 @@
-package rs.ac.bg.fon.springsocialnetwork.mapper;
+package biz.brumm.thenursejavaangular.mapper;
 
+import biz.brumm.thenursejavaangular.dto.ReactionDto;
+import biz.brumm.thenursejavaangular.exception.MyRuntimeException;
+import biz.brumm.thenursejavaangular.model.Reaction;
+import biz.brumm.thenursejavaangular.repository.PostRepository;
+import biz.brumm.thenursejavaangular.service.AuthService;
 import lombok.AllArgsConstructor;
-import rs.ac.bg.fon.springsocialnetwork.dto.ReactionDto;
-import rs.ac.bg.fon.springsocialnetwork.exception.MyRuntimeException;
-import rs.ac.bg.fon.springsocialnetwork.model.Reaction;
-import rs.ac.bg.fon.springsocialnetwork.repository.PostRepository;
-import rs.ac.bg.fon.springsocialnetwork.service.AuthService;
-import rs.ac.bg.fon.springsocialnetwork.service.PostService;
 
 /**
  * @author UrosVesic

@@ -1,4 +1,4 @@
-package rs.ac.bg.fon.springsocialnetwork.config;
+package biz.brumm.thenursejavaangular.config;
 
 import com.nimbusds.jose.jwk.JWK;
 import com.nimbusds.jose.jwk.JWKSet;

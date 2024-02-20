@@ -1,9 +1,9 @@
-package rs.ac.bg.fon.springsocialnetwork.dto;
+package biz.brumm.thenursejavaangular.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import rs.ac.bg.fon.springsocialnetwork.model.ReportStatus;
+import biz.brumm.thenursejavaangular.model.ReportStatus;
 
 /**
  * @author UrosVesic
