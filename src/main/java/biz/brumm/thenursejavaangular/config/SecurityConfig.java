@@ -16,8 +16,6 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
-import org.springframework.security.config.annotation.web.configurers.oauth2.server.resource.OAuth2ResourceServerConfigurer;
-import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -33,88 +31,85 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 @AllArgsConstructor
 @Configuration
-public class SecurityConfig{
+public class SecurityConfig {
 
-    private UserDetailsService userDetailsService;
-    private RsaKeyProperties rsaKeyProperties;
+  private UserDetailsService userDetailsService;
+  private RsaKeyProperties rsaKeyProperties;
 
+  @Bean
+  public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    //        http.cors().and()
+    //                .csrf().disable()
+    //                .authorizeHttpRequests()
+    //                        .antMatchers("/api/auth/**")
+    //                        .permitAll()
+    //                        .antMatchers(HttpMethod.OPTIONS,"/**")
+    //                        .permitAll()
+    //                        .antMatchers(HttpMethod.GET, "/api/topic/**")
+    //                        .permitAll()
+    //                        .antMatchers("/api/post/authAll")
+    //                        .hasAuthority("SCOPE_USER")
+    //                        .antMatchers(HttpMethod.GET, "/api/post/{id}")
+    //                        .permitAll()
+    //                        .antMatchers(HttpMethod.GET, "/api/post/all")
+    //                        .permitAll()
+    //                        .antMatchers("/api/post/secured/**")
+    //                        .hasAuthority("SCOPE_ADMIN")
+    //                        .antMatchers("/sba-websocket/**")
+    //                        .permitAll()
+    //                        .antMatchers(HttpMethod.GET, "/api/comment/**")
+    //                        .permitAll()
+    //                        .antMatchers(HttpMethod.GET, "/api/user/**")
+    //                        .permitAll()
+    //                        .antMatchers("/api/admin/**")
+    //                        .hasAuthority("SCOPE_ADMIN")
+    //                        .antMatchers("/api/role/**")
+    //                        .permitAll()
+    //                        .antMatchers("/api/user/{username}/assign/{rolename}")
+    //                        .permitAll()
+    //                        .antMatchers(HttpMethod.DELETE,"/api/user/**")
+    //                        .hasAuthority("SCOPE_ADMIN")
+    //                        .antMatchers("/api/message/**")
+    //                        .hasAuthority("SCOPE_USER")
+    //                        .anyRequest()
+    //                        .authenticated()
+    //                        .and().sessionManagement()
+    //                        .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+    //                        .and().oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt);
+    return http.build();
+  }
 
-    @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-//        http.cors().and()
-//                .csrf().disable()
-//                .authorizeHttpRequests()
-//                        .antMatchers("/api/auth/**")
-//                        .permitAll()
-//                        .antMatchers(HttpMethod.OPTIONS,"/**")
-//                        .permitAll()
-//                        .antMatchers(HttpMethod.GET, "/api/topic/**")
-//                        .permitAll()
-//                        .antMatchers("/api/post/authAll")
-//                        .hasAuthority("SCOPE_USER")
-//                        .antMatchers(HttpMethod.GET, "/api/post/{id}")
-//                        .permitAll()
-//                        .antMatchers(HttpMethod.GET, "/api/post/all")
-//                        .permitAll()
-//                        .antMatchers("/api/post/secured/**")
-//                        .hasAuthority("SCOPE_ADMIN")
-//                        .antMatchers("/sba-websocket/**")
-//                        .permitAll()
-//                        .antMatchers(HttpMethod.GET, "/api/comment/**")
-//                        .permitAll()
-//                        .antMatchers(HttpMethod.GET, "/api/user/**")
-//                        .permitAll()
-//                        .antMatchers("/api/admin/**")
-//                        .hasAuthority("SCOPE_ADMIN")
-//                        .antMatchers("/api/role/**")
-//                        .permitAll()
-//                        .antMatchers("/api/user/{username}/assign/{rolename}")
-//                        .permitAll()
-//                        .antMatchers(HttpMethod.DELETE,"/api/user/**")
-//                        .hasAuthority("SCOPE_ADMIN")
-//                        .antMatchers("/api/message/**")
-//                        .hasAuthority("SCOPE_USER")
-//                        .anyRequest()
-//                        .authenticated()
-//                        .and().sessionManagement()
-//                        .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-//                        .and().oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt);
-        return http.build();
-    }
+  @Bean
+  public JwtDecoder jwtDecoder() {
+    return NimbusJwtDecoder.withPublicKey(rsaKeyProperties.getPublicKey()).build();
+  }
 
-    @Bean
-    public JwtDecoder jwtDecoder(){
-        return NimbusJwtDecoder.withPublicKey(rsaKeyProperties.getPublicKey()).build();
-    }
+  @Bean
+  public JwtEncoder jwtEncoder() {
+    JWK jwk =
+        new RSAKey.Builder(rsaKeyProperties.getPublicKey())
+            .privateKey(rsaKeyProperties.getPrivateKey())
+            .build();
+    JWKSource<SecurityContext> jwks = new ImmutableJWKSet<>(new JWKSet(jwk));
+    return new NimbusJwtEncoder(jwks);
+  }
 
+  @Bean
+  public WebSecurityCustomizer webSecurityCustomizer() {
+    return (web) -> web.ignoring().antMatchers(HttpMethod.OPTIONS, "/**");
+  }
 
-    @Bean
-    public JwtEncoder jwtEncoder(){
-        JWK jwk  = new RSAKey.Builder(rsaKeyProperties.getPublicKey()).privateKey(rsaKeyProperties.getPrivateKey()).build();
-        JWKSource<SecurityContext> jwks = new ImmutableJWKSet<>(new JWKSet(jwk));
-        return new NimbusJwtEncoder(jwks);
-    }
+  @Bean(BeanIds.AUTHENTICATION_MANAGER)
+  public AuthenticationManager authManager(HttpSecurity http) throws Exception {
+    return http.getSharedObject(AuthenticationManagerBuilder.class)
+        .userDetailsService(userDetailsService)
+        .passwordEncoder(passwordEncoder())
+        .and()
+        .build();
+  }
 
-    @Bean
-    public WebSecurityCustomizer webSecurityCustomizer() {
-        return (web) -> web
-                .ignoring()
-                .antMatchers(HttpMethod.OPTIONS, "/**");
-    }
-
-    @Bean(BeanIds.AUTHENTICATION_MANAGER)
-    public AuthenticationManager authManager(HttpSecurity http)
-            throws Exception {
-        return http.getSharedObject(AuthenticationManagerBuilder.class)
-                .userDetailsService(userDetailsService)
-                .passwordEncoder(passwordEncoder())
-                .and()
-                .build();
-    }
-
-    @Bean
-    PasswordEncoder passwordEncoder(){
-        return new BCryptPasswordEncoder();
-    }
-
+  @Bean
+  PasswordEncoder passwordEncoder() {
+    return new BCryptPasswordEncoder();
+  }
 }
