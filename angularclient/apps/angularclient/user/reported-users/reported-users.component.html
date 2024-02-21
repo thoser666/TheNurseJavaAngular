@@ -4,7 +4,7 @@
   <div class="row" *ngFor="let user of users">
     <div class="col-md-6" *ngIf="searchMatch(user)">
       <a class="username" href="/user-profile/{{ user.username }}">
-        @{{ user.username }}</a
+        &#64;{{ user.username }}</a
       >
       <br />
       Number of violations: {{ user.numberOfViolations }}
