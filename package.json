@@ -1,5 +1,0 @@
-{
-  "dependencies": {
-    "@okta/okta-signin-widget": "^5.16.1"
-  }
-}
