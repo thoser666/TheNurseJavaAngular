@@ -14,8 +14,8 @@ public class AppConfig {
     private String url;
 
     @NotNull
-    @Value("${app.front.url}")
-    private String frontUrl = "localhost:4200";
+    @Value("${app.front.url:#{\"http://localhost:4200\"}}")
+    private String frontUrl ;
 
     public String getUrl() {
         return url;
