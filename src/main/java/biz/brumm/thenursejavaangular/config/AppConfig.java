@@ -5,31 +5,29 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
-
 @Component
 @ConfigurationProperties(prefix = "app")
 public class AppConfig {
 
-    @NotNull
-    private String url;
+  @NotNull private String url;
 
     @NotNull
     @Value("${app.front.url:#{\"http://localhost:4200\"}}")
     private String frontUrl ;
 
-    public String getUrl() {
-        return url;
-    }
+  public String getUrl() {
+    return url;
+  }
 
-    public void setUrl(String url) {
-        this.url = url;
-    }
+  public void setUrl(String url) {
+    this.url = url;
+  }
 
-    public String getFrontUrl() {
-        return frontUrl;
-    }
+  public String getFrontUrl() {
+    return frontUrl;
+  }
 
-    public void setFrontUrl(String frontUrl) {
-        this.frontUrl = frontUrl;
-    }
+  public void setFrontUrl(String frontUrl) {
+    this.frontUrl = frontUrl;
+  }
 }
