@@ -26,7 +26,7 @@
                 />
                 <span
                   *ngIf="
-                    !signupForm.get('email').valid &&
+                    !signupForm.get('email')!.valid &&
                     signupForm.get('email')!.touched
                   "
                 >
@@ -49,7 +49,7 @@
                 />
                 <span
                   *ngIf="
-                    !signupForm.get('username').valid &&
+                    !signupForm.get('username')!.valid &&
                     signupForm.get('username')!.touched
                   "
                 >
@@ -75,7 +75,7 @@
                 />
                 <span
                   *ngIf="
-                    !signupForm.get('password').valid &&
+                    !signupForm.get('password')!.valid &&
                     signupForm.get('password')!.touched
                   "
                 >
