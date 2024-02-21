@@ -1,12 +1,9 @@
 package biz.brumm.thenursejavaangular.model.idclasses;
 
+import java.io.Serializable;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import jakarta.persistence.Embeddable;
-import jakarta.persistence.IdClass;
-import java.io.Serializable;
 
 /**
  * @author UrosVesic
@@ -16,7 +13,6 @@ import java.io.Serializable;
 @Data
 public class FollowingId implements Serializable {
 
-    private Long following;
-    private Long followed;
-
+  private Long following;
+  private Long followed;
 }

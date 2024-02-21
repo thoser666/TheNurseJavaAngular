@@ -1,25 +1,23 @@
 package biz.brumm.thenursejavaangular.repository;
 
 import biz.brumm.thenursejavaangular.model.*;
-import org.springframework.data.jpa.repository.JpaRepository;
-
 import java.util.List;
 import java.util.Optional;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  * @author UrosVesic
  */
+public interface ReactionRepository extends JpaRepository<Reaction, Long>, MyRepository {
 
-public interface ReactionRepository extends JpaRepository<Reaction,Long>,MyRepository {
+  @Override
+  default void deleteByParent(MyEntity parent) {
+    deleteAllByPost((Post) parent);
+  }
 
-    @Override
-    default void deleteByParent(MyEntity parent) {
-        deleteAllByPost((Post) parent);
-    }
+  public void deleteAllByPost(Post post);
 
-    public void deleteAllByPost(Post post);
+  List<Reaction> findByPostAndReactionType(Post post, ReactionType like);
 
-    List<Reaction> findByPostAndReactionType(Post post, ReactionType like);
-
-    Optional<Reaction> findByPost_idAndUser(Long postId, User currentUser);
+  Optional<Reaction> findByPost_idAndUser(Long postId, User currentUser);
 }

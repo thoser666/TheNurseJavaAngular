@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
 /**
  * @author UrosVesic
  */
@@ -19,11 +18,11 @@ import org.springframework.web.bind.annotation.RestController;
 @AllArgsConstructor
 public class RoleController {
 
-    private RoleService roleService;
+  private RoleService roleService;
 
-    @PostMapping
-    public ResponseEntity addRole(@RequestBody Role role){
-        roleService.addRole(role);
-        return new ResponseEntity(HttpStatus.OK);
-    }
+  @PostMapping
+  public ResponseEntity addRole(@RequestBody Role role) {
+    roleService.addRole(role);
+    return new ResponseEntity(HttpStatus.OK);
+  }
 }

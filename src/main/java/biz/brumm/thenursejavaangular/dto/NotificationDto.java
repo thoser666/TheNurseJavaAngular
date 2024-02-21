@@ -10,9 +10,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class NotificationDto implements Dto{
-    private Long id;
-    private Long postId;
-    private String message;
-    private boolean read;
+public class NotificationDto implements Dto {
+  private Long id;
+  private Long postId;
+  private String message;
+  private boolean read;
 }
