@@ -3,7 +3,6 @@ package biz.brumm.thenursejavaangular.config;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 
@@ -16,7 +15,7 @@ public class AppConfig {
 
     @NotNull
     @Value("${app.front.url}")
-    private String frontUrl;
+    private String frontUrl = "localhost:4200";
 
     public String getUrl() {
         return url;
