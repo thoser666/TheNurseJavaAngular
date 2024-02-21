@@ -3,7 +3,7 @@
   <hr />
   <span *ngFor="let user of users">
     <div class="container d-flex">
-      <div class="col-md-6 username"><a href="/user-profile/{{user.username}}">@{{user.username}}</a>
+      <div class="col-md-6 username"><a href="/user-profile/{{user.username}}">&#64;{{user.username}}</a>
         <br>
         <a *ngIf="user.mutualFollowers>1 || user.mutualFollowers==0" class="mutual">{{user.mutualFollowers}} mutual
           followers</a>
