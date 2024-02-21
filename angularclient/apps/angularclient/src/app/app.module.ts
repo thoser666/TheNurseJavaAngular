@@ -79,11 +79,9 @@ import { TopicPostsComponent } from '../../post/topic-posts/topic-posts.componen
     NgbModule,
     BrowserAnimationsModule,
     FormsModule,
-    LoginComponent
+    LoginComponent,
   ],
-  exports: [
-    HeaderComponent,
-  ],
+  exports: [HeaderComponent],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,

@@ -1,24 +1,22 @@
-.register-section{
-    margin: 100px;
+.register-section {
+  margin: 100px;
 }
 
 .sign-up {
-    background-color:#1C9E5D;
-    border-color: #1C9E5D;
-    color: aliceblue;
-    fill: #1C9E5D;
-    border: 1px solid;
-    border-radius: 4px;
-    text-align: center;
-    letter-spacing: 1px;
-    text-decoration: none;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: .5px;
-    line-height: 24px;
-    text-transform: uppercase;
-    padding: 3px 16px;
-    opacity: 1;
-  }
-  
-  
+  background-color: #1c9e5d;
+  border-color: #1c9e5d;
+  color: aliceblue;
+  fill: #1c9e5d;
+  border: 1px solid;
+  border-radius: 4px;
+  text-align: center;
+  letter-spacing: 1px;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  line-height: 24px;
+  text-transform: uppercase;
+  padding: 3px 16px;
+  opacity: 1;
+}
