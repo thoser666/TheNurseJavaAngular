@@ -9,8 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class VerificationEmail {
 
-    private String subject;
-    private String recipient;
-    private String content;
-
+  private String subject;
+  private String recipient;
+  private String content;
 }

@@ -3,5 +3,4 @@ package biz.brumm.thenursejavaangular.dto;
 /**
  * @author UrosVesic
  */
-public interface Dto {
-}
+public interface Dto {}

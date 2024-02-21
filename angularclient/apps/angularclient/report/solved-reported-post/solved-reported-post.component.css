@@ -5,7 +5,7 @@
   margin-bottom: 10px;
   overflow: hidden;
   background-color: rgba(255, 255, 255, 0.8);
-  color: #878A8C;
+  color: #878a8c;
   position: relative;
   border-radius: 4px;
   padding: 5px;
@@ -13,9 +13,9 @@
 
 .readPost {
   background-color: transparent;
-  border-color: #1C9E5D;
-  color: #1C9E5D;
-  fill: #1C9E5D;
+  border-color: #1c9e5d;
+  color: #1c9e5d;
+  fill: #1c9e5d;
   border: 1px solid;
   border-radius: 4px;
   box-sizing: border-box;
@@ -24,7 +24,7 @@
   text-decoration: none;
   font-size: 12px;
   font-weight: 700;
-  letter-spacing: .5px;
+  letter-spacing: 0.5px;
   line-height: 24px;
   text-transform: uppercase;
   padding: 3px 16px;
@@ -33,7 +33,7 @@
 
 .deletePost {
   background-color: transparent;
-  border-color: #1C9E5D;
+  border-color: #1c9e5d;
   color: red;
   fill: red;
   border: 1px solid;
@@ -44,7 +44,7 @@
   text-decoration: none;
   font-size: 12px;
   font-weight: 700;
-  letter-spacing: .5px;
+  letter-spacing: 0.5px;
   line-height: 24px;
   text-transform: uppercase;
   padding: 3px 16px;
@@ -52,12 +52,9 @@
 }
 
 .btn {
-  color: #1C9E5D;
-  border: #1C9E5D;
+  color: #1c9e5d;
+  border: #1c9e5d;
 }
-
-
-
 
 .deleteItem:hover {
   background-color: red;
@@ -70,13 +67,13 @@
 }
 
 .editItem:hover {
-  background-color: #1C9E5D;
+  background-color: #1c9e5d;
   color: aliceblue;
 }
 
 .btnCommments {
   border-radius: 2px solid;
-  color: #878A8C;
+  color: #878a8c;
   opacity: 1;
 }
 
@@ -112,8 +109,6 @@
   font-size: 1em;
 }
 
-
-
 .reactionsection {
   margin: 0px;
   background-color: #ffffff;
@@ -123,7 +118,6 @@
   cursor: pointer;
   border-radius: 2px solid;
 }
-
 
 .reportcount {
   font-weight: bold;

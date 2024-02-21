@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private postService: PostService,
-    private authService: AuthService
+    private authService: AuthService,
   ) {
     if (authService.isLogged()) {
       this.postService.getAllPostsForFollowingUsers().subscribe((data) => {
