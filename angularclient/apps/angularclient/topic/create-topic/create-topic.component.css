@@ -6,7 +6,7 @@
   margin-bottom: 10px;
   overflow: hidden;
   background-color: rgba(255, 255, 255, 0.8);
-  color: #878A8C;
+  color: #878a8c;
   position: relative;
   border-radius: 4px;
   padding: 5px;
@@ -22,10 +22,10 @@
 }
 
 .btnCreateTopic {
-  background-color: #1C9E5D;
-  border-color: #1C9E5D;
+  background-color: #1c9e5d;
+  border-color: #1c9e5d;
   color: aliceblue;
-  fill: #1C9E5D;
+  fill: #1c9e5d;
   border: 1px solid;
   border-radius: 4px;
   text-align: center;
@@ -33,7 +33,7 @@
   text-decoration: none;
   font-size: 12px;
   font-weight: 700;
-  letter-spacing: .5px;
+  letter-spacing: 0.5px;
   line-height: 24px;
   text-transform: uppercase;
   padding: 3px 16px;
@@ -43,7 +43,7 @@
 }
 
 .btnDiscard {
-  fill: #1C9E5D;
+  fill: #1c9e5d;
   border: 1px solid;
   border-radius: 4px;
   text-align: center;
@@ -51,7 +51,7 @@
   text-decoration: none;
   font-size: 12px;
   font-weight: 700;
-  letter-spacing: .5px;
+  letter-spacing: 0.5px;
   line-height: 24px;
   text-transform: uppercase;
   padding: 3px 16px;
@@ -59,7 +59,7 @@
   width: 288px;
   height: 34px;
   margin-top: 5px;
-  color: #1C9E5D;
+  color: #1c9e5d;
   background-color: transparent;
 }
 
@@ -79,7 +79,7 @@
   margin-bottom: 10px;
   overflow: hidden;
   background-color: rgba(255, 255, 255, 0.8);
-  color: #878A8C;
+  color: #878a8c;
   position: relative;
   border-radius: 4px;
   padding: 5px;

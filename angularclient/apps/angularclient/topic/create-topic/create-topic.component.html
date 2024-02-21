@@ -1,16 +1,35 @@
 <div class="container">
   <div class="row">
     <div class="create-topic-container">
-      <form class="post-form" [formGroup]="createTopicForm" (ngSubmit)="createTopic()">
+      <form
+        class="post-form"
+        [formGroup]="createTopicForm"
+        (ngSubmit)="createTopic()"
+      >
         <div class="form-group">
           <div class="create-topic-heading">Create Topic</div>
           <hr />
-          <input type="text" [formControlName]="'name'" class="form-control" style="margin-top: 5px" placeholder="Name">
-          <span *ngIf="!createTopicForm.get('name')!.valid && createTopicForm.get('name')!.touched">
+          <input
+            type="text"
+            [formControlName]="'name'"
+            class="form-control"
+            style="margin-top: 5px"
+            placeholder="Name"
+          />
+          <span
+            *ngIf="
+              !createTopicForm.get('name')!.valid &&
+              createTopicForm.get('name')!.touched
+            "
+          >
             Please provide a Name
           </span>
-          <textarea type="text" [formControlName]="'description'" style="width: 100%; margin-top: 5px"
-            placeholder="Description"></textarea>
+          <textarea
+            type="text"
+            [formControlName]="'description'"
+            style="width: 100%; margin-top: 5px"
+            placeholder="Description"
+          ></textarea>
           <div>
             <div style="margin-top: 5px" class="float-right">
               <button (click)="discard()" class="btnDiscard">Discard</button>

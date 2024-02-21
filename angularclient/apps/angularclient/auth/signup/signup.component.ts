@@ -17,7 +17,7 @@ export class SignupComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private router: Router,
-    private modals: Modals
+    private modals: Modals,
   ) {
     this.signupForm = new FormGroup({
       username: new FormControl('', Validators.required),
