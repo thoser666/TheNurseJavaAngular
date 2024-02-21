@@ -1,12 +1,11 @@
 package biz.brumm.thenursejavaangular.model;
 
+import biz.brumm.thenursejavaangular.model.idclasses.FollowingId;
+import jakarta.persistence.*;
+import java.time.Instant;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import biz.brumm.thenursejavaangular.model.idclasses.FollowingId;
-
-import jakarta.persistence.*;
-import java.time.Instant;
 
 /**
  * @author UrosVesic
@@ -16,17 +15,16 @@ import java.time.Instant;
 @NoArgsConstructor
 @Entity
 @IdClass(FollowingId.class)
-public class Following implements MyEntity{
-    @Id
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "following_user_id", nullable = false)
-    private User following;
-    @Id
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "followed_user_id", nullable = false)
-    private User followed;
-    private Instant followedAt;
+public class Following implements MyEntity {
+  @Id
+  @ManyToOne(optional = false)
+  @JoinColumn(name = "following_user_id", nullable = false)
+  private User following;
 
+  @Id
+  @ManyToOne(optional = false)
+  @JoinColumn(name = "followed_user_id", nullable = false)
+  private User followed;
 
-
+  private Instant followedAt;
 }

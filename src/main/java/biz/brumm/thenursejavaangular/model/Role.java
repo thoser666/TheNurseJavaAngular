@@ -1,13 +1,11 @@
 package biz.brumm.thenursejavaangular.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
 /**
  * @author UrosVesic
@@ -16,33 +14,34 @@ import jakarta.persistence.Id;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Role {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Id
-    private Integer id;
-    private String name;
-    private String details;
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Id
+  private Integer id;
 
-    public Integer getId() {
-        return id;
-    }
+  private String name;
+  private String details;
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+  public Integer getId() {
+    return id;
+  }
 
-    public String getName() {
-        return name;
-    }
+  public void setId(Integer id) {
+    this.id = id;
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  public String getName() {
+    return name;
+  }
 
-    public String getDetails() {
-        return details;
-    }
+  public void setName(String name) {
+    this.name = name;
+  }
 
-    public void setDetails(String details) {
-        this.details = details;
-    }
+  public String getDetails() {
+    return details;
+  }
+
+  public void setDetails(String details) {
+    this.details = details;
+  }
 }
