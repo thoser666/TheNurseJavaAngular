@@ -5,4 +5,3 @@ ENTRYPOINT ["top", "-b"]
 
 ARG USER_HOME_DIR="/root"
 
-
