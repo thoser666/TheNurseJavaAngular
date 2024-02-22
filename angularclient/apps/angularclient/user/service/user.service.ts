@@ -18,14 +18,14 @@ export class UserService {
     );
   }
 
-  follow(username: String): Observable<any> {
+  follow(username: string): Observable<any> {
     return this.http.post(
       this.baseUrl + 'api/user/follow/' + username,
       username,
     );
   }
 
-  unfollow(username: String): Observable<any> {
+  unfollow(username: string): Observable<any> {
     return this.http.post(this.baseUrl + 'api/user/unfollow/' + username, null);
   }
 
