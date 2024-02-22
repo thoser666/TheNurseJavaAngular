@@ -1,5 +1,6 @@
 package biz.brumm.thenursejavaangular.controller;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
 import biz.brumm.thenursejavaangular.dto.AuthResponse;
@@ -95,7 +96,7 @@ class AuthControllerTest {
 
   @Test
   void testAuthenticationExceptionHandling() {
-    String errorMessage = "<403 FORBIDDEN>";
+    String errorMessage = "403 FORBIDDEN";
     // AuthenticationException ex = new AuthenticationException(errorMessage);
 
     AuthenticationException ex = mock(AuthenticationException.class, errorMessage);
@@ -104,6 +105,9 @@ class AuthControllerTest {
 
     ResponseEntity<String> response = authController.authExceptionHandler(ex);
 
+    HttpStatus status = (HttpStatus) response.getStatusCode();
+
     assert response.getStatusCode() == HttpStatus.FORBIDDEN;
+    assertEquals(errorMessage, status.toString());
   }
 }
