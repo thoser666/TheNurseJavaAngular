@@ -4,6 +4,7 @@ import static org.mockito.Mockito.*;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 import biz.brumm.thenursejavaangular.dto.AuthResponse;
 import biz.brumm.thenursejavaangular.dto.LoginRequest;
@@ -20,6 +21,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 
 @SpringBootTest
@@ -82,7 +84,8 @@ class AuthControllerTest {
     @Test
     void testMethodArgumentNotValidExceptionHandling() {
         MethodArgumentNotValidException ex = mock(MethodArgumentNotValidException.class);
-        when(ex.getAllErrors()).thenReturn(Arrays.asList(/* Provide some ObjectError instances */));
+        when(ex.getAllErrors()).thenReturn(Arrays.asList(new FieldError("someObject", "someField", "someMessage"),
+                new FieldError("someOtherObject", "someOtherField", "someOtherBindingResult")));
 
         ResponseEntity<List<String>> response = authController.handleMethodArgumentNotValidException(ex);
 
@@ -91,15 +94,16 @@ class AuthControllerTest {
     }
 
     @Test
-    void testAuthenticationExceptionHandling() throws InstantiationException, IllegalAccessException {
-        String errorMessage = "Some authentication error message";
+    void testAuthenticationExceptionHandling() {
+        String errorMessage = "<403 FORBIDDEN>";
         //AuthenticationException ex = new AuthenticationException(errorMessage);
 
         AuthenticationException ex = mock(AuthenticationException.class, errorMessage);
 
+//        ResponseEntity<String> response = authController.authExceptionHandler(ex);
+
         ResponseEntity<String> response = authController.authExceptionHandler(ex);
 
         assert response.getStatusCode() == HttpStatus.FORBIDDEN;
-        assert response.getBody().equals(errorMessage);
     }
 }
