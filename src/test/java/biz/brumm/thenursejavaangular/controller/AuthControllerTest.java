@@ -97,16 +97,10 @@ class AuthControllerTest {
   @Test
   void testAuthenticationExceptionHandling() {
     String errorMessage = "403 FORBIDDEN";
-    // AuthenticationException ex = new AuthenticationException(errorMessage);
 
     AuthenticationException ex = mock(AuthenticationException.class, errorMessage);
-
-    //        ResponseEntity<String> response = authController.authExceptionHandler(ex);
-
     ResponseEntity<String> response = authController.authExceptionHandler(ex);
-
     HttpStatus status = (HttpStatus) response.getStatusCode();
-
     assert response.getStatusCode() == HttpStatus.FORBIDDEN;
     assertEquals(errorMessage, status.toString());
   }
