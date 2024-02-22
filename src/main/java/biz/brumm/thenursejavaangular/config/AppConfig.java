@@ -12,7 +12,7 @@ public class AppConfig {
   @NotNull private String url;
 
   @NotNull
-  @Value(value = "${app.front.url:#{\"http://localhost:4200\"}}")
+  @Value(value = "${app.front.url:#{null}}")
   private String frontUrl;
 
   public String getUrl() {
