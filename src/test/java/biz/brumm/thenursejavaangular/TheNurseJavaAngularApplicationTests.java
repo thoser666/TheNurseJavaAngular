@@ -1,54 +1,92 @@
 package biz.brumm.thenursejavaangular;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.*;
 
-import biz.brumm.thenursejavaangular.entity.Mandant;
-import biz.brumm.thenursejavaangular.entity.dto.MandantDTO;
-import biz.brumm.thenursejavaangular.repository.IMandantRepository;
+import biz.brumm.thenursejavaangular.controller.AuthController;
+import biz.brumm.thenursejavaangular.dto.AuthResponse;
+import biz.brumm.thenursejavaangular.dto.LoginRequest;
+import biz.brumm.thenursejavaangular.dto.RegisterRequest;
+import biz.brumm.thenursejavaangular.service.AuthService;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.ObjectError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+
+import java.util.List;
+
 
 @SpringBootTest
 @AutoConfigureMockMvc
 class TheNurseJavaAngularApplicationTests {
 
-  @Autowired private MockMvc mvc;
+  private AuthController authController;
+  private AuthService authServiceMock;
 
-  @MockBean IMandantRepository iUserRepository;
-
-  @Autowired IMandantRepository userRepository;
-
-  Mandant mandant = new Mandant("alex", "a@bc.de");
-  MandantDTO mandantDTO = new MandantDTO();
-
-  @Test
-  void saveMandantErgNull() {
-    String name = "alex";
-
-    Mandant erg = userRepository.save(mandant);
-
-    assertNull(erg);
+  @BeforeEach
+  void setUp() {
+    authServiceMock = mock(AuthService.class);
+    authController = new AuthController(authServiceMock);
   }
 
   @Test
-  void checkMandantDTONull() {
-    String name = null;
+  void activateAccount_ValidToken_Success() {
+    // Arrange
+    String token = "valid_token";
 
-    String ergDto = mandantDTO.getName();
+    // Act
+    ResponseEntity<String> responseEntity = authController.activateAccount(token);
 
-    assertEquals(name, ergDto);
+    // Assert
+    assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
+    assertEquals("Acount succesfuly activated, you can close this page now", responseEntity.getBody());
+    verify(authServiceMock).activateAccount(token);
   }
 
   @Test
-  void checkMandantDTOWithData() {
-    MandantDTO dto = new MandantDTO("alex", "a@bc.de");
+  void signup_ValidRegisterRequest_Success() {
+    // Arrange
+    RegisterRequest registerRequest = new RegisterRequest();
 
-    String ergDto = mandantDTO.getName();
+    // Act
+    ResponseEntity<String> responseEntity = authController.signup(registerRequest);
 
-    assertNotEquals(dto.getName(), ergDto);
+    // Assert
+    assertEquals(HttpStatus.CREATED, responseEntity.getStatusCode());
+    assertEquals("Registration succesfull", responseEntity.getBody());
+    verify(authServiceMock).signup(registerRequest);
+  }
+
+  @Test
+  void login_ValidLoginRequest_Success() {
+    // Arrange
+    LoginRequest loginRequest = new LoginRequest();
+    AuthResponse expectedResponse = new AuthResponse("token", "token", "false");
+    when(authServiceMock.login(loginRequest)).thenReturn(expectedResponse);
+
+    // Act
+    AuthResponse response = authController.login(loginRequest);
+
+    // Assert
+    assertEquals(expectedResponse, response);
+    verify(authServiceMock).login(loginRequest);
+  }
+
+  @Test
+  void handleMethodArgumentNotValidException_ExceptionThrown_BadRequest() {
+    // Arrange
+    MethodArgumentNotValidException ex = mock(MethodArgumentNotValidException.class);
+    when(ex.getAllErrors()).thenReturn(List.of(new ObjectError("objectName", "error message")));
+
+    // Act
+    ResponseEntity<List<String>> responseEntity = authController.handleMethodArgumentNotValidException(ex);
+
+    // Assert
+    assertEquals(HttpStatus.BAD_REQUEST, responseEntity.getStatusCode());
+    assertEquals(List.of("error message"), responseEntity.getBody());
   }
 }
