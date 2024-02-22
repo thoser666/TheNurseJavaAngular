@@ -2,14 +2,12 @@ package biz.brumm.thenursejavaangular.controller;
 
 import static org.mockito.Mockito.*;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
-
 import biz.brumm.thenursejavaangular.dto.AuthResponse;
 import biz.brumm.thenursejavaangular.dto.LoginRequest;
 import biz.brumm.thenursejavaangular.dto.RegisterRequest;
 import biz.brumm.thenursejavaangular.service.AuthService;
+import java.util.Arrays;
+import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -29,81 +27,83 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 @ExtendWith(MockitoExtension.class)
 class AuthControllerTest {
 
-    @Mock
-    private AuthService authService;
+  @Mock private AuthService authService;
 
-    @InjectMocks
-    private AuthController authController;
+  @InjectMocks private AuthController authController;
 
-    @BeforeEach
-    void setUp() {
-        // Setup any mock behaviors if needed
-    }
+  @BeforeEach
+  void setUp() {
+    // Setup any mock behaviors if needed
+  }
 
-    @Test
-    void testActivateAccount_Success() {
-        String token = "someToken";
-        doNothing().when(authService).activateAccount(token);
+  @Test
+  void testActivateAccount_Success() {
+    String token = "someToken";
+    doNothing().when(authService).activateAccount(token);
 
-        ResponseEntity<String> response = authController.activateAccount(token);
+    ResponseEntity<String> response = authController.activateAccount(token);
 
-        assert response.getStatusCode() == HttpStatus.OK;
-        assert response.getBody().equals("Acount succesfuly activated, you can close this page now");
-    }
+    assert response.getStatusCode() == HttpStatus.OK;
+    assert response.getBody().equals("Acount succesfuly activated, you can close this page now");
+  }
 
-    @Test
-    void testSignup_Success() {
-        RegisterRequest registerRequest = new RegisterRequest(/* Provide necessary details */);
-        doNothing().when(authService).signup(registerRequest);
+  @Test
+  void testSignup_Success() {
+    RegisterRequest registerRequest = new RegisterRequest(/* Provide necessary details */ );
+    doNothing().when(authService).signup(registerRequest);
 
-        ResponseEntity<String> response = authController.signup(registerRequest);
+    ResponseEntity<String> response = authController.signup(registerRequest);
 
-        assert response.getStatusCode() == HttpStatus.CREATED;
-        assert response.getBody().equals("Registration succesfull");
-    }
+    assert response.getStatusCode() == HttpStatus.CREATED;
+    assert response.getBody().equals("Registration succesfull");
+  }
 
-    @Test
-    void testLogin_Success() {
-        LoginRequest loginRequest = new LoginRequest(/* Provide necessary details */);
-        AuthResponse expectedResponse = new AuthResponse(/* Provide expected response */);
-        when(authService.login(loginRequest)).thenReturn(expectedResponse);
+  @Test
+  void testLogin_Success() {
+    LoginRequest loginRequest = new LoginRequest(/* Provide necessary details */ );
+    AuthResponse expectedResponse = new AuthResponse(/* Provide expected response */ );
+    when(authService.login(loginRequest)).thenReturn(expectedResponse);
 
-        AuthResponse response = authController.login(loginRequest);
+    AuthResponse response = authController.login(loginRequest);
 
-        assert response.equals(expectedResponse);
-    }
+    assert response.equals(expectedResponse);
+  }
 
-    @Test
-    void testDataIntegrityViolationExceptionHandling() {
-        ResponseEntity<String> response = authController.handleDataIntegrityViolationException();
+  @Test
+  void testDataIntegrityViolationExceptionHandling() {
+    ResponseEntity<String> response = authController.handleDataIntegrityViolationException();
 
-        assert response.getStatusCode() == HttpStatus.BAD_REQUEST;
-        assert response.getBody().equals("Account with given username or email already exists");
-    }
+    assert response.getStatusCode() == HttpStatus.BAD_REQUEST;
+    assert response.getBody().equals("Account with given username or email already exists");
+  }
 
-    @Test
-    void testMethodArgumentNotValidExceptionHandling() {
-        MethodArgumentNotValidException ex = mock(MethodArgumentNotValidException.class);
-        when(ex.getAllErrors()).thenReturn(Arrays.asList(new FieldError("someObject", "someField", "someMessage"),
+  @Test
+  void testMethodArgumentNotValidExceptionHandling() {
+    MethodArgumentNotValidException ex = mock(MethodArgumentNotValidException.class);
+    when(ex.getAllErrors())
+        .thenReturn(
+            Arrays.asList(
+                new FieldError("someObject", "someField", "someMessage"),
                 new FieldError("someOtherObject", "someOtherField", "someOtherBindingResult")));
 
-        ResponseEntity<List<String>> response = authController.handleMethodArgumentNotValidException(ex);
+    ResponseEntity<List<String>> response =
+        authController.handleMethodArgumentNotValidException(ex);
 
-        assert response.getStatusCode() == HttpStatus.BAD_REQUEST;
-        // Assert further based on the expected list of error messages
-    }
+    assert response.getStatusCode() == HttpStatus.BAD_REQUEST;
+    // Assert further based on the expected list of error messages
+  }
 
-    @Test
-    void testAuthenticationExceptionHandling() {
-        String errorMessage = "<403 FORBIDDEN>";
-        //AuthenticationException ex = new AuthenticationException(errorMessage);
+  @Test
+  void testAuthenticationExceptionHandling() {
+    String errorMessage = "<403 FORBIDDEN>";
+    // AuthenticationException ex = new AuthenticationException(errorMessage);
 
-        AuthenticationException ex = mock(AuthenticationException.class, errorMessage);
+    AuthenticationException ex = mock(AuthenticationException.class, errorMessage);
 
-//        ResponseEntity<String> response = authController.authExceptionHandler(ex);
+    //        ResponseEntity<String> response = authController.authExceptionHandler(ex);
 
-        ResponseEntity<String> response = authController.authExceptionHandler(ex);
+    ResponseEntity<String> response = authController.authExceptionHandler(ex);
 
-        assert response.getStatusCode() == HttpStatus.FORBIDDEN;
-    }
+    assert response.getStatusCode() == HttpStatus.FORBIDDEN;
+  }
 }
