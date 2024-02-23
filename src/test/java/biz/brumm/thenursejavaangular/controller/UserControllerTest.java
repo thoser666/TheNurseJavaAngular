@@ -1,5 +1,8 @@
 package biz.brumm.thenursejavaangular.controller;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.*;
+
 import biz.brumm.thenursejavaangular.service.AuthService;
 import biz.brumm.thenursejavaangular.service.UserService;
 import org.junit.jupiter.api.BeforeEach;
@@ -10,57 +13,50 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.*;
-
 class UserControllerTest {
 
-    @Mock
-    private UserService userService;
+  @Mock private UserService userService;
 
-    @Mock
-    private AuthService authService;
+  @Mock private AuthService authService;
 
-    @InjectMocks
-    private UserController userController;
+  @InjectMocks private UserController userController;
 
-    @BeforeEach
-    public void setUp() {
-        MockitoAnnotations.initMocks(this);
-    }
+  @BeforeEach
+  public void setUp() {
+    MockitoAnnotations.initMocks(this);
+  }
 
-    @Test
-    void testFollow() {
-        String username = "testUser";
-        ResponseEntity expectedResponse = new ResponseEntity<>(HttpStatus.CREATED);
+  @Test
+  void testFollow() {
+    String username = "testUser";
+    ResponseEntity expectedResponse = new ResponseEntity<>(HttpStatus.CREATED);
 
-        when(userService.follow(username)).thenReturn(true);
+    when(userService.follow(username)).thenReturn(true);
 
-        ResponseEntity response = userController.follow(username);
+    ResponseEntity response = userController.follow(username);
 
-        verify(userService, times(1)).follow(username);
-        assertEquals(expectedResponse, response);
-    }
+    verify(userService, times(1)).follow(username);
+    assertEquals(expectedResponse, response);
+  }
 
-    @Test
-    void testAssignRole() {
-        String username = "testUser";
-        String rolename = "admin";
-        ResponseEntity expectedResponse = new ResponseEntity<>(HttpStatus.OK);
+  @Test
+  void testAssignRole() {
+    String username = "testUser";
+    String rolename = "admin";
+    ResponseEntity expectedResponse = new ResponseEntity<>(HttpStatus.OK);
 
-        when(userService.assignRole(username, rolename)).thenReturn(true);
+    when(userService.assignRole(username, rolename)).thenReturn(true);
 
-        ResponseEntity response = userController.assignRole(username, rolename);
+    ResponseEntity response = userController.assignRole(username, rolename);
 
-        verify(userService, times(1)).assignRole(username, rolename);
-        assertEquals(expectedResponse, response);
-    }
+    verify(userService, times(1)).assignRole(username, rolename);
+    assertEquals(expectedResponse, response);
+  }
 
-    // Add more tests for other methods in a similar manner
+  // Add more tests for other methods in a similar manner
 }
 
-
-//class UserControllerTest {
+// class UserControllerTest {
 //
 //    @BeforeEach
 //    void setUp() {
@@ -125,4 +121,4 @@ class UserControllerTest {
 //    @Test
 //    void handleMyRuntimeException() {
 //    }
-//}
+// }
