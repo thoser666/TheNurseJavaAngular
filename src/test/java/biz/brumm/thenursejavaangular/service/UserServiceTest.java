@@ -32,7 +32,7 @@ import java.time.Instant;
 import java.util.Optional;
 
 @SpringBootTest
-public class UserServiceTest {
+class UserServiceTest {
 
     @Mock
     private UserRepository userRepository;
@@ -90,7 +90,7 @@ public class UserServiceTest {
 
     @Disabled("Test is deactivated temporarilly")
     @Test
-    public void testFollow_UserFound_ShouldSaveFollowing() {
+    void testFollow_UserFound_ShouldSaveFollowing() {
         // Given
         String usernameToFollow = "testUser";
         when(userRepository.findByUsername(usernameToFollow)).thenReturn(Optional.of(userToFollow));
@@ -104,7 +104,7 @@ public class UserServiceTest {
 
     @Disabled("Test is deactivated temporarilly")
     @Test
-    public void testFollow_SameUser_ShouldThrowException() {
+    void testFollow_SameUser_ShouldThrowException() {
         // Given
         String usernameToFollow = currentUser.getUsername();
         when(userRepository.findByUsername(usernameToFollow)).thenReturn(Optional.of(currentUser));
@@ -114,7 +114,7 @@ public class UserServiceTest {
     }
 
     @Test
-    public void testGetUser_UserFound_ShouldReturnUserDto() {
+    void testGetUser_UserFound_ShouldReturnUserDto() {
         // Given
         Long userId = 1L;
         User user = new User(/* initialize user */);
@@ -131,7 +131,7 @@ public class UserServiceTest {
     }
 
     @Test
-    public void testGetUser_UserNotFound_ShouldThrowException() {
+    void testGetUser_UserNotFound_ShouldThrowException() {
         // Given
         Long userId = 2L;
         when(userRepository.findById(userId)).thenReturn(Optional.empty());

@@ -13,7 +13,7 @@ import org.springframework.http.ResponseEntity;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
-public class UserControllerTest {
+class UserControllerTest {
 
     @Mock
     private UserService userService;
@@ -30,7 +30,7 @@ public class UserControllerTest {
     }
 
     @Test
-    public void testFollow() {
+    void testFollow() {
         String username = "testUser";
         ResponseEntity expectedResponse = new ResponseEntity<>(HttpStatus.CREATED);
 
@@ -43,7 +43,7 @@ public class UserControllerTest {
     }
 
     @Test
-    public void testAssignRole() {
+    void testAssignRole() {
         String username = "testUser";
         String rolename = "admin";
         ResponseEntity expectedResponse = new ResponseEntity<>(HttpStatus.OK);
