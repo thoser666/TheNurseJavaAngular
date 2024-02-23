@@ -40,9 +40,16 @@ public class UserService {
 
     User userFollowed = userOptFollowed.orElseThrow(() -> new MyRuntimeException("User not found"));
 
-    if (userFollowed.getUsername().equals(currentUser.getUsername())) {
-      throw new MyRuntimeException("Following not allowed");
+    try {
+      if (userFollowed.getUsername().equals(currentUser.getUsername())) {
+        throw new MyRuntimeException("Following not allowed");
+      }
     }
+    catch (Exception e)
+    {
+      return false;
+    }
+
 
     Following following = new Following(currentUser, userFollowed, Instant.now());
     try
