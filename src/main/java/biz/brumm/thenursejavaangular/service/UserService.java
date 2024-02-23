@@ -44,24 +44,17 @@ public class UserService {
       if (userFollowed.getUsername().equals(currentUser.getUsername())) {
         throw new MyRuntimeException("Following not allowed");
       }
-    }
-    catch (Exception e)
-    {
+    } catch (Exception e) {
       return false;
     }
-
 
     Following following = new Following(currentUser, userFollowed, Instant.now());
-    try
-    {
+    try {
       followRepository.save(following);
       return true;
-    }
-    catch (Exception e)
-    {
+    } catch (Exception e) {
       return false;
     }
-
   }
 
   @Transactional
@@ -189,17 +182,13 @@ public class UserService {
             .findByUsername(username)
             .orElseThrow(() -> new MyRuntimeException("User not found"));
     user.addRole(role);
-    try
-    {
+    try {
       userRepository.save(user);
       return true;
-    }
-    catch (Exception ex)
-    {
+    } catch (Exception ex) {
       return false;
     }
   }
-
 
   @Transactional
   public List<ReportedUserDto> getReportedUsers() {
