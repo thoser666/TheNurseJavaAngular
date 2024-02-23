@@ -120,7 +120,7 @@
 		<dependency>
 			<groupId>org.ocpsoft.prettytime</groupId>
 			<artifactId>prettytime</artifactId>
-			<version>5.0.2.Final</version>
+			<version>5.0.7.Final</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/com.github.marlonlom/timeago -->
 		<dependency>
