@@ -34,18 +34,34 @@ public class UserService {
   private ReportedUserMapper reportedUserMapper;
 
   @Transactional
-  public void follow(String username) {
+  public Boolean follow(String username) {
     User currentUser = authService.getCurrentUser();
     Optional<User> userOptFollowed = userRepository.findByUsername(username);
 
     User userFollowed = userOptFollowed.orElseThrow(() -> new MyRuntimeException("User not found"));
 
-    if (userFollowed.getUsername().equals(currentUser.getUsername())) {
-      throw new MyRuntimeException("Following not allowed");
+    try {
+      if (userFollowed.getUsername().equals(currentUser.getUsername())) {
+        throw new MyRuntimeException("Following not allowed");
+      }
+    }
+    catch (Exception e)
+    {
+      return false;
     }
 
+
     Following following = new Following(currentUser, userFollowed, Instant.now());
-    followRepository.save(following);
+    try
+    {
+      followRepository.save(following);
+      return true;
+    }
+    catch (Exception e)
+    {
+      return false;
+    }
+
   }
 
   @Transactional
@@ -163,7 +179,7 @@ public class UserService {
     userRepository.save(user);
   }
 
-  public void assignRole(String username, String rolename) {
+  public Boolean assignRole(String username, String rolename) {
     Role role =
         roleRepository
             .findByName(rolename)
@@ -173,8 +189,17 @@ public class UserService {
             .findByUsername(username)
             .orElseThrow(() -> new MyRuntimeException("User not found"));
     user.addRole(role);
-    userRepository.save(user);
+    try
+    {
+      userRepository.save(user);
+      return true;
+    }
+    catch (Exception ex)
+    {
+      return false;
+    }
   }
+
 
   @Transactional
   public List<ReportedUserDto> getReportedUsers() {
