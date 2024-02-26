@@ -5,18 +5,19 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 //import { HeaderComponent } from 'src/app/header/header.component';
 import { Modals } from '../../src/app/modals';
 import { AuthService } from '../service/auth.service';
 import { LoginRequestPayload } from './login-request.payload';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, RouterLink, NgIf, NgIf, NgIf]
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
