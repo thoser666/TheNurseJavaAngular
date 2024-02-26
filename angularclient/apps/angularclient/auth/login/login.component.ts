@@ -17,7 +17,7 @@ import { NgIf } from '@angular/common';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
   standalone: true,
-  imports: [ReactiveFormsModule, RouterLink, NgIf, NgIf, NgIf]
+  imports: [ReactiveFormsModule, RouterLink, NgIf, NgIf, NgIf],
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
