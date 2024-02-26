@@ -81,7 +81,7 @@ import { NgOptimizedImage } from '@angular/common';
     BrowserAnimationsModule,
     FormsModule,
     LoginComponent,
-    NgOptimizedImage
+    NgOptimizedImage,
   ],
   exports: [HeaderComponent],
   providers: [
