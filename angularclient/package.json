@@ -9,7 +9,7 @@
     "start": "http-server-spa dist/angular-social-network index.html $PORT",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx cypress run --record --key b80fe3a7-fb18-4ceb-9017-08842e0bc493"
   },
   "private": true,
   "dependencies": {
