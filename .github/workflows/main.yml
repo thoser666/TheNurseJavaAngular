@@ -1,0 +1,28 @@
+name: DeepSource Test Coverage
+
+on:
+  push:
+    branches: [ "develop" ]
+  pull_request:
+    branches: [ "develop" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Report results to DeepSource
+        run: |
+        # Tests have finished and a test coverage report is available
+
+        # Install deepsource CLI
+             curl https://deepsource.io/cli | sh
+        
+        # From the root directory, run the report coverage command
+             ./bin/deepsource report --analyzer test-coverage --key python --value-file ./path/to/report
+
+        env:
+          DEEPSOURCE_DSN: ${{ secrets.DEEPSOURCE_DSN }}
