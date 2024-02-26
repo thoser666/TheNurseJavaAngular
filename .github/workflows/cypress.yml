@@ -21,4 +21,4 @@ jobs:
           build: npm run build
           start: npm start
           working-directory: ./angularclient
-          legacy-peer-deps: true
+          config: legacy-peer-deps true
