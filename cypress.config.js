@@ -1,6 +1,6 @@
 module.exports = {
   projectId: "xkko6j",
-  fileServerFolder: "./angularclient"
+  workingdirectory: "./angularclient"
   e2e: {
     setupNodeEvents(on, config) {
       // implement node event listeners here
