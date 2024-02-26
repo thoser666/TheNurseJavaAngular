@@ -36,6 +36,7 @@ import { ReportedUsersComponent } from '../../user/reported-users/reported-users
 import { ChatComponent } from '../../chat/chat/chat.component';
 import { InboxComponent } from '../../chat/inbox/inbox/inbox.component';
 import { TopicPostsComponent } from '../../post/topic-posts/topic-posts.component';
+import { NgOptimizedImage } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -80,6 +81,7 @@ import { TopicPostsComponent } from '../../post/topic-posts/topic-posts.componen
     BrowserAnimationsModule,
     FormsModule,
     LoginComponent,
+    NgOptimizedImage
   ],
   exports: [HeaderComponent],
   providers: [
