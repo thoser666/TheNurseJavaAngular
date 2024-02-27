@@ -145,7 +145,7 @@ public class UserService {
                 .map((user) -> user.getUserId())
                 .collect(Collectors.toList()),
             true);
-    if (notFollowing.size() == 0) {
+    if (notFollowing.isEmpty()) {
       List<Long> myId = new ArrayList<>();
       myId.add(authService.getCurrentUser().getUserId());
       notFollowing = userRepository.findByUserIdNotIn(myId);
@@ -205,7 +205,7 @@ public class UserService {
   public List<ReportedUserDto> getReportedUsers() {
     List<PostReport> postReports = postReportRepository.findByReportStatus(ReportStatus.DELETED);
     List<User> users =
-        postReports.stream().map(report -> report.getPost().getUser()).collect(Collectors.toList());
+        postReports.stream().map(report -> report.getPost().getUser()).toList();
     return users.stream()
         .distinct()
         .map(user -> reportedUserMapper.toDto(user))
