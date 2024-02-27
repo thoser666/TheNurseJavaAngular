@@ -1,6 +1,8 @@
 package biz.brumm.thenursejavaangular.controller;
 
 // von https://www.javainuse.com/spring/spring-boot-apache-kafka-hello-world
+// https://medium.com/simform-engineering/kafka-integration-made-easy-with-spring-boot-b7aaf44d8889
+// https://www.baeldung.com/spring-kafka
 import static org.junit.jupiter.api.Assertions.*;
 
 import biz.brumm.thenursejavaangular.service.KafkaSender;
