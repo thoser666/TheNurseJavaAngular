@@ -13,6 +13,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v4.0.1
+        with:
+            token: ${{ secrets.CODECOV_TOKEN }}
+            slug: thoser666/TheNurseJavaAngular
       - uses: actions/checkout@v4
       - name: Report results to DeepSource
         run: |
@@ -22,13 +27,9 @@ jobs:
              curl https://deepsource.io/cli | sh
         
         # From the root directory, run the report coverage command
-             ./bin/deepsource report --analyzer test-coverage --key python --value-file ./path/to/report
+             ./bin/deepsource report --analyzer test-coverage --key python --value-file target/surefire-reports
 
         env:
           DEEPSOURCE_DSN: ${{ secrets.DEEPSOURCE_DSN }}
 
-       - name: Upload coverage reports to Codecov
-         uses: codecov/codecov-action@v4.0.1
-          with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          slug: thoser666/TheNurseJavaAngular     
+
