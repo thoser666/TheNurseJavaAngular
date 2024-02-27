@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/setup-node@v3
         with:
-          legacy-peer-deps: true
+       #   legacy-peer-deps: true
       - name: Checkout
         uses: actions/checkout@v4
       # Install NPM dependencies, cache them correctly
@@ -24,7 +24,7 @@ jobs:
            build: npm run build
            start: npm start
            browser: chrome
-           working-directory: ../angularclient
+          # working-directory: ../angularclient
         env:
           # For recording and parallelization to work you must set your CYPRESS_RECORD_KEY
           # in GitHub repo → Settings → Secrets → Actions
