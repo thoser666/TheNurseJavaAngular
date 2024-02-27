@@ -1,4 +1,4 @@
-name: DeepSource Test Coverage
+name: DeepSource And Codecov Test Coverage
 
 on:
   push:
@@ -26,3 +26,9 @@ jobs:
 
         env:
           DEEPSOURCE_DSN: ${{ secrets.DEEPSOURCE_DSN }}
+
+       - name: Upload coverage reports to Codecov
+         uses: codecov/codecov-action@v4.0.1
+          with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          slug: thoser666/TheNurseJavaAngular     
