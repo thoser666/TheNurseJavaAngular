@@ -32,16 +32,19 @@ public class OnStartUp {
 
   @EventListener(ApplicationReadyEvent.class)
   public void onStartup() {
+    final String ADMIN = "ADMIN";
+    final String UROS99 = "uros99";
+
     if (!roleRepository.existsByName("USER")) {
       roleService.addRole(new Role(null, "USER", "Social network registered user"));
     }
-    if (!roleRepository.existsByName("ADMIN")) {
-      roleService.addRole(new Role(null, "ADMIN", "Social network administrator"));
+    if (!roleRepository.existsByName(ADMIN)) {
+      roleService.addRole(new Role(null, ADMIN, "Social network administrator"));
     }
-    if (!userRepository.existsByUsername("uros99")) {
-      authService.signup(new RegisterRequest("uros99uki@gmail.com", "uros99", "uros99"));
-      userService.enableUser("uros99");
-      userService.assignRole("uros99", "ADMIN");
+    if (!userRepository.existsByUsername(UROS99)) {
+      authService.signup(new RegisterRequest("uros99uki@gmail.com", UROS99, UROS99));
+      userService.enableUser(UROS99);
+      userService.assignRole(UROS99, ADMIN);
     }
   }
 }
