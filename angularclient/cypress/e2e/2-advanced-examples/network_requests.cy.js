@@ -152,7 +152,7 @@ context('Network Requests', () => {
     cy.wait('@postComment').should(({ request, response }) => {
       expect(request.body).to.include('email');
       expect(request.headers).to.have.property('content-type');
-      expect(response && response.body).to.have.property(
+      expect(response?.body).to.have.property(
         'name',
         'Using POST in cy.intercept()',
       );
