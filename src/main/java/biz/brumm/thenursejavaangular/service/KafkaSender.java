@@ -10,7 +10,7 @@ public class KafkaSender {
 
   String kafkaTopic = "java_in_use_topic";
 
-  public void send(String message) {
+  public void send(String message) throws Exception {
 
     kafkaTemplate.send(kafkaTopic, message);
   }

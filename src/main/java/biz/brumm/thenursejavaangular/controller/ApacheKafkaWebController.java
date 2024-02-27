@@ -10,7 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(value = "/javainuse-kafka/")
 public class ApacheKafkaWebController {
-  @Autowired KafkaSender kafkaSender;
+    @Autowired
+    KafkaSender kafkaSender;
+
+    @GetMapping(value = "/producer")
+    public String producer(@RequestParam("message") String message) throws Exception {
+        kafkaSender.send(message);
 
   @GetMapping(value = "/producer")
   public String producer(@RequestParam("message") String message) {
