@@ -6,7 +6,7 @@
   "scripts": {
     "ng": "ng",
     "heroku-postbuild": "ng build --configuration=production && npm install -g http-server-spa",
-    "start": "http-server-spa dist/angular-social-network index.html $PORT",
+    "start": "http-server-spa dist/angularclient index.html $PORT",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "npx cypress run --record --key b80fe3a7-fb18-4ceb-9017-08842e0bc493"
