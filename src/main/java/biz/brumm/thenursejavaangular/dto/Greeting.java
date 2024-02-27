@@ -1,5 +1,6 @@
 package biz.brumm.thenursejavaangular.dto;
 
+@Data
 public class Greeting {
     private String msg;
     private String name;
