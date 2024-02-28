@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+#FROM ubuntu:latest
 FROM openjdk:17-jdk AS build
 LABEL authors="Steffen"
 
