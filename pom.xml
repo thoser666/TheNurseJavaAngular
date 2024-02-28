@@ -17,6 +17,7 @@
 		<datakey.version>3.2.3</datakey.version>
 		<java.version>17</java.version>
 		<org.mapstruct.version>1.6.0.Beta1</org.mapstruct.version>
+		<testcontainers-kafka.version>1.19.3</testcontainers-kafka.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -36,7 +37,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
@@ -143,6 +143,21 @@
 		<dependency>
 			<groupId>org.springframework.kafka</groupId>
 			<artifactId>spring-kafka</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.kafka</groupId>
+			<artifactId>kafka-streams</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.kafka</groupId>
+			<artifactId>spring-kafka-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.testcontainers</groupId>
+			<artifactId>kafka</artifactId>
+			<version>${testcontainers-kafka.version}</version>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.junit.platform</groupId>
