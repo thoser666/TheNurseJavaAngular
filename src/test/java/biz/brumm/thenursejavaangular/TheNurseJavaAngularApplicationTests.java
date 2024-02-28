@@ -25,11 +25,7 @@ class TheNurseJavaAngularApplicationTests {
   private AuthController authController;
   private AuthService authServiceMock;
 
-  @BeforeEach
-  void setUp() {
-    authServiceMock = mock(AuthService.class);
-    authController = new AuthController(authServiceMock);
-  }
+
 
 
 }
