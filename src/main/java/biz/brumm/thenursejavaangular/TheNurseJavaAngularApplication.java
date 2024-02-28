@@ -86,20 +86,20 @@ public class TheNurseJavaAngularApplication {
       throw new RuntimeException("Interrupted while waiting for filter latch", e);
     }
 
-      /*
-       * Sending message to 'greeting' topic. This will send
-       * and received a java object with the help of
-       * greetingKafkaListenerContainerFactory.
-       */
-      producer.sendGreetingMessage(new Greeting("Greetings", "World!"));
-      try {
-          if (!listener.greetingLatch.await(10, TimeUnit.SECONDS)) {
-              throw new TimeoutException("Timed out while waiting for greeting latch");
-          }
-      } catch (InterruptedException | TimeoutException e) {
-          Thread.currentThread().interrupt();
-          throw new RuntimeException("Interrupted while waiting for greeting latch", e);
+    /*
+     * Sending message to 'greeting' topic. This will send
+     * and received a java object with the help of
+     * greetingKafkaListenerContainerFactory.
+     */
+    producer.sendGreetingMessage(new Greeting("Greetings", "World!"));
+    try {
+      if (!listener.greetingLatch.await(10, TimeUnit.SECONDS)) {
+        throw new TimeoutException("Timed out while waiting for greeting latch");
       }
+    } catch (InterruptedException | TimeoutException e) {
+      Thread.currentThread().interrupt();
+      throw new RuntimeException("Interrupted while waiting for greeting latch", e);
+    }
 
     context.close();
   }
