@@ -62,9 +62,12 @@ public class TheNurseJavaAngularApplication {
       producer.sendMessageToPartition("Hello To Partitioned Topic!", i);
     }
     try {
-      listener.partitionLatch.await(10, TimeUnit.SECONDS);
-    } catch (InterruptedException e) {
-      throw new RuntimeException(e);
+      if (!listener.partitionLatch.await(10, TimeUnit.SECONDS)) {
+        throw new TimeoutException("Timed out while waiting for partition latch");
+      }
+    } catch (InterruptedException | TimeoutException e) {
+      Thread.currentThread().interrupt();
+      throw new RuntimeException("Interrupted while waiting for partition latch", e);
     }
 
     /*
@@ -75,9 +78,12 @@ public class TheNurseJavaAngularApplication {
     producer.sendMessageToFiltered("Hello Baeldung!");
     producer.sendMessageToFiltered("Hello World!");
     try {
-      listener.filterLatch.await(10, TimeUnit.SECONDS);
-    } catch (InterruptedException e) {
-      throw new RuntimeException(e);
+      if (!listener.filterLatch.await(10, TimeUnit.SECONDS)) {
+        throw new TimeoutException("Timed out while waiting for filter latch");
+      }
+    } catch (InterruptedException | TimeoutException e) {
+      Thread.currentThread().interrupt();
+      throw new RuntimeException("Interrupted while waiting for filter latch", e);
     }
 
     /*
