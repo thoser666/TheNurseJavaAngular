@@ -54,7 +54,7 @@ class TheNurseJavaAngularApplicationIntegrationTest {
     }
 
     @Test
-    public void givenDefaultPartitioner_whenSendingMessagesWithoutKey_shouldUseStickyDistribution() throws InterruptedException {
+    void givenDefaultPartitioner_whenSendingMessagesWithoutKey_shouldUseStickyDistribution() throws InterruptedException {
         kafkaTemplate.send("default-topic", "message1");
         kafkaTemplate.send("default-topic", "message2");
         kafkaTemplate.send("default-topic", "message3");
@@ -96,7 +96,7 @@ class TheNurseJavaAngularApplicationIntegrationTest {
     }
 
     @Test
-    public void givenProducerWithSameKeyMessages_whenSendingMessages_shouldReceiveInProducedOrder() throws InterruptedException {
+    void givenProducerWithSameKeyMessages_whenSendingMessages_shouldReceiveInProducedOrder() throws InterruptedException {
         kafkaTemplate.send("order-topic", "partitionA", "message1");
         kafkaTemplate.send("order-topic", "partitionA", "message3");
         kafkaTemplate.send("order-topic", "partitionA", "message4");
@@ -116,7 +116,7 @@ class TheNurseJavaAngularApplicationIntegrationTest {
     }
 
     @Test
-    public void givenCustomPartitioner_whenSendingMessages_shouldRouteToCorrectPartition() throws InterruptedException {
+    void givenCustomPartitioner_whenSendingMessages_shouldRouteToCorrectPartition() throws InterruptedException {
         // Configure the producer with the custom partitioner
         KafkaTemplate<String, String> kafkaTemplate = setProducerToUseCustomPartitioner();
 
@@ -140,7 +140,7 @@ class TheNurseJavaAngularApplicationIntegrationTest {
     }
 
     @Test
-    public void givenDirectPartitionAssignment_whenSendingMessages_shouldRouteToSpecifiedPartitions() throws Exception {
+    void givenDirectPartitionAssignment_whenSendingMessages_shouldRouteToSpecifiedPartitions() throws Exception {
         kafkaTemplate.send("order-topic", 0, "123_premium", "Premium order message");
         kafkaTemplate.send("order-topic", 1, "456_normal", "Normal order message");
 
@@ -160,7 +160,7 @@ class TheNurseJavaAngularApplicationIntegrationTest {
     }
 
     @Test
-    public void givenCustomPartitioner_whenSendingMessages_shouldConsumeOnlyFromSpecificPartition() throws InterruptedException {
+    void givenCustomPartitioner_whenSendingMessages_shouldConsumeOnlyFromSpecificPartition() throws InterruptedException {
         KafkaTemplate<String, String> kafkaTemplate = setProducerToUseCustomPartitioner();
 
         kafkaTemplate.send("order-topic", "123_premium", "Order 123, Premium order message");
