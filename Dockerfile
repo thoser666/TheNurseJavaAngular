@@ -27,32 +27,32 @@ ENV PATH=${PATH}:${KAFKA_HOME}/bin
 RUN set -eux ; \
     apt-get update ; \
     apt-get upgrade -y ; \
-    apt-get install -y --no-install-recommends jq net-tools curl wget ; \
-### BEGIN docker for CI tests
-    apt-get install -y --no-install-recommends gnupg lsb-release ; \
-	curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg ; \
-	echo \
-  		"deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian \
-  		$(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null ; \
-    apt-get update ; \
-    apt-get install -y --no-install-recommends docker-ce-cli ; \
-    apt remove -y gnupg lsb-release ; \
-    apt clean ; \
-    apt autoremove -y ; \
-    apt -f install ; \
-### END docker for CI tests
-### BEGIN other for CI tests
-    apt-get install -y --no-install-recommends netcat ; \
-### END other for CI tests
-    chmod a+x /tmp2/*.sh ; \
-    mv /tmp2/start-kafka.sh /tmp2/broker-list.sh /tmp2/create-topics.sh /tmp2/versions.sh /usr/bin ; \
-    sync ; \
-    /tmp2/download-kafka.sh ; \
-    tar xfz /tmp2/kafka_${SCALA_VERSION}-${KAFKA_VERSION}.tgz -C /opt ; \
-    rm /tmp2/kafka_${SCALA_VERSION}-${KAFKA_VERSION}.tgz ; \
-    ln -s /opt/kafka_${SCALA_VERSION}-${KAFKA_VERSION} ${KAFKA_HOME} ; \
-    rm -rf /tmp2 ; \
-    rm -rf /var/lib/apt/lists/*
+#    apt-get install -y --no-install-recommends jq net-tools curl wget ; \
+#### BEGIN docker for CI tests
+#    apt-get install -y --no-install-recommends gnupg lsb-release ; \
+#	curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg ; \
+#	echo \
+#  		"deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian \
+#  		$(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null ; \
+#    apt-get update ; \
+#    apt-get install -y --no-install-recommends docker-ce-cli ; \
+#    apt remove -y gnupg lsb-release ; \
+#    apt clean ; \
+#    apt autoremove -y ; \
+#    apt -f install ; \
+#### END docker for CI tests
+#### BEGIN other for CI tests
+#    apt-get install -y --no-install-recommends netcat ; \
+#### END other for CI tests
+#    chmod a+x /tmp2/*.sh ; \
+#    mv /tmp2/start-kafka.sh /tmp2/broker-list.sh /tmp2/create-topics.sh /tmp2/versions.sh /usr/bin ; \
+#    sync ; \
+#    /tmp2/download-kafka.sh ; \
+#    tar xfz /tmp2/kafka_${SCALA_VERSION}-${KAFKA_VERSION}.tgz -C /opt ; \
+#    rm /tmp2/kafka_${SCALA_VERSION}-${KAFKA_VERSION}.tgz ; \
+#    ln -s /opt/kafka_${SCALA_VERSION}-${KAFKA_VERSION} ${KAFKA_HOME} ; \
+#    rm -rf /tmp2 ; \
+#    rm -rf /var/lib/apt/lists/*
 
 # COPY overrides /opt/overrides
 
