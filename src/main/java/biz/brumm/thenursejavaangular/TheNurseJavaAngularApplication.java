@@ -3,17 +3,13 @@ package biz.brumm.thenursejavaangular;
 import biz.brumm.thenursejavaangular.config.AppConfig;
 import biz.brumm.thenursejavaangular.config.RsaKeyProperties;
 import biz.brumm.thenursejavaangular.dto.Greeting;
-import biz.brumm.thenursejavaangular.entity.Mandant;
-import biz.brumm.thenursejavaangular.repository.IMandantRepository;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
-import java.util.stream.Stream;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
