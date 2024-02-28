@@ -94,9 +94,12 @@ public class TheNurseJavaAngularApplication {
        */
       producer.sendGreetingMessage(new Greeting("Greetings", "World!"));
       try {
-          listener.greetingLatch.await(10, TimeUnit.SECONDS);
-      } catch (InterruptedException e) {
-          throw new RuntimeException(e);
+          if (!listener.greetingLatch.await(10, TimeUnit.SECONDS)) {
+              throw new TimeoutException("Timed out while waiting for greeting latch");
+          }
+      } catch (InterruptedException | TimeoutException e) {
+          Thread.currentThread().interrupt();
+          throw new RuntimeException("Interrupted while waiting for greeting latch", e);
       }
 
       context.close();
