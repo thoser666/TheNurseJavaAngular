@@ -22,12 +22,12 @@ ENV KAFKA_VERSION=$kafka_version \
 
 ENV PATH=${PATH}:${KAFKA_HOME}/bin
 
-# COPY download-kafka.sh start-kafka.sh broker-list.sh create-topics.sh versions.sh /tmp2/
+COPY download-kafka.sh start-kafka.sh broker-list.sh create-topics.sh versions.sh /tmp2/
 
 RUN set -eux ;
     apt-get update ;
     apt-get upgrade -y ;
-#    apt-get install -y --no-install-recommends jq net-tools curl wget ; \
+    apt-get install -y --no-install-recommends jq net-tools curl wget ; 
 #### BEGIN docker for CI tests
 #    apt-get install -y --no-install-recommends gnupg lsb-release ; \
 #	curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg ; \
