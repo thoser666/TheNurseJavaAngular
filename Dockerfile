@@ -1,5 +1,5 @@
 #FROM ubuntu:latest
-FROM openjdk:17-jdk AS build
+FROM openjdk:17-jdk
 LABEL authors="Steffen"
 
 ARG kafka_version=2.8.1
@@ -22,10 +22,10 @@ ENV KAFKA_VERSION=$kafka_version \
 
 ENV PATH=${PATH}:${KAFKA_HOME}/bin
 
-# COPY download-kafka.sh start-kafka.sh broker-list.sh create-topics.sh versions.sh /tmp2/
+COPY download-kafka.sh start-kafka.sh broker-list.sh create-topics.sh versions.sh /tmp2/
 
-RUN set -eux ;
-    apt-get update ;
+RUN set -eux ; \
+    apt-get update ; \
     apt-get upgrade -y ;
 #    apt-get install -y --no-install-recommends jq net-tools curl wget ; \
 #### BEGIN docker for CI tests
