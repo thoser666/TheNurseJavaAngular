@@ -7,6 +7,8 @@ import biz.brumm.thenursejavaangular.dto.Greeting;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
+
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -43,9 +45,12 @@ public class TheNurseJavaAngularApplication {
        */
       producer.sendMessage("Hello, World!");
       try {
-          listener.latch.await(10, TimeUnit.SECONDS);
-      } catch (InterruptedException e) {
-          throw new RuntimeException(e);
+          if (!listener.latch.await(10, TimeUnit.SECONDS)) {
+              throw new TimeoutException("Timed out while waiting for latch");
+          }
+      } catch (InterruptedException | TimeoutException e) {
+          Thread.currentThread().interrupt();
+          throw new RuntimeException("Interrupted while waiting for latch", e);
       }
 
       /*
