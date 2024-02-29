@@ -18,6 +18,7 @@ import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.TopicPartition;
 import org.apache.kafka.common.serialization.StringSerializer;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,7 +70,7 @@ class TheNurseJavaAngularApplicationIntegrationTest {
                 .map(ReceivedMessage::getPartition)
                 .collect(Collectors.toSet());
 
-        assertEquals(1, uniquePartitions.size());
+        Assertions.assertEquals(1, uniquePartitions.size());
     }
 
     @Test
@@ -90,7 +91,7 @@ class TheNurseJavaAngularApplicationIntegrationTest {
             int expectedPartition = messages.get(0)
                     .getPartition();
             for (ReceivedMessage message : messages) {
-                assertEquals("Messages with key '" + key + "' should be in the same partition", message.getPartition(), expectedPartition);
+                Assertions.assertEquals(message.getPartition(), expectedPartition, "Messages with key '" + key + "' should be in the same partition");
             }
         });
     }
@@ -111,8 +112,7 @@ class TheNurseJavaAngularApplicationIntegrationTest {
         records.forEach(record -> resultMessage.append(record.getMessage()));
         String expectedMessage = "message1message3message4";
 
-        assertEquals("Messages with the same key should be received in the order they were produced within a partition", expectedMessage,
-                resultMessage.toString());
+        Assertions.assertEquals(expectedMessage, resultMessage.toString(), "Messages with the same key should be received in the order they were produced within a partition");
     }
 
     @Test
@@ -132,9 +132,9 @@ class TheNurseJavaAngularApplicationIntegrationTest {
         // Validate that messages are routed to the correct partition based on customer type
         for (ReceivedMessage record : records) {
             if ("123_premium".equals(record.getKey())) {
-                assertEquals("Premium order message should be in partition 0", 0, record.getPartition());
+                Assertions.assertEquals(0, record.getPartition(), "Premium order message should be in partition 0");
             } else if ("456_normal".equals(record.getKey())) {
-                assertEquals("Normal order message should be in partition 1", 1, record.getPartition());
+                Assertions.assertEquals(1, record.getPartition(), "Normal order message should be in partition 1");
             }
         }
     }
@@ -152,9 +152,9 @@ class TheNurseJavaAngularApplicationIntegrationTest {
 
         for (ReceivedMessage record : records) {
             if ("123_premium".equals(record.getKey())) {
-                assertEquals("Premium order message should be in partition 0", 0, record.getPartition());
+                Assertions.assertEquals(0, record.getPartition(), "Premium order message should be in partition 0");
             } else if ("456_normal".equals(record.getKey())) {
-                assertEquals("Normal order message should be in partition 1", 1, record.getPartition());
+                Assertions.assertEquals(1, record.getPartition(), "Normal order message should be in partition 1");
             }
         }
     }
@@ -174,8 +174,8 @@ class TheNurseJavaAngularApplicationIntegrationTest {
         ConsumerRecords<String, String> records = consumer.poll(Duration.ofMillis(100));
 
         for (ConsumerRecord<String, String> record : records) {
-            assertEquals("Premium order message should be in partition 0", 0, record.partition());
-            assertEquals("123_premium", record.key());
+            Assertions.assertEquals(0, record.partition(), "Premium order message should be in partition 0");
+            Assertions.assertEquals("123_premium", record.key());
         }
     }
 
