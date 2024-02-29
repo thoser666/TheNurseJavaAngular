@@ -13,9 +13,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Container Image Artifact Download
-        uses: ishworkh/container-image-artifact-download@v1.0.0
-        with:
+        - uses: ishworkh/container-image-artifact-download@v1.0.0
+        - name: Container Image Artifact Download
+          with:
           # Container image to download
           image: apache/kafka:3.7.0
           # Container engine to leverage for packaging an image
