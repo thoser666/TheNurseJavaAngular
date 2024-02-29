@@ -1,5 +1,5 @@
 #FROM ubuntu:latest
-FROM openjdk:17-jdk
+FROM openjdk:18-jdk
 LABEL authors="Steffen"
 
 ARG kafka_version=2.8.1
