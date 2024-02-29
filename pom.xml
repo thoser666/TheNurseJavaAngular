@@ -17,7 +17,7 @@
 		<datakey.version>3.2.3</datakey.version>
 		<java.version>17</java.version>
 		<org.mapstruct.version>1.6.0.Beta1</org.mapstruct.version>
-		<testcontainers-kafka.version>1.19.3</testcontainers-kafka.version>
+		<testcontainers-kafka.version>1.19.6</testcontainers-kafka.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -138,7 +138,7 @@
 		<dependency>
 			<groupId>org.apache.kafka</groupId>
 			<artifactId>kafka-clients</artifactId>
-			<version>3.4.0</version>
+			<version>3.7.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.kafka</groupId>
@@ -162,7 +162,7 @@
 		<dependency>
 			<groupId>org.junit.platform</groupId>
 			<artifactId>junit-platform-reporting</artifactId>
-			<version>1.9.1</version>
+			<version>1.10.2</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
