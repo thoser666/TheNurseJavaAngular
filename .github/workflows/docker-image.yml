@@ -13,6 +13,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      - name: Download kafka
+        uses: ishworkh/container-image-artifact-download@v1.0.0
+        with:
+            image: " apache/kafka:3.7.0"
+            #workflow: "Some Another Workflow"
+            #token: "secrettoken"
+            #workflow_event: "dispatch_workflow"
+            #branch: "main"
+            #commit_sha: "8471d40bfc4d0abc8409ba9391bb592bd0f1deb4"
+            #workflow_conclusion: "success"
+
+      - uses: actions/checkout@v3
+      - name: Build the Docker image
+        run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)

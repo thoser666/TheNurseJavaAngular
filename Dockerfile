@@ -3,10 +3,10 @@
 #LABEL authors="Steffen"
 
 
-#ARG kafka_version=2.8.1
-#ARG scala_version=2.13
-#ARG vcs_ref=unspecified
-#ARG build_date=unspecified
+ARG kafka_version=3.7.0
+ARG scala_version=2.13
+ARG vcs_ref=unspecified
+ARG build_date=unspecified
 
 # Set the working directory in the container
 #WORKDIR /app
@@ -30,53 +30,51 @@
 # OpenJDK-only currently, and the Kafka project, Confluent, and most other
 # major Java projects test and recommend Oracle Java for production for optimal
 # performance.
-FROM ubuntu:latest
-#FROM openjdk:17-jdk
-MAINTAINER Ches Martin <ches@whiskeyandgrits.net>
-
-# The Scala 2.12 build is currently recommended by the project.
-ENV KAFKA_VERSION=3.7.0 KAFKA_SCALA_VERSION=2.13 JMX_PORT=7203
-ENV KAFKA_RELEASE_ARCHIVE kafka_${KAFKA_SCALA_VERSION}-${KAFKA_VERSION}.tgz
-
-RUN mkdir /kafka /data /logs
-
-RUN apt-get update && \
-  DEBIAN_FRONTEND=noninteractive apt-get install -y \
-    ca-certificates
-
-# Download Kafka binary distribution
-ADD https://dist.apache.org/repos/dist/release/kafka/${KAFKA_VERSION}/${KAFKA_RELEASE_ARCHIVE} /tmp/
-ADD https://dist.apache.org/repos/dist/release/kafka/${KAFKA_VERSION}/${KAFKA_RELEASE_ARCHIVE}.md5 /tmp/
-
-WORKDIR /tmp
-
-# Check artifact digest integrity
-RUN echo VERIFY CHECKSUM: && \
-  gpg --print-md MD5 ${KAFKA_RELEASE_ARCHIVE} 2>/dev/null && \
-  cat ${KAFKA_RELEASE_ARCHIVE}.md5
-
-# Install Kafka to /kafka
-RUN tar -zx -C /kafka --strip-components=1 -f ${KAFKA_RELEASE_ARCHIVE} && \
-  rm -rf kafka_*
-
-ADD config /kafka/config
-ADD start.sh /start.sh
-
-# Set up a user to run Kafka
-RUN groupadd kafka && \
-  useradd -d /kafka -g kafka -s /bin/false kafka && \
-  chown -R kafka:kafka /kafka /data /logs
-USER kafka
-ENV PATH /kafka/bin:$PATH
-WORKDIR /kafka
-
-# broker, jmx
-EXPOSE 9092 ${JMX_PORT}
-VOLUME [ "/data", "/logs" ]
-
-CMD ["/start.sh"]
-
-
+#FROM ubuntu:latest
+#MAINTAINER Ches Martin <ches@whiskeyandgrits.net>
+#
+## The Scala 2.12 build is currently recommended by the project.
+#ENV KAFKA_VERSION=3.7.0 KAFKA_SCALA_VERSION=2.13 JMX_PORT=7203
+#ENV KAFKA_RELEASE_ARCHIVE kafka_${KAFKA_SCALA_VERSION}-${KAFKA_VERSION}.tgz
+#
+#RUN mkdir /kafka /data /logs
+#
+#RUN apt-get update && \
+#  DEBIAN_FRONTEND=noninteractive apt-get install -y \
+#    ca-certificates
+#
+## Download Kafka binary distribution
+#ADD https://dist.apache.org/repos/dist/release/kafka/${KAFKA_VERSION}/${KAFKA_RELEASE_ARCHIVE} /tmp/
+#ADD https://dist.apache.org/repos/dist/release/kafka/${KAFKA_VERSION}/${KAFKA_RELEASE_ARCHIVE}.md5 /tmp/
+#
+#WORKDIR /tmp
+#
+## Check artifact digest integrity
+#RUN echo VERIFY CHECKSUM: && \
+#  gpg --print-md MD5 ${KAFKA_RELEASE_ARCHIVE} 2>/dev/null && \
+#  cat ${KAFKA_RELEASE_ARCHIVE}.md5
+#
+## Install Kafka to /kafka
+#RUN tar -zx -C /kafka --strip-components=1 -f ${KAFKA_RELEASE_ARCHIVE} && \
+#  rm -rf kafka_*
+#
+#ADD config /kafka/config
+#ADD start.sh /start.sh
+#
+## Set up a user to run Kafka
+#RUN groupadd kafka && \
+#  useradd -d /kafka -g kafka -s /bin/false kafka && \
+#  chown -R kafka:kafka /kafka /data /logs
+#USER kafka
+#ENV PATH /kafka/bin:$PATH
+#WORKDIR /kafka
+#
+## broker, jmx
+#EXPOSE 9092 ${JMX_PORT}
+#VOLUME [ "/data", "/logs" ]
+#
+#CMD ["/start.sh"]
+#
 
 
 
@@ -91,6 +89,7 @@ CMD ["/start.sh"]
 
 
 
+#FROM ubuntu:latest
 #LABEL org.label-schema.name="kafka" \
 #      org.label-schema.description="Apache Kafka" \
 #      org.label-schema.build-date="${build_date}" \
