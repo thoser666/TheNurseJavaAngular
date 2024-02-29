@@ -1,19 +1,18 @@
 #FROM ubuntu:latest
-FROM openjdk:18-jdk
-LABEL authors="Steffen"
-MAINTAINER Steffen Brumm <ches@whiskeyandgrits.net>
+#FROM openjdk:18-jdk
+#LABEL authors="Steffen"
 
 
-ARG kafka_version=2.8.1
-ARG scala_version=2.13
-ARG vcs_ref=unspecified
-ARG build_date=unspecified
+#ARG kafka_version=2.8.1
+#ARG scala_version=2.13
+#ARG vcs_ref=unspecified
+#ARG build_date=unspecified
 
 # Set the working directory in the container
-WORKDIR /app
+#WORKDIR /app
 
 # Copy the local application code into the container
-COPY . .
+#COPY . .
 
 # Build the Rust application
 #RUN cargo build --release
@@ -32,6 +31,8 @@ COPY . .
 # major Java projects test and recommend Oracle Java for production for optimal
 # performance.
 
+FROM netflixoss/java:8
+MAINTAINER Ches Martin <ches@whiskeyandgrits.net>
 
 # The Scala 2.12 build is currently recommended by the project.
 ENV KAFKA_VERSION=0.10.2.1 KAFKA_SCALA_VERSION=2.12 JMX_PORT=7203
@@ -50,9 +51,9 @@ ADD https://dist.apache.org/repos/dist/release/kafka/${KAFKA_VERSION}/${KAFKA_RE
 WORKDIR /tmp
 
 # Check artifact digest integrity
-#RUN echo VERIFY CHECKSUM: && \
-#  gpg --print-md MD5 ${KAFKA_RELEASE_ARCHIVE} 2>/dev/null && \
-#  cat ${KAFKA_RELEASE_ARCHIVE}.md5
+RUN echo VERIFY CHECKSUM: && \
+  gpg --print-md MD5 ${KAFKA_RELEASE_ARCHIVE} 2>/dev/null && \
+  cat ${KAFKA_RELEASE_ARCHIVE}.md5
 
 # Install Kafka to /kafka
 RUN tar -zx -C /kafka --strip-components=1 -f ${KAFKA_RELEASE_ARCHIVE} && \
@@ -74,8 +75,6 @@ EXPOSE 9092 ${JMX_PORT}
 VOLUME [ "/data", "/logs" ]
 
 CMD ["/start.sh"]
-
-
 
 
 
