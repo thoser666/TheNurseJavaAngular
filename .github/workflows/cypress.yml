@@ -20,6 +20,7 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
+           run: npm install 
            build: npm run build
            start: npm start
            browser: chrome
