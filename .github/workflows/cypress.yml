@@ -42,6 +42,7 @@ jobs:
           build: npm install --package-lock-only 
           start: npm start
           browser: chrome
+          working-directory: ../angularclient
   cypress-run-worker:
     runs-on: ubuntu-22.04
     needs: install
