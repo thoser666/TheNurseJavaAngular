@@ -47,33 +47,33 @@ RUN apt-get update && \
 ADD https://dist.apache.org/repos/dist/release/kafka/${KAFKA_VERSION}/${KAFKA_RELEASE_ARCHIVE} /tmp/
 ADD https://dist.apache.org/repos/dist/release/kafka/${KAFKA_VERSION}/${KAFKA_RELEASE_ARCHIVE}.md5 /tmp/
 
-WORKDIR /tmp
+#WORKDIR /tmp
+#
+## Check artifact digest integrity
+#RUN echo VERIFY CHECKSUM: && \
+#  gpg --print-md MD5 ${KAFKA_RELEASE_ARCHIVE} 2>/dev/null && \
+#  cat ${KAFKA_RELEASE_ARCHIVE}.md5
 
-# Check artifact digest integrity
-RUN echo VERIFY CHECKSUM: && \
-  gpg --print-md MD5 ${KAFKA_RELEASE_ARCHIVE} 2>/dev/null && \
-  cat ${KAFKA_RELEASE_ARCHIVE}.md5
+## Install Kafka to /kafka
+#RUN tar -zx -C /kafka --strip-components=1 -f ${KAFKA_RELEASE_ARCHIVE} && \
+#  rm -rf kafka_*
 
-# Install Kafka to /kafka
-RUN tar -zx -C /kafka --strip-components=1 -f ${KAFKA_RELEASE_ARCHIVE} && \
-  rm -rf kafka_*
+#ADD config /kafka/config
+#ADD start.sh /start.sh
 
-ADD config /kafka/config
-ADD start.sh /start.sh
+## Set up a user to run Kafka
+#RUN groupadd kafka && \
+#  useradd -d /kafka -g kafka -s /bin/false kafka && \
+#  chown -R kafka:kafka /kafka /data /logs
+#USER kafka
+#ENV PATH /kafka/bin:$PATH
+#WORKDIR /kafka
 
-# Set up a user to run Kafka
-RUN groupadd kafka && \
-  useradd -d /kafka -g kafka -s /bin/false kafka && \
-  chown -R kafka:kafka /kafka /data /logs
-USER kafka
-ENV PATH /kafka/bin:$PATH
-WORKDIR /kafka
-
-# broker, jmx
-EXPOSE 9092 ${JMX_PORT}
-VOLUME [ "/data", "/logs" ]
-
-CMD ["/start.sh"]
+## broker, jmx
+#EXPOSE 9092 ${JMX_PORT}
+#VOLUME [ "/data", "/logs" ]
+#
+#CMD ["/start.sh"]
 
 
 
