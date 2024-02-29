@@ -14,10 +14,10 @@ WORKDIR /app
 COPY . .
 
 # Build the Rust application
-RUN cargo build --release
+#RUN cargo build --release
 
 # Specify the command to run when the container starts
-CMD ["./target/release/internationalbot"]
+#CMD ["./target/release/internationalbot"]
 
 
 
