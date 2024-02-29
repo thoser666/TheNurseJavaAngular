@@ -12,6 +12,7 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    uses:
     steps:
       - name: Container Image Artifact Download
         uses: ishworkh/container-image-artifact-download@v1.0.0
