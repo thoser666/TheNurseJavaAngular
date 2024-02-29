@@ -31,7 +31,7 @@
 # major Java projects test and recommend Oracle Java for production for optimal
 # performance.
 
-FROM netflixoss/java:17
+FROM openjdk:17-jdk
 MAINTAINER Ches Martin <ches@whiskeyandgrits.net>
 
 # The Scala 2.12 build is currently recommended by the project.
