@@ -1,5 +1,5 @@
 #FROM ubuntu:latest
-FROM openjdk:17-jdk
+#FROM openjdk:17-jdk
 #LABEL authors="Steffen"
 
 
@@ -31,7 +31,7 @@ FROM openjdk:17-jdk
 # major Java projects test and recommend Oracle Java for production for optimal
 # performance.
 
-FROM netflixoss/java:8
+FROM netflixoss/java:17
 MAINTAINER Ches Martin <ches@whiskeyandgrits.net>
 
 # The Scala 2.12 build is currently recommended by the project.
