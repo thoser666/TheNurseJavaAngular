@@ -2,6 +2,7 @@
 {
   "name": "@angularclient/source",
   "version": "0.0.1",
+  "working-directory": "../angularclient",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
