@@ -13,17 +13,32 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Download kafka
+      - name: Container Image Artifact Download
+    # You may pin to the exact commit or the version.
+    # uses: ishworkh/container-image-artifact-download@f3c93e1b0b46d429733fd68c6458273711fcd28b
         uses: ishworkh/container-image-artifact-download@v1.0.0
-        with:
-            image: "apache/kafka:3.7.0"
-            #workflow: "Some Another Workflow"
-            #token: "secrettoken"
-            #workflow_event: "dispatch_workflow"
-            #branch: "main"
-            #commit_sha: "8471d40bfc4d0abc8409ba9391bb592bd0f1deb4"
-            #workflow_conclusion: "success"
-
+          with:
+          # Container image to download
+          image: apache/kafka:3.7.0
+          # Container engine to leverage for packaging an image
+          container_engine: # optional, default is docker
+          # Repository name in form of `owner/repo`.
+          repository: # optional, default is 
+          # Name of the workflow to download image from.
+          workflow: # optional, default is 
+          # Github token with read permission to artifacts in given repo.
+          token: # optional, default is 
+          # Conclusion for an workflow run.
+          workflow_conclusion: # optional, default is 
+          # SHA for the commit.
+          commit_sha: # optional, default is 
+          # Branch name.
+          branch: # optional, default is 
+          # Name of event that triggered the workflow run.
+          workflow_event: # optional, default is 
+          # Exact run id for the workflow.
+          workflow_run_id: # optional, default is 
+          
       - uses: actions/checkout@v3
       - name: Build the Docker image
         run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
