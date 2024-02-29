@@ -1,5 +1,5 @@
 #FROM ubuntu:latest
-#FROM openjdk:18-jdk
+FROM openjdk:17-jdk
 #LABEL authors="Steffen"
 
 
