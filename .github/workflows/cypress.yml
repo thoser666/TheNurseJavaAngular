@@ -12,8 +12,7 @@ jobs:
         containers: [1, 2] # Uses 2 parallel instances
     steps:
       - uses: actions/setup-node@v3
-        with:
-       #   legacy-peer-deps: true
+      #  with:
       - name: Checkout
         uses: actions/checkout@v4
       # Install NPM dependencies, cache them correctly
