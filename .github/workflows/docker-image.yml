@@ -16,7 +16,7 @@ jobs:
       - name: Download kafka
         uses: ishworkh/container-image-artifact-download@v1.0.0
         with:
-            image: " apache/kafka:3.7.0"
+            image: "apache/kafka:3.7.0"
             #workflow: "Some Another Workflow"
             #token: "secrettoken"
             #workflow_event: "dispatch_workflow"
