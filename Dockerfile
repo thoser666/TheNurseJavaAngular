@@ -30,8 +30,8 @@
 # OpenJDK-only currently, and the Kafka project, Confluent, and most other
 # major Java projects test and recommend Oracle Java for production for optimal
 # performance.
-
-FROM openjdk:17-jdk
+FROM ubuntu:latest
+#FROM openjdk:17-jdk
 MAINTAINER Ches Martin <ches@whiskeyandgrits.net>
 
 # The Scala 2.12 build is currently recommended by the project.
