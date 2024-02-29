@@ -17,7 +17,7 @@ jobs:
       - name: Install Dependencies and Build React App
         run: |
              pwd
-             npm install --package-lock-only  --working-directory="../angularclient"
+             npm install --package-lock-only  --prefix="../angularclient"
              ls -la
              npm ci
              npm run-script build:qa
