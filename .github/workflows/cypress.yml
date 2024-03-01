@@ -12,13 +12,13 @@ jobs:
         containers: [1, 2] # Uses 2 parallel instances
     steps:
       - uses: actions/setup-node@v3
-                - uses: actions/setup-node@v3
         with:
           node-version: 20
-      - name: Install Dependencies and Build React App
+      - name: Install Dependencies and Build Angular App
         run: |
              pwd
              ls -la
+             npm install --package-lock-only
              npm ci
 #             npm run-script build:qa
 
