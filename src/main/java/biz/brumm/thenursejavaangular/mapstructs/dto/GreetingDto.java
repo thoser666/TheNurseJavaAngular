@@ -1,4 +1,3 @@
 package biz.brumm.thenursejavaangular.mapstructs.dto;
 
-public class GreetingDto {
-}
+public class GreetingDto {}
