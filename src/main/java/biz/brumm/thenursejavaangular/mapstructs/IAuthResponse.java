@@ -8,5 +8,5 @@ import org.mapstruct.MappingConstants;
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
 public interface IAuthResponse {
 
-    public AuthResponse toAuthResponse(AuthResponseDTO authResponseDTO);
+  public AuthResponse toAuthResponse(AuthResponseDTO authResponseDTO);
 }
