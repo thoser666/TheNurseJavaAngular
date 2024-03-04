@@ -2,7 +2,7 @@
 FROM openjdk:8-jre-alpine
 
 # Set environment variables
-ENV KAFKA_VERSION=2.8.0
+ENV KAFKA_VERSION=3.7.0
 ENV SCALA_VERSION=2.13
 ENV KAFKA_HOME=/opt/kafka
 ENV PATH=${PATH}:${KAFKA_HOME}/bin
