@@ -1,6 +1,6 @@
 package biz.brumm.thenursejavaangular.service.impl;
 
-import biz.brumm.thenursejavaangular.entity.Mandant;
+import biz.brumm.thenursejavaangular.mapstructs.Mandant;
 import biz.brumm.thenursejavaangular.service.IMandantService;
 import java.util.ArrayList;
 import java.util.List;
