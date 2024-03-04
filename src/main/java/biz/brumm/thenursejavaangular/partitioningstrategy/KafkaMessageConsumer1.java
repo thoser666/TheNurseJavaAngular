@@ -12,7 +12,7 @@ import org.springframework.kafka.support.KafkaHeaders;
 import jakarta.annotation.Nullable;
 
 @Service
-public class KafkaMessageConsumer {
+public class KafkaMessageConsumer1 {
     private final List<ReceivedMessage> receivedMessages = new CopyOnWriteArrayList<>();
 
     @KafkaListener(topics = { "order-topic", "default-topic" }, groupId = "test-group")

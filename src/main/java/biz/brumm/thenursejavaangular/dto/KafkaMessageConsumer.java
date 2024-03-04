@@ -14,7 +14,7 @@ import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Service;
 
 @Service
-public class KafkaMessageConsumer1 {
+public class KafkaMessageConsumer {
 
     private final List<ReceivedMessage> receivedMessages = new CopyOnWriteArrayList<>();
 

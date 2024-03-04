@@ -3,7 +3,7 @@ package biz.brumm.thenursejavaangular;
 import static java.util.concurrent.TimeUnit.SECONDS;
 import static org.awaitility.Awaitility.await;
 
-import biz.brumm.thenursejavaangular.dto.KafkaMessageConsumer1;
+import biz.brumm.thenursejavaangular.dto.KafkaMessageConsumer;
 import biz.brumm.thenursejavaangular.partitioningstrategy.CustomPartitioner;
 import biz.brumm.thenursejavaangular.partitioningstrategy.ReceivedMessage;
 import java.time.Duration;
@@ -37,7 +37,7 @@ class TheNurseJavaAngularApplicationIntegrationTest {
 
   @Autowired private KafkaTemplate<String, String> kafkaTemplate;
 
-  @Autowired private KafkaMessageConsumer1 kafkaMessageConsumer;
+  @Autowired private KafkaMessageConsumer kafkaMessageConsumer;
 
   @Autowired private EmbeddedKafkaBroker embeddedKafkaBroker;
 
