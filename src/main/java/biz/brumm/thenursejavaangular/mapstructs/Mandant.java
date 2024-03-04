@@ -1,4 +1,4 @@
-package biz.brumm.thenursejavaangular.entity;
+package biz.brumm.thenursejavaangular.mapstructs;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

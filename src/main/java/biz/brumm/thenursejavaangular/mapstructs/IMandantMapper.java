@@ -1,6 +1,6 @@
-package biz.brumm.thenursejavaangular.entity;
+package biz.brumm.thenursejavaangular.mapstructs;
 
-import biz.brumm.thenursejavaangular.entity.dto.MandantDTO;
+import biz.brumm.thenursejavaangular.mapstructs.dto.MandantDTO;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants;
 
