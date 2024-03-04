@@ -5,34 +5,14 @@ on:
     branches: [ "develop" ]
   pull_request:
     branches: [ "develop" ]
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-        - name: Container Image Artifact Download
-        - uses: ishworkh/container-image-artifact-download@v1.0.0
-          with:
-           # Container image to download
-           image: apache/kafka:3.7.0
-           # Container engine to leverage for packaging an image
-           #container_engine: # optional, default is docker
-           # Repository name in form of `owner/repo`.
-           #repository: # optional, default is
-           # Name of the workflow to download image from.
-           #workflow: # optional, default is
-           # Github token with read permission to artifacts in given repo.
-           #token: # optional, default is
-           # Conclusion for an workflow run.
-           #workflow_conclusion: # optional, default is
-           # SHA for the commit.
-           #commit_sha: # optional, default is
-           # Branch name.
-           #branch: # optional, default is
-           # Name of event that triggered the workflow run.
-           #workflow_event: # optional, default is
-           # Exact run id for the workflow.
-           #workflow_run_id: # optional, default is
 
-        - uses: actions/checkout@v3
-        - name: Build the Docker image
-          run: podman build . --file Dockerfile --tag my-image-name:$(date +%s)
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build the Docker image
+        run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
