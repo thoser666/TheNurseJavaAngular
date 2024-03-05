@@ -24,7 +24,7 @@ public class TopicController {
     return new ResponseEntity<>(topicService.getAllTopics(), HttpStatus.OK);
   }
 
-  @CrossOrigin
+  @CrossOrigin(origins = "http://localhost:4200")
   @PostMapping("/create")
   public ResponseEntity createTopic(@RequestBody TopicDto topic) {
     topicService.createTopic(topic);
