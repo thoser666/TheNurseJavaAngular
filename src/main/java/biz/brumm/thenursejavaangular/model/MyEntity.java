@@ -10,7 +10,7 @@ import org.springframework.context.ApplicationContext;
  */
 public interface MyEntity {
 
-  public default List<MyRepository> returnChildRepositories(@Autowired ApplicationContext context) {
+  default List<MyRepository> returnChildRepositories(@Autowired ApplicationContext context) {
     throw new UnsupportedOperationException();
   }
 }

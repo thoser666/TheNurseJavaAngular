@@ -6,5 +6,5 @@ package biz.brumm.thenursejavaangular.model;
 public enum NotificationType {
   COMMENT,
   LIKE,
-  DISLIKE;
+  DISLIKE
 }

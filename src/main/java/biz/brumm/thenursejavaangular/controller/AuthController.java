@@ -30,7 +30,7 @@ public class AuthController {
   @GetMapping("/activate/{token}")
   public ResponseEntity<String> activateAccount(@PathVariable String token) {
     authService.activateAccount(token);
-    return new ResponseEntity(
+    return new ResponseEntity<>(
         "Acount succesfuly activated, you can close this page now", HttpStatus.OK);
   }
 

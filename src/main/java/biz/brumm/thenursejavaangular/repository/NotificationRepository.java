@@ -15,7 +15,7 @@ public interface NotificationRepository extends JpaRepository<Notification, Long
     deleteAllByPost((Post) parent);
   }
 
-  public void deleteAllByPost(Post post);
+  void deleteAllByPost(Post post);
 
   Optional<Notification> findTopByTo_usernameOrderByIdDesc(String username);
 

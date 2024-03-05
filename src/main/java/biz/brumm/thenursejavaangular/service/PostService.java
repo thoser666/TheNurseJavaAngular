@@ -43,9 +43,8 @@ public class PostService {
   public List<PostResponse> getAllPosts() {
     List<Post> posts = postRepository.findAll();
     List<PostResponse> collect =
-        posts.stream().map((post) -> postResponseMapper.toDto(post)).collect(Collectors.toList());
-    Collections.sort(collect, (p1, p2) -> p1.getLikes() - p1.getDislikes());
-    return collect;
+            posts.stream().map((post) -> postResponseMapper.toDto(post)).sorted((p1, p2) -> p1.getLikes() - p1.getDislikes()).collect(Collectors.toList());
+      return collect;
   }
 
   @Transactional
