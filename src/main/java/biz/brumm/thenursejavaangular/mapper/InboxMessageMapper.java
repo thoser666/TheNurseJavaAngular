@@ -53,7 +53,7 @@ public class InboxMessageMapper implements GenericMapper<InboxMessageDto, Messag
   private String setContent(String content) {
     if (content.length() > 15) {
       String substring = content.substring(0, 15);
-        return substring.concat("...");
+      return substring.concat("...");
     }
     return content;
   }
