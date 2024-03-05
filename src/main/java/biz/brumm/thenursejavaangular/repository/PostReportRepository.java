@@ -15,7 +15,7 @@ public interface PostReportRepository extends JpaRepository<PostReport, Long>, M
     deleteAllByPost((Post) parent);
   }
 
-  public void deleteAllByPost(Post post);
+  void deleteAllByPost(Post post);
 
   Long countByPost(Post post);
 

@@ -15,7 +15,7 @@ public interface ReactionRepository extends JpaRepository<Reaction, Long>, MyRep
     deleteAllByPost((Post) parent);
   }
 
-  public void deleteAllByPost(Post post);
+  void deleteAllByPost(Post post);
 
   List<Reaction> findByPostAndReactionType(Post post, ReactionType like);
 

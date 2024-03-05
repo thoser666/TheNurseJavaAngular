@@ -9,5 +9,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface MyRepository {
 
-  public default void deleteByParent(MyEntity parent) {}
+  default void deleteByParent(MyEntity parent) {}
 }

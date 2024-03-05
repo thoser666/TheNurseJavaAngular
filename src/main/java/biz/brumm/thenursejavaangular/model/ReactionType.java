@@ -5,5 +5,5 @@ package biz.brumm.thenursejavaangular.model;
  */
 public enum ReactionType {
   LIKE,
-  DISLIKE;
+  DISLIKE
 }

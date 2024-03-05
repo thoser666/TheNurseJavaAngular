@@ -166,13 +166,13 @@ public class TheNurseJavaAngularApplication {
 
   public static class MessageListener {
 
-    private CountDownLatch latch = new CountDownLatch(3);
+    private final CountDownLatch latch = new CountDownLatch(3);
 
-    private CountDownLatch partitionLatch = new CountDownLatch(2);
+    private final CountDownLatch partitionLatch = new CountDownLatch(2);
 
-    private CountDownLatch filterLatch = new CountDownLatch(2);
+    private final CountDownLatch filterLatch = new CountDownLatch(2);
 
-    private CountDownLatch greetingLatch = new CountDownLatch(1);
+    private final CountDownLatch greetingLatch = new CountDownLatch(1);
 
     @KafkaListener(
         topics = "${message.topic.name}",

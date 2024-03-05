@@ -6,5 +6,5 @@ package biz.brumm.thenursejavaangular.model;
 public enum ReportStatus {
   UNSOLVED,
   APPROVED,
-  DELETED;
+  DELETED
 }

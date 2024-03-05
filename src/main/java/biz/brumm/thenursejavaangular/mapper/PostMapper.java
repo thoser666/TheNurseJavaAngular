@@ -63,10 +63,7 @@ public class PostMapper implements GenericMapper<PostResponse, Post> {
     try {
       Optional<Reaction> optReaction =
           reactionRepository.findByPost_idAndUser(id, authService.getCurrentUser());
-      if (!optReaction.isPresent()) {
-        return false;
-      }
-      return optReaction.get().getReactionType() == ReactionType.DISLIKE;
+        return optReaction.filter(reaction -> reaction.getReactionType() == ReactionType.DISLIKE).isPresent();
     } catch (MyRuntimeException ex) {
       return false;
     }
@@ -76,10 +73,7 @@ public class PostMapper implements GenericMapper<PostResponse, Post> {
     try {
       Optional<Reaction> optReaction =
           reactionRepository.findByPost_idAndUser(postId, authService.getCurrentUser());
-      if (!optReaction.isPresent()) {
-        return false;
-      }
-      return optReaction.get().getReactionType() == ReactionType.LIKE;
+        return optReaction.filter(reaction -> reaction.getReactionType() == ReactionType.LIKE).isPresent();
     } catch (MyRuntimeException ex) {
       return false;
     }

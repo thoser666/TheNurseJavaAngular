@@ -7,5 +7,5 @@ import org.mapstruct.MappingConstants;
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
 public interface IMandantMapper {
 
-  public Mandant toMandant(MandantDTO mandantDTO);
+  Mandant toMandant(MandantDTO mandantDTO);
 }
