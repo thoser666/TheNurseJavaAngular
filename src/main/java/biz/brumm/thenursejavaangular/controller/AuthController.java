@@ -8,6 +8,7 @@ import jakarta.validation.*;
 import java.util.List;
 import java.util.stream.Collectors;
 import lombok.AllArgsConstructor;
+import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -55,7 +56,7 @@ public class AuthController {
       MethodArgumentNotValidException ex) {
     List<ObjectError> allErrors = ex.getAllErrors();
     List<String> collect =
-        allErrors.stream().map(err -> err.getDefaultMessage()).collect(Collectors.toList());
+        allErrors.stream().map(DefaultMessageSourceResolvable::getDefaultMessage).collect(Collectors.toList());
     return new ResponseEntity<>(collect, HttpStatus.BAD_REQUEST);
   }
 
