@@ -35,10 +35,10 @@ public class OnStartUp {
     final String ADMIN = "ADMIN";
     final String UROS99 = "uros99";
 
-    if (!roleRepository.existsByName("USER")) {
+    if (roleRepository.existsByName("USER")) {
       roleService.addRole(new Role(null, "USER", "Social network registered user"));
     }
-    if (!roleRepository.existsByName(ADMIN)) {
+    if (roleRepository.existsByName(ADMIN)) {
       roleService.addRole(new Role(null, ADMIN, "Social network administrator"));
     }
     if (!userRepository.existsByUsername(UROS99)) {
