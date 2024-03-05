@@ -56,7 +56,9 @@ public class AuthController {
       MethodArgumentNotValidException ex) {
     List<ObjectError> allErrors = ex.getAllErrors();
     List<String> collect =
-        allErrors.stream().map(DefaultMessageSourceResolvable::getDefaultMessage).collect(Collectors.toList());
+        allErrors.stream()
+            .map(DefaultMessageSourceResolvable::getDefaultMessage)
+            .collect(Collectors.toList());
     return new ResponseEntity<>(collect, HttpStatus.BAD_REQUEST);
   }
 

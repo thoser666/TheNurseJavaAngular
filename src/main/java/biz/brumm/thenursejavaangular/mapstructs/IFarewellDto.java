@@ -8,5 +8,5 @@ import org.mapstruct.MappingConstants;
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
 public interface IFarewellDto {
 
-    Farewell toFarewell(FarewellDto farewellDto);
+  Farewell toFarewell(FarewellDto farewellDto);
 }
