@@ -15,7 +15,7 @@
 	<description>TheNurseJavaAngular</description>
 	<properties>
 		<datakey.version>3.2.3</datakey.version>
-		<java.version>1.8</java.version>
+		<java.version>17</java.version>
 		<org.mapstruct.version>1.6.0.Beta1</org.mapstruct.version>
 		<testcontainers-kafka.version>1.19.6</testcontainers-kafka.version>
 	</properties>
