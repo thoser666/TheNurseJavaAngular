@@ -17,6 +17,7 @@ services:
   db:
     image: 'postgres:13.1-alpine'
     container_name: db
+    build: ./sql/db.sql
     environment:
       - POSTGRES_USER=compose-postgres
       - POSTGRES_PASSWORD=compose-postgres
