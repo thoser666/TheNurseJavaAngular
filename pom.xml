@@ -18,7 +18,7 @@
 		<java.version>17</java.version>
 		<org.mapstruct.version>1.6.0.Beta1</org.mapstruct.version>
 		<testcontainers-kafka.version>1.19.6</testcontainers-kafka.version>
-		<org.projectlombok.version>1.18.24</org.projectlombok.version>
+		<org.projectlombok.version>1.18.30</org.projectlombok.version>
 	</properties>
 	<dependencies>
 		<dependency>
