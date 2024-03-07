@@ -23,7 +23,7 @@ jobs:
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
      - name: Pull Docker Image
-       run: docker pull apache/kafka:3.7.0
+       #run: docker pull apache/kafka:3.7.0
        uses: actions/checkout@v3
      - name: Build the Docker image
        run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
