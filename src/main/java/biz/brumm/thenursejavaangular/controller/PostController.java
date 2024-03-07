@@ -51,7 +51,7 @@ public class PostController {
   public ResponseEntity<PostResponse> createPost(@RequestBody @Valid PostRequest postRequest) {
     User currentUser = authService.getCurrentUser();
     PostResponse postResponse = postService.createPost(postRequest, currentUser);
-    return new ResponseEntity(postResponse, HttpStatus.CREATED);
+    return new ResponseEntity<>(postResponse, HttpStatus.CREATED);
   }
 
   @GetMapping("/{id}")

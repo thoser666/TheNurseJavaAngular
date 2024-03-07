@@ -49,7 +49,7 @@ public class Post implements MyEntity {
     MyRepository notificationRepository = (MyRepository) context.getBean("notificationRepository");
     MyRepository reactionRepository = (MyRepository) context.getBean("reactionRepository");
     MyRepository postReportRepository = (MyRepository) context.getBean("postReportRepository");
-    List<MyRepository> list = new ArrayList();
+    List<MyRepository> list = new ArrayList<>();
     list.add(commentRepository);
     list.add(notificationRepository);
     list.add(reactionRepository);
