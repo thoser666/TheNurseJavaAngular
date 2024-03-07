@@ -16,7 +16,7 @@ RUN mkdir /opt \
   && curl -Ls "https://downloads.apache.org/kafka/${KAFKA_VERSION}/kafka_${SCALA_VERSION}-${KAFKA_VERSION}.tgz" | tar -xz -C /opt \
   && ln -s /opt/kafka_${SCALA_VERSION}-${KAFKA_VERSION} ${KAFKA_HOME}
 
- Copy configuration script and set up configuration
+# Copy configuration script and set up configuration
 
 COPY config.sh /usr/bin/config.sh
 RUN chmod +x /usr/bin/config.sh
