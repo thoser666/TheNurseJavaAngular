@@ -60,7 +60,7 @@ class TheNurseJavaAngularApplicationIntegrationTest {
     List<ReceivedMessage> records = kafkaMessageConsumer.getReceivedMessages();
 
     Set<Integer> uniquePartitions =
-        records.stream().map(ReceivedMessage::getPartition).collect(Collectors.toSet());
+        records.stream().map(ReceivedMessage::partition).collect(Collectors.toSet());
 
     Assertions.assertEquals(1, uniquePartitions.size());
   }
@@ -80,10 +80,10 @@ class TheNurseJavaAngularApplicationIntegrationTest {
 
     messagesByKey.forEach(
         (key, messages) -> {
-          int expectedPartition = messages.get(0).getPartition();
+          int expectedPartition = messages.get(0).partition();
           for (ReceivedMessage message : messages) {
             Assertions.assertEquals(
-                message.getPartition(),
+                message.partition(),
                 expectedPartition,
                 "Messages with key '" + key + "' should be in the same partition");
           }
@@ -102,7 +102,7 @@ class TheNurseJavaAngularApplicationIntegrationTest {
     List<ReceivedMessage> records = kafkaMessageConsumer.getReceivedMessages();
 
     StringBuilder resultMessage = new StringBuilder();
-    records.forEach(record -> resultMessage.append(record.getMessage()));
+    records.forEach(record -> resultMessage.append(record.message()));
     String expectedMessage = "message1message3message4";
 
     Assertions.assertEquals(
@@ -127,12 +127,12 @@ class TheNurseJavaAngularApplicationIntegrationTest {
 
     // Validate that messages are routed to the correct partition based on customer type
     for (ReceivedMessage record : records) {
-      if ("123_premium".equals(record.getKey())) {
+      if ("123_premium".equals(record.key())) {
         Assertions.assertEquals(
-            0, record.getPartition(), "Premium order message should be in partition 0");
-      } else if ("456_normal".equals(record.getKey())) {
+            0, record.partition(), "Premium order message should be in partition 0");
+      } else if ("456_normal".equals(record.key())) {
         Assertions.assertEquals(
-            1, record.getPartition(), "Normal order message should be in partition 1");
+            1, record.partition(), "Normal order message should be in partition 1");
       }
     }
   }
@@ -148,12 +148,12 @@ class TheNurseJavaAngularApplicationIntegrationTest {
     List<ReceivedMessage> records = kafkaMessageConsumer.getReceivedMessages();
 
     for (ReceivedMessage record : records) {
-      if ("123_premium".equals(record.getKey())) {
+      if ("123_premium".equals(record.key())) {
         Assertions.assertEquals(
-            0, record.getPartition(), "Premium order message should be in partition 0");
-      } else if ("456_normal".equals(record.getKey())) {
+            0, record.partition(), "Premium order message should be in partition 0");
+      } else if ("456_normal".equals(record.key())) {
         Assertions.assertEquals(
-            1, record.getPartition(), "Normal order message should be in partition 1");
+            1, record.partition(), "Normal order message should be in partition 1");
       }
     }
   }
@@ -192,7 +192,7 @@ class TheNurseJavaAngularApplicationIntegrationTest {
 
   private Map<String, List<ReceivedMessage>> groupMessagesByKey(List<ReceivedMessage> messages) {
     return messages.stream()
-        .filter(message -> message.getKey() != null)
-        .collect(Collectors.groupingBy(ReceivedMessage::getKey));
+        .filter(message -> message.key() != null)
+        .collect(Collectors.groupingBy(ReceivedMessage::key));
   }
 }

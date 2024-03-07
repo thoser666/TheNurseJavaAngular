@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 public class KafkaSender {
   @Autowired private KafkaTemplate<String, String> kafkaTemplate;
 
-  String kafkaTopic = "java_in_use_topic";
+  final String kafkaTopic = "java_in_use_topic";
 
   public void send(String message) throws Exception {
 
