@@ -21,6 +21,7 @@ services:
     container_name: db
     build: ./sql/db.sql
     restart: always
+
     environment:
       - POSTGRES_USER=compose-postgres
       - POSTGRES_PASSWORD=compose-postgres
