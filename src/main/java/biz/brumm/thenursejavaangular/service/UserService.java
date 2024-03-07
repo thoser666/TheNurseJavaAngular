@@ -144,9 +144,10 @@ public class UserService {
       notFollowing = userRepository.findByUserIdNotIn(myId);
     }
     notFollowing.remove(authService.getCurrentUser());
-    notFollowing.sort((user1, user2) ->
+    notFollowing.sort(
+        (user1, user2) ->
             user2.getMutualFollowers(authService.getCurrentUser())
-                    - user1.getMutualFollowers(authService.getCurrentUser()));
+                - user1.getMutualFollowers(authService.getCurrentUser()));
     return notFollowing.stream().map((user) -> userMapper.toDto(user)).collect(Collectors.toList());
   }
 
