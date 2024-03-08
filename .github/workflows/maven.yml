@@ -44,7 +44,7 @@ jobs:
       uses: akanieski/setup-postgres-cli@v0.1.2
       with:
         # Actions to take
-        commands: # default is pg_dump -U user -h 127.0.0.1 -p 5432
+        commands: docker run --name postgres-docker -e POSTGRES_PASSWORD=postgres -p 5432:5432 -d postgres
         # Password passed to postgres cli
         password: # optional
                       
