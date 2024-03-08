@@ -48,3 +48,21 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=TheNurseJavaAngular -Dsonar.projectName=''TheNurseJavaAngular''
+
+      - name: install-postgresql
+        # You may pin to the exact commit or the version.
+        # uses: tj-actions/install-postgresql@b3af46a4f2f8088a11ade4beaed9e2646862a9ce
+        uses: tj-actions/install-postgresql@v3.0.1
+        with:
+          # Version of PostgreSQL. e.g 16
+          postgresql-version: 16
+
+      - name: Setup Postgres CLI
+        # You may pin to the exact commit or the version.
+        # uses: akanieski/setup-postgres-cli@eb287d6c98df0083ba52519eee85781563cd8828
+        uses: akanieski/setup-postgres-cli@v0.1.2
+        with:
+          # Actions to take
+          commands: docker run --name postgres-docker -e POSTGRES_PASSWORD=postgres -p 5432:5432 -d postgres
+          # Password passed to postgres cli
+          password: # optional
