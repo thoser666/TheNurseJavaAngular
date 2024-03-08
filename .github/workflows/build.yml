@@ -65,4 +65,4 @@ jobs:
           # Actions to take
           commands: docker run --name postgres-docker -e POSTGRES_PASSWORD=postgres -p 5432:5432 -d postgres
           # Password passed to postgres cli
-          password: # optional
+          password: postgres # optional
