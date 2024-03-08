@@ -37,7 +37,17 @@ jobs:
       with:
         # Version of PostgreSQL. e.g 16
         postgresql-version: 16
-            
+
+    - name: Setup Postgres CLI
+      # You may pin to the exact commit or the version.
+      # uses: akanieski/setup-postgres-cli@eb287d6c98df0083ba52519eee85781563cd8828
+      uses: akanieski/setup-postgres-cli@v0.1.2
+      with:
+        # Actions to take
+        commands: # default is pg_dump -U user -h 127.0.0.1 -p 5432
+        # Password passed to postgres cli
+        password: # optional
+                      
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     - name: Update dependency graph
