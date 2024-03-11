@@ -67,7 +67,6 @@ jobs:
     runs-on: ubuntu-latest
     # Docker Hub image that `container-job` executes in
     container: node:10.18-jessie
-
     services:
        app:
           image: 'docker-spring-boot-postgres:latest'
