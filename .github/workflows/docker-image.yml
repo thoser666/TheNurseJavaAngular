@@ -97,7 +97,7 @@ jobs:
 #         # Ulimit options (e.g., nofile=1024:1024)
 #         ulimit: # optional
 #         # GitHub Token used to authenticate against a repository for Git context
-#         github-token: # optional, default is ${{ github.token }}
+          github-token: ${{ secrets.DOCKER_TOKEN }}# optional, default is ${{ github.token }}
 
 
 
