@@ -70,7 +70,6 @@ class UserServiceTest {
     when(userRepository.findById(anyLong())).thenReturn(Optional.of(currentUser));
   }
 
-  @Disabled("Test is deactivated temporarilly")
   @Test
   void testFollow_UserFound_ShouldSaveFollowing() {
     // Given
@@ -84,7 +83,6 @@ class UserServiceTest {
     verify(followRepository, times(1)).save(any(Following.class));
   }
 
-  @Disabled("Test is deactivated temporarilly")
   @Test
   void testFollow_SameUser_ShouldThrowException() {
     // Given
@@ -95,7 +93,6 @@ class UserServiceTest {
     assertThrows(MyRuntimeException.class, () -> userService.follow(usernameToFollow));
   }
 
-  @Disabled("Test is deactivated temporarilly")
   @Test
   void testGetUser_UserFound_ShouldReturnUserDto() {
     // Given
@@ -113,7 +110,6 @@ class UserServiceTest {
     assertEquals(userDto, result);
   }
 
-  @Disabled("Test is deactivated temporarilly")
   @Test
   void testGetUser_UserNotFound_ShouldThrowException() {
     // Given
