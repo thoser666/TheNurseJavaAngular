@@ -15,11 +15,14 @@ on:
     branches: [ "develop" ]
 
 jobs:
-  build:
-
+# Label of the container job
+  container-job:
+    # Containers must run in Linux based operating systems
     runs-on: ubuntu-latest
+    # Docker Hub image that `container-job` executes in
+    container: node:10.18-jessie
 
-    services:
+  services:
      app:
         image: 'docker-spring-boot-postgres:latest'
         build:
@@ -35,7 +38,7 @@ jobs:
           - SPRING_DATASOURCE_PASSWORD=compose-postgres
           - SPRING_JPA_HIBERNATE_DDL_AUTO=update
 
-      db:
+     db:
         image: 'postgres:13.1-alpine'
         container_name: db
         build: ./sql/db.sql
@@ -47,7 +50,7 @@ jobs:
         ports:
            - "5432:5432"
 
-      zookeeper-1:
+     zookeeper-1:
         image: confluentinc/cp-zookeeper:latest
         environment:
           ZOOKEEPER_CLIENT_PORT: 2181
@@ -55,7 +58,7 @@ jobs:
         ports:
           - "22181:2181"
 
-      zookeeper-2:
+     zookeeper-2:
           image: confluentinc/cp-zookeeper:latest
           environment:
             ZOOKEEPER_CLIENT_PORT: 2181
@@ -63,7 +66,7 @@ jobs:
           ports:
             - "32181:2181"
 
-      kafka-1:
+     kafka-1:
           image: confluentinc/cp-kafka:latest
           depends_on:
             - zookeeper-1
@@ -78,7 +81,7 @@ jobs:
             KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
             KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
             KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
-      kafka-2:
+     kafka-2:
           image: confluentinc/cp-kafka:latest
           depends_on:
             - zookeeper-1
@@ -93,10 +96,13 @@ jobs:
             KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
             KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
 
-    permissions:
-      contents: read
-      packages: write
+    
 
+  build:
+
+    runs-on: ubuntu-latest
+
+    
     steps:
 
     - uses: actions/checkout@v3
