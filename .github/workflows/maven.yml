@@ -15,41 +15,116 @@ on:
     branches: [ "develop" ]
 
 jobs:
-# Label of the container job
-  container-job:
-    # Containers must run in Linux based operating systems
+postgres-container:
     runs-on: ubuntu-latest
-    # Docker Hub image that `container-job` executes in
-    container: node:10.18-jessie
+    container: node
+    services:
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_PASSWORD: postgres
+        # Set health checks to wait until postgres has started
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    env:
+      PGHOST: postgres
+      PGUSER: postgres
+      PGDATABASE: postgres
+      PGPASSWORD: postgres
 
-  services:
-     app:
-        image: 'docker-spring-boot-postgres:latest'
-        build:
-          context: .
-        container_name: app
+    steps:
+      - name: Install postgresql-client
+        run: |
+          apt-get update
+          apt-get install --yes postgresql-client
+
+      - name: Connect to PostgreSQL with CLI
+        run: psql -c 'SELECT VERSION();'
+
+      - name: Show max connections
+        run: psql -c 'SHOW max_connections;'
+
+      - name: Install pg
+        run: npm install pg
+
+      - name: Connect to PostgreSQL with Node.js
+        run: |
+          cat > client.js << EOF
+          const pg = require('pg');
+          const client = new pg.Client();
+          client.connect();
+          client.query('SELECT VERSION()').then((result) => {
+            console.log(result.rows[0]);
+            client.end();
+          });
+          EOF
+          node client.js
+
+  postgres-service:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_PASSWORD: postgres
+        # Set health checks to wait until postgres has started
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+          --name postgres
         ports:
-          - "5432:5432"
-        depends_on:
-          - db
-        environment:
-          - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/compose-postgres
-          - SPRING_DATASOURCE_USERNAME=compose-postgres
-          - SPRING_DATASOURCE_PASSWORD=compose-postgres
-          - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+          # Maps tcp port 5432 on service container to the host
+          - 5432:5432
+    env:
+      PGHOST: localhost
+      PGUSER: postgres
+      PGDATABASE: postgres
+      PGPASSWORD: postgres
 
-     db:
-        image: 'postgres:13.1-alpine'
-        container_name: db
-        build: ./sql/db.sql
-        restart: always
+    steps:
+      - name: Install postgresql-client
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes postgresql-client
 
-        environment:
-          - POSTGRES_USER=compose-postgres
-          - POSTGRES_PASSWORD=compose-postgres
-        ports:
-           - "5432:5432"
+      - name: Connect to PostgreSQL with CLI
+        run: psql -c 'SELECT VERSION();'
 
+      - name: Show PostgreSQL config file
+        run: psql -c 'SHOW config_file;'
+
+      - name: Alter max connections
+        run: |
+          docker exec -i postgres bash << EOF
+            sed -i -e 's/max_connections = 100/max_connections = 1000/' /var/lib/postgresql/data/postgresql.conf
+            sed -i -e 's/shared_buffers = 128MB/shared_buffers = 2GB/' /var/lib/postgresql/data/postgresql.conf
+          EOF
+          docker restart --time 0 postgres
+          sleep 5
+
+      - name: Show max connections
+        run: psql -c 'SHOW max_connections;'
+
+      - name: Install pg
+        run: npm install pg
+
+      - name: Connect to PostgreSQL with Node.js
+        run: |
+          cat > client.js << EOF
+          const pg = require('pg');
+          const client = new pg.Client();
+          client.connect();
+          client.query('SELECT VERSION()').then((result) => {
+            console.log(result.rows[0]);
+            client.end();
+          });
+          EOF
+          node client.js
      zookeeper-1:
         image: confluentinc/cp-zookeeper:latest
         environment:
