@@ -7,13 +7,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.testcontainers.containers.PostgreSQLContainer;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 class UserServiceTestcontainerTest {
 
-  static PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>(
-          "postgres:16-alpine"
-  );
+  static PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>("postgres:16-alpine");
 
   UserService userService;
 
@@ -27,24 +23,19 @@ class UserServiceTestcontainerTest {
     postgres.stop();
   }
 
-
   @BeforeEach
   void setUp() {
-    DBConnectionProvider connectionProvider = new DBConnectionProvider(
-            postgres.getJdbcUrl(),
-            postgres.getUsername(),
-            postgres.getPassword()
-    );
+    DBConnectionProvider connectionProvider =
+        new DBConnectionProvider(
+            postgres.getJdbcUrl(), postgres.getUsername(), postgres.getPassword());
     userService = new UserService(connectionProvider);
   }
 
   @Test
-  void testFollow() {
-  }
+  void testFollow() {}
 
   @Test
-  void testAssignRole() {
-  }
+  void testAssignRole() {}
 
   // Add more tests for other methods in a similar manner
 }
