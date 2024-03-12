@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class UserServiceTestcontainerTest {
 
-  static PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>(
+  static final PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>(
           "postgres:16-alpine"
   );
 
