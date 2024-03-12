@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
 import biz.brumm.thenursejavaangular.service.AuthService;
-import biz.brumm.thenursejavaangular.service.UserService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -15,11 +14,11 @@ import org.springframework.http.ResponseEntity;
 
 class UserControllerTest {
 
-  @Mock private UserService userService;
+  @Mock private biz.brumm.thenursejavaangular.service.UserService userService;
 
   @Mock private AuthService authService;
 
-  @InjectMocks private UserController userController;
+  @InjectMocks private UserService userController;
 
   @BeforeEach
   public void setUp() {

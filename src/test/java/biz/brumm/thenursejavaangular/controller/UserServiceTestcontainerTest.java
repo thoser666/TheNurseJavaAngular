@@ -1,29 +1,21 @@
 package biz.brumm.thenursejavaangular.controller;
 
 import biz.brumm.thenursejavaangular.provider.DBConnectionProvider;
-import biz.brumm.thenursejavaangular.service.AuthService;
-import biz.brumm.thenursejavaangular.service.UserService;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.testcontainers.containers.PostgreSQLContainer;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.*;
 
-class UserControllerTestcontainerTest {
+class UserServiceTestcontainerTest {
 
   static PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>(
           "postgres:16-alpine"
   );
 
-  UserController userController;
+  UserService userService;
 
   @BeforeAll
   static void beforeAll() {
@@ -43,7 +35,7 @@ class UserControllerTestcontainerTest {
             postgres.getUsername(),
             postgres.getPassword()
     );
-    userController = new UserController(connectionProvider);
+    userService = new UserService(connectionProvider);
   }
 
   @Test

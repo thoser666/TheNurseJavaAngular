@@ -4,8 +4,9 @@ import biz.brumm.thenursejavaangular.dto.ReportedUserDto;
 import biz.brumm.thenursejavaangular.dto.UserDto;
 import biz.brumm.thenursejavaangular.exception.ErrorResponse;
 import biz.brumm.thenursejavaangular.exception.MyRuntimeException;
+import biz.brumm.thenursejavaangular.provider.DBConnectionProvider;
 import biz.brumm.thenursejavaangular.service.AuthService;
-import biz.brumm.thenursejavaangular.service.UserService;
+
 import java.util.List;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -18,10 +19,17 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/user")
 @AllArgsConstructor
-public class UserController {
+public class UserService {
 
-  private UserService userService;
+  private biz.brumm.thenursejavaangular.service.UserService userService;
   private AuthService authService;
+  private final DBConnectionProvider connectionProvider;
+
+  public UserService(DBConnectionProvider connectionProvider) {
+    this.connectionProvider = connectionProvider;
+
+  }
+
 
   @PostMapping(value = "/follow/{username}")
   public ResponseEntity follow(@PathVariable String username) {
