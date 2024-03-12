@@ -15,6 +15,7 @@
 	<description>TheNurseJavaAngular</description>
 	<properties>
 		<datakey.version>3.2.3</datakey.version>
+		<psql.version>42.6.0</psql.version>
 		<java.version>17</java.version>
 		<org.mapstruct.version>1.6.0.Beta1</org.mapstruct.version>
 		<testcontainers-kafka.version>1.19.7</testcontainers-kafka.version>
@@ -47,7 +48,7 @@
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
-			<version>42.7.2</version>
+			<version>${psql.version}</version>
 		</dependency>
 
 		<dependency>
