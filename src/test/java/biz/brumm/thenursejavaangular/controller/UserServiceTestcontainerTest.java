@@ -1,10 +1,7 @@
 package biz.brumm.thenursejavaangular.controller;
 
 import biz.brumm.thenursejavaangular.provider.DBConnectionProvider;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.testcontainers.containers.PostgreSQLContainer;
 
 class UserServiceTestcontainerTest {
@@ -32,10 +29,14 @@ class UserServiceTestcontainerTest {
   }
 
   @Test
-  void testFollow() {}
+  void testFollow() {
+    Assertions.assertTrue(userService.follow("testUser").hasBody());
+  }
 
   @Test
-  void testAssignRole() {}
+  void testAssignRole() {
+    Assertions.assertTrue(userService.assignRole("testUser", "admin").hasBody());
+  }
 
   // Add more tests for other methods in a similar manner
 }
