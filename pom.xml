@@ -17,7 +17,7 @@
 		<datakey.version>3.2.3</datakey.version>
 		<java.version>17</java.version>
 		<org.mapstruct.version>1.6.0.Beta1</org.mapstruct.version>
-		<testcontainers-kafka.version>1.19.6</testcontainers-kafka.version>
+		<testcontainers-kafka.version>1.19.7</testcontainers-kafka.version>
 		<org.projectlombok.version>1.18.30</org.projectlombok.version>
 	</properties>
 	<dependencies>
@@ -194,7 +194,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.8.1</version>
+				<version>3.12.1</version>
 				<configuration>
 					<annotationProcessorPaths>
 						<path>
