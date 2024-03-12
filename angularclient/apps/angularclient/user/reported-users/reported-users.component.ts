@@ -59,6 +59,6 @@ export class ReportedUsersComponent implements OnInit {
   }
 
   isMyProfile(user: ReportedUserModel): boolean {
-    return user.username == this.authService.getUserName();
+    return user.username === this.authService.getUserName();
   }
 }
