@@ -47,7 +47,7 @@ class AuthControllerTest {
     ResponseEntity<String> response = authController.activateAccount(token);
 
     assert response.getStatusCode() == HttpStatus.OK;
-    assert response.getBody().equals("Acount succesfuly activated, you can close this page now");
+    assert Objects.requireNonNull(response.getBody()).equals("Acount succesfuly activated, you can close this page now");
   }
 
   @Test
@@ -58,7 +58,7 @@ class AuthControllerTest {
     ResponseEntity<String> response = authController.signup(registerRequest);
 
     assert response.getStatusCode() == HttpStatus.CREATED;
-    assert response.getBody().equals("Registration succesfull");
+    assert Objects.requireNonNull(response.getBody()).equals("Registration succesfull");
   }
 
   @Test
