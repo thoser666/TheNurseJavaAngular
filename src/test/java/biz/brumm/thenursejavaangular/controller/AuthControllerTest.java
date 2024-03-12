@@ -10,7 +10,6 @@ import biz.brumm.thenursejavaangular.service.AuthService;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -77,7 +76,8 @@ class AuthControllerTest {
     ResponseEntity<String> response = authController.handleDataIntegrityViolationException();
 
     assert response.getStatusCode() == HttpStatus.BAD_REQUEST;
-    assert Objects.requireNonNull(response.getBody()).equals("Account with given username or email already exists");
+    assert Objects.requireNonNull(response.getBody())
+        .equals("Account with given username or email already exists");
   }
 
   @Test
