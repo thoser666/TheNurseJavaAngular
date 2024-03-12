@@ -39,5 +39,3 @@ class UserServiceTestcontainerTest {
 
   // Add more tests for other methods in a similar manner
 }
-
-
