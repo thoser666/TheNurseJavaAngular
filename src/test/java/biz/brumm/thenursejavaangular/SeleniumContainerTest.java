@@ -28,7 +28,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ContextConfiguration(initializers = SeleniumContainerTest.Initializer.class)
-public class SeleniumContainerTest {
+class SeleniumContainerTest {
     @LocalServerPort
     private int port;
 
