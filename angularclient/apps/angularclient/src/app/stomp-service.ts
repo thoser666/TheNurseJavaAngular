@@ -55,7 +55,10 @@ export class StompService {
   // }
 
   //TODO: mögliche Lösung?
-  private subscribeToTopic(topic: string, callback: (response: Message) => void): void {
+  private subscribeToTopic(
+    topic: string,
+    callback: (response: Message) => void,
+  ): void {
     this.stompClient.subscribe(topic, (message: Message) => {
       callback(message);
     });
