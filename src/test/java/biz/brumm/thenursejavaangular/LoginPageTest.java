@@ -62,9 +62,7 @@ class LoginPageTest {
     public void initialize(ConfigurableApplicationContext applicationContext) {
       applicationContext.addApplicationListener(
           (ApplicationListener<WebServerInitializedEvent>)
-              event -> {
-                Testcontainers.exposeHostPorts(event.getWebServer().getPort());
-              });
+              event -> Testcontainers.exposeHostPorts(event.getWebServer().getPort()));
     }
   }
 }
