@@ -30,7 +30,7 @@ import org.testcontainers.junit.jupiter.Container;
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ContextConfiguration(initializers = LoginPageTest.Initializer.class)
-public class LoginPageTest {
+class LoginPageTest {
   @LocalServerPort private int port;
 
   @Container
@@ -40,7 +40,7 @@ public class LoginPageTest {
           .withRecordingMode(
               BrowserWebDriverContainer.VncRecordingMode.RECORD_ALL, new File("build"));
 
-  public LoginPageTest(WebDriver driver) {
+  LoginPageTest(WebDriver driver) {
     PageFactory.initElements(driver, this);
   }
 
