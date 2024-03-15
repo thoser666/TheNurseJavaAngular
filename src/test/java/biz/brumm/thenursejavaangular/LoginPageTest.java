@@ -65,10 +65,10 @@ public class LoginPageTest
     @Override
     public void initialize(ConfigurableApplicationContext applicationContext) {
       applicationContext.addApplicationListener(
-        (ApplicationListener<WebServerInitializedEvent>)
-          event -> {
-            Testcontainers.exposeHostPorts(event.getWebServer().getPort());
-          });
+          (ApplicationListener<WebServerInitializedEvent>)
+              event -> {
+                Testcontainers.exposeHostPorts(event.getWebServer().getPort());
+              });
     }
   }
 }
