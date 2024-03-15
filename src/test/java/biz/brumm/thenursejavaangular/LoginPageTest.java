@@ -31,7 +31,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ContextConfiguration(initializers = LoginPageTest.Initializer.class)
-public class LoginPageTest
+class LoginPageTest
 {
     @LocalServerPort
     private int port;
@@ -42,7 +42,7 @@ public class LoginPageTest
                     .withCapabilities(new ChromeOptions())
                     .withRecordingMode(BrowserWebDriverContainer.VncRecordingMode.RECORD_ALL, new File("build"));
 
-    public LoginPageTest(WebDriver driver)
+    LoginPageTest(WebDriver driver)
     {
         PageFactory.initElements(driver, this);
     }
