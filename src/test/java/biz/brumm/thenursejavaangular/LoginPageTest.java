@@ -18,20 +18,20 @@ import org.testcontainers.Testcontainers;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ContextConfiguration(initializers = LoginPageTest.Initializer.class)
 public class LoginPageTest {
-    public LoginPageTest(WebDriver driver) {
-        PageFactory.initElements(driver, this);
-    }
+  public LoginPageTest(WebDriver driver) {
+    PageFactory.initElements(driver, this);
+  }
 
   static class Initializer
-    implements ApplicationContextInitializer<ConfigurableApplicationContext> {
+      implements ApplicationContextInitializer<ConfigurableApplicationContext> {
 
     @Override
     public void initialize(ConfigurableApplicationContext applicationContext) {
       applicationContext.addApplicationListener(
-        (ApplicationListener<WebServerInitializedEvent>)
-          event -> {
-            Testcontainers.exposeHostPorts(event.getWebServer().getPort());
-          });
+          (ApplicationListener<WebServerInitializedEvent>)
+              event -> {
+                Testcontainers.exposeHostPorts(event.getWebServer().getPort());
+              });
     }
   }
 }
