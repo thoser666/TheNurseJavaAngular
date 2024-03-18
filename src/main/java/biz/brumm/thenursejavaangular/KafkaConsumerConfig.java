@@ -119,7 +119,7 @@ public class KafkaConsumerConfig {
     public ConcurrentKafkaListenerContainerFactory<String, Object> multiTypeKafkaListenerContainerFactory() {
         ConcurrentKafkaListenerContainerFactory<String, Object> factory = new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(multiTypeConsumerFactory());
-        factory.setBatchMessageConverter((BatchMessageConverter) multiTypeConverter());
+    //    factory.setBatchMessageConverter(multiTypeConverter());
         return factory;
     }
 
