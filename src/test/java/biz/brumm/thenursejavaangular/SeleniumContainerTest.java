@@ -42,7 +42,7 @@ class SeleniumContainerTest {
         RemoteWebDriver driver = new RemoteWebDriver(chrome.getSeleniumAddress(), new ChromeOptions());
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 
-        driver.get("http://host.testcontainers.internal:" + port + "/foo.html");
+        driver.get("http://host.testcontainers.internal:" + port + "/index.html");
         List<WebElement> hElement = driver.findElements(By.tagName("h"));
 
         assertThat(hElement).as("The h element is found").isNotEmpty();
