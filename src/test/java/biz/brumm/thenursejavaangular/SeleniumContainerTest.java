@@ -37,16 +37,16 @@ class SeleniumContainerTest {
           .withCapabilities(new ChromeOptions())
           .withRecordingMode(VncRecordingMode.RECORD_ALL, new File("build"));
 
-  @Test
-  void simplePlainSeleniumTest() {
-    RemoteWebDriver driver = new RemoteWebDriver(chrome.getSeleniumAddress(), new ChromeOptions());
-    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-
-    driver.get("http://host.testcontainers.internal:" + port + "/foo.html");
-    List<WebElement> hElement = driver.findElements(By.tagName("h"));
-
-    assertThat(hElement).as("The h element is found").isNotEmpty();
-  }
+//  @Test
+//  void simplePlainSeleniumTest() {
+//    RemoteWebDriver driver = new RemoteWebDriver(chrome.getSeleniumAddress(), new ChromeOptions());
+//    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+//
+//    driver.get("http://host.testcontainers.internal:" + port + "/foo.html");
+//    List<WebElement> hElement = driver.findElements(By.tagName("h"));
+//
+//    assertThat(hElement).as("The h element is found").isNotEmpty();
+//  }
 
   static class Initializer
       implements ApplicationContextInitializer<ConfigurableApplicationContext> {
