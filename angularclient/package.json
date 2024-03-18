@@ -45,7 +45,7 @@
     "rxjs": "~7.8.0",
     "sockjs-client": "^1.6.1",
     "stompjs": "^2.3.3",
-    "sweetalert2": "^11.10.5",
+    "sweetalert2": "^11.10.6",
     "zone.js": "~0.14.3"
   },
   "devDependencies": {
