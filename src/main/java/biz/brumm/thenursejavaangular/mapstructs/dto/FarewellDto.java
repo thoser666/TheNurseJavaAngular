@@ -5,6 +5,6 @@ import lombok.Data;
 @Data
 public class FarewellDto {
 
-    private String remainingMinutes;
-    private String message;
+  private String remainingMinutes;
+  private String message;
 }
