@@ -3,10 +3,12 @@ package biz.brumm.thenursejavaangular.mapstructs;
 import biz.brumm.thenursejavaangular.dto.Farewell;
 import biz.brumm.thenursejavaangular.mapstructs.dto.FarewellDto;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.MappingConstants;
 
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
 public interface IFarewellDto {
+
 
   Farewell toFarewell(FarewellDto farewellDto);
 }

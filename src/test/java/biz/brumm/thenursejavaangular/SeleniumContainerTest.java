@@ -40,7 +40,7 @@ class SeleniumContainerTest {
               BrowserWebDriverContainer.VncRecordingMode.RECORD_ALL, new File("build"));
 
   @Test
-  void simplePlainSeleniumTest() {
+  void searchHNotFoundTest() {
     RemoteWebDriver driver = new RemoteWebDriver(chrome.getSeleniumAddress(), new ChromeOptions());
     driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 
