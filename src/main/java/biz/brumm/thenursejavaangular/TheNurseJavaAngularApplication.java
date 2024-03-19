@@ -7,6 +7,10 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
+
+import com.github.dockerjava.api.DockerClient;
+import com.github.dockerjava.core.DefaultDockerClientConfig;
+import com.github.dockerjava.core.DockerClientBuilder;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -31,6 +35,14 @@ public class TheNurseJavaAngularApplication {
   public static void main(String[] args) {
     ConfigurableApplicationContext context =
         SpringApplication.run(TheNurseJavaAngularApplication.class, args);
+
+    // Download & start Kafka
+     DefaultDockerClientConfig.Builder config
+            = DefaultDockerClientConfig.createDefaultConfigBuilder();
+    DockerClient dockerClient = DockerClientBuilder
+            .getInstance(config)
+            .build();
+
 
     MessageProducer producer = context.getBean(MessageProducer.class);
     MessageListener listener = context.getBean(MessageListener.class);
