@@ -14,7 +14,7 @@
 	<name>TheNurseJavaAngular</name>
 	<description>TheNurseJavaAngular</description>
 	<properties>
-		<datakey.version>3.2.3</datakey.version>
+		<datakey.version>3.2.4</datakey.version>
 		<psql.version>42.7.3</psql.version>
 		<java.version>17</java.version>
 		<org.mapstruct.version>1.6.0.Beta1</org.mapstruct.version>
@@ -81,7 +81,7 @@
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-core</artifactId>
-			<version>6.2.2</version>
+			<version>6.2.3</version>
 		</dependency>
 		<dependency>
 			<groupId>jakarta.transaction</groupId>
