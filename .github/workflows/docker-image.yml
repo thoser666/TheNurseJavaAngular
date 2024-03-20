@@ -27,7 +27,7 @@ jobs:
        run: docker pull apache/kafka:3.7.0 
       # uses: actions/checkout@v3
      - name: Build the Docker image
-       run: docker build 
+       run: docker 
 
      - name: Build and push Docker images
 #       # You may pin to the exact commit or the version.
