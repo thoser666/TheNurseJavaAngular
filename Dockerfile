@@ -17,39 +17,16 @@ FROM eclipse-temurin:17-jdk-jammy
 WORKDIR /app
 
 # Copy the special Maven files that help us download dependencies.
-COPY.mvn/.mvn
+COPY .mvn /mvn
 
 # Copy only essential Maven files required to download dependencies.
-COPY mvnw pom.xml./
+COPY mvnw pom.xml ./
 
 # Download all the required project dependencies.
-RUN./mvnw dependency:resolve
+RUN ./mvnw dependency:resolve
 
 # Copy our actual project files (code, resources, etc.) into the container.
-COPY src./src
+COPY src ./src
 
 # When the container starts, run the Spring Boot app using Maven.
 CMD ["./mvnw", "spring-boot:run"]
-
-# Download and extract Kafka
-# doesnt work at the moment
-#RUN mkdir /opt \
-#  && curl -Ls "https://downloads.apache.org/kafka/${KAFKA_VERSION}/kafka_${SCALA_VERSION}-${KAFKA_VERSION}.tgz" | tar -xz -C /opt \
-#  && ln -s /opt/kafka_${SCALA_VERSION}-${KAFKA_VERSION} ${KAFKA_HOME}
-#
-## Copy configuration script and set up configuration
-#
-#COPY config.sh /usr/bin/config.sh
-#RUN chmod +x /usr/bin/config.sh
-#
-## Expose Kafka ports
-## 9092: Kafka
-#EXPOSE 9092
-#
-## Set up a user to run Kafka
-#RUN adduser -D kafka
-#USER kafka
-#WORKDIR ${KAFKA_HOME}
-#
-## Entry point to start Kafka with the configuration script
-#ENTRYPOINT ["config.sh"]
