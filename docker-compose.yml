@@ -1,4 +1,3 @@
-version: '2'
 services:
     message-server:
         container_name: message-server
