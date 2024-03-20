@@ -23,7 +23,7 @@ COPY .mvn /mvn
 COPY mvnw pom.xml ./
 
 # Download all the required project dependencies.
-RUN./mvnw dependency:resolve
+RUN ./mvnw dependency:resolve
 
 # Copy our actual project files (code, resources, etc.) into the container.
 COPY src ./src
