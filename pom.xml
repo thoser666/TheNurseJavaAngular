@@ -21,7 +21,9 @@
 		<testcontainers-kafka.version>1.19.7</testcontainers-kafka.version>
 		<org.projectlombok.version>1.18.30</org.projectlombok.version>
 		<spring-cloud.version>2023.0.0</spring-cloud.version>
+		<spring-kafka-starter.version>4.1.0</spring-kafka-starter.version>
 		<surefire.version>3.2.5</surefire.version>
+
 	</properties>
 	<dependencies>
 		<dependency>
@@ -213,6 +215,13 @@
 			<type>pom</type>
 			<scope>import</scope>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-stream-kafka -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-stream-kafka</artifactId>
+			<version>${spring-kafka-starter.version}</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
