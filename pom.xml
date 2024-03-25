@@ -19,7 +19,7 @@
 		<java.version>17</java.version>
 		<org.mapstruct.version>1.6.0.Beta1</org.mapstruct.version>
 		<testcontainers-kafka.version>1.19.7</testcontainers-kafka.version>
-		<org.projectlombok.version>1.18.30</org.projectlombok.version>
+		<org.projectlombok.version>1.18.32</org.projectlombok.version>
 		<spring-cloud.version>2023.0.0</spring-cloud.version>
 		<spring-kafka-starter.version>4.1.0</spring-kafka-starter.version>
 		<surefire.version>3.2.5</surefire.version>
